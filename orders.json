@@ -434,5 +434,114 @@
         "mockupType": "tote"
       }
     ]
+  },
+  "paw206950": {
+    "id": "paw206950",
+    "petName": "Chorizo",
+    "ownerHandle": "@chorizo_longboy",
+    "breed": "Miniature Dachshund",
+    "markings": "Sable and white Corgi/Dachshund mix, distinctive white blaze on forehead, large upright ears, no collar present, covered in paper heart cutouts.",
+    "traits": "Built like a footlong hotdog, barks at leaves, burrows under 6 blankets to steal socks",
+    "genre": "Pixar Heist Blockbuster",
+    "packageTier": "Node A: $9 Make My Pet Famous",
+    "movieTitle": "CHORIZO: THE HEARTBREAKER HEIST",
+    "movieTagline": "He\u2019s stealing hearts and everything else within paw\u2019s reach.",
+    "starringScore": 98,
+    "viralLift": "+420% Share Velocity",
+    "serialNumber": "PAW-2026-9181",
+    "codename": "THE VELVET SAUSAGE",
+    "threatLevel": "DEFCON 2 (SOUP-BASED AGGRESSION)",
+    "beforeImg": "renders/paw206950_before.jpg",
+    "roastSummary": "This absolute unit of a sausage is trying way too hard with the arts and crafts to hide the fact that he's a professional sock-thief and serial napper. He looks like he\u2019s judging you for not having treats, even while wearing paper hearts like a desperate romantic.",
+    "trailerVoiceover": "In a world where one man's sock is another man's trophy, one elongated hero stands alone. He\u2019s got the looks, the charm, and a criminal record that would make a bank robber blush. Get ready for Chorizo: The Heartbreaker Heist.",
+    "roastCaptions": [
+      "0:00\u20130:03 \u2022 POV: Your dog is trying to manipulate you with paper hearts.",
+      "0:03\u20130:10 \u2022 Meet the long boy who burrows under six blankets just to steal your favorite socks.",
+      "0:10\u20130:15 \u2022 CHORIZO: THE HEARTBREAKER HEIST. Coming to theaters when he feels like it."
+    ],
+    "crimes": [
+      {
+        "code": "FELONY_01: SOCK ABDUCTION",
+        "tag": "ZERO REMORSE",
+        "color": "text-rose-400",
+        "desc": "Systematically extracted and cached over forty-two individual socks from the master bedroom laundry bin."
+      },
+      {
+        "code": "FELONY_02: FORCED BLANKET FORT",
+        "tag": "SQUATTER STATUS",
+        "color": "text-amber-400",
+        "desc": "Illegal occupation of all guest bedroom linens, leaving human occupants shivering in the cold."
+      },
+      {
+        "code": "FELONY_03: ACOUSTIC TERRORISM",
+        "tag": "LEAF-GATE",
+        "color": "text-emerald-400",
+        "desc": "Engaged in excessive and unprovoked barking at stationary foliage in a clear attempt to disrupt neighborhood peace."
+      }
+    ],
+    "posters": {
+      "1": {
+        "name": "Poster 1: Pixar Heist Blockbuster",
+        "themeBadge": "Pixar / Disney 3D Studio Render",
+        "titleOverlay": "CHORIZO: THE HEARTBREAKER HEIST",
+        "subtitleOverlay": "A PAWSPORT STUDIOS ORIGINAL \u2022 STARRING CHORIZO",
+        "img": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.18) saturate(1.45) brightness(1.05)"
+      },
+      "2": {
+        "name": "Poster 2: IMAX Action Blockbuster",
+        "themeBadge": "IMAX Action Blockbuster Render",
+        "titleOverlay": "OPERATION: SOCK SNATCH",
+        "subtitleOverlay": "ALL STUNTS PERFORMED BY CHORIZO \u2022 IMAX 3D",
+        "img": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.28) saturate(1.25) hue-rotate(-10deg)"
+      },
+      "3": {
+        "name": "Poster 3: Prestige Detective Noir",
+        "themeBadge": "Prestige Cinema & Gallery Portrait",
+        "titleOverlay": "THE LONG CON",
+        "subtitleOverlay": "CRIME NEVER LOOKED THIS FLUFFY \u2022 MMXXVI",
+        "img": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.22) sepia(0.24) saturate(1.32)"
+      }
+    },
+    "merch": [
+      {
+        "sku": "MERCH-CANVAS-16X20",
+        "title": "16x20\" Framed 'CHORIZO: THE HEARTBREAKER HEIST' Gallery Canvas",
+        "price": "$49",
+        "numPrice": 49,
+        "provider": "Printify \u2022 Sensaria Gallery Frame",
+        "category": "Wall Art \u2022 #1 Bestseller",
+        "mockupType": "canvas"
+      },
+      {
+        "sku": "MERCH-HOODIE-BLK",
+        "title": "Heavyweight 'Chorizo World Tour' Studio Hoodie",
+        "price": "$59",
+        "numPrice": 59,
+        "provider": "Gelato \u2022 400GSM Studio Fleece",
+        "category": "Apparel \u2022 Owner Flex",
+        "mockupType": "hoodie"
+      },
+      {
+        "sku": "MERCH-MUG-15OZ",
+        "title": "15oz Cinema Gloss Mug ('Wanted: Chorizo')",
+        "price": "$24",
+        "numPrice": 24,
+        "provider": "Printify \u2022 District Photo",
+        "category": "Drinkware \u2022 Gift Ready",
+        "mockupType": "mug"
+      },
+      {
+        "sku": "MERCH-TOTE-ORG",
+        "title": "Organic Heavy Canvas 'THE VELVET SAUSAGE' Tote",
+        "price": "$29",
+        "numPrice": 29,
+        "provider": "Gelato \u2022 Eco Canvas",
+        "category": "Accessories \u2022 Everyday",
+        "mockupType": "tote"
+      }
+    ]
   }
 }
