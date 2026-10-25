@@ -331,6 +331,97 @@
           </div>
         </div>
 
+        <!-- Google Flow (labs.google/fx/tools/flow) Scenebuilder & Ingredients Bridge -->
+        <div class="card-cinema rounded-2xl p-5 space-y-4 border border-amber-500/35">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[#24283B] pb-3.5">
+            <div class="flex items-center gap-2.5">
+              <span class="px-2.5 py-1 rounded-lg bg-gradient-to-r from-amber-500/25 to-pink-500/25 border border-amber-400/40 text-amber-300 text-xs mono font-extrabold">
+                🎬 GOOGLE FLOW STUDIO BRIDGE
+              </span>
+              <div>
+                <h3 class="text-sm font-black text-white">
+                  Zero-Cost 15-Sec Trailer via Google Flow (`Veo` + `Imagen` + `Scenebuilder`)
+                </h3>
+                <p class="text-[11px] text-gray-400">
+                  Replaces Fal.ai + Kling + ElevenLabs + Creatomate ($0.82/order → $0.00) using <b>Ingredients to Video</b> &amp; <b>Frames to Video</b>.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <label class="px-3 py-1.5 rounded-xl bg-[#1A1D2C] hover:bg-[#25293E] border border-[#2F354D] text-xs font-bold text-gray-200 cursor-pointer transition-all">
+                <span>📤 Attach Flow MP4</span>
+                <input type="file" accept="video/mp4,video/*" class="hidden" onchange="attachFlowMp4Video(event)" />
+              </label>
+              <a href="https://labs.google/fx/tools/flow" target="_blank"
+                 class="btn-gold px-3.5 py-1.5 rounded-xl text-xs font-extrabold inline-flex items-center gap-1">
+                <span>Open Google Flow ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Attached Flow Video Player (hidden until user drops a Flow MP4) -->
+          <div id="flowVideoPlayerWrap" class="hidden rounded-xl overflow-hidden bg-black border border-amber-400/50 p-2">
+            <div class="flex items-center justify-between px-2 pb-1.5">
+              <span class="text-[11px] mono text-amber-300 font-bold">▶ LIVE GOOGLE FLOW 9:16 TRAILER MP4</span>
+              <button onclick="clearFlowMp4Video()" class="text-[11px] mono text-gray-400 hover:text-white">✕ Close Video</button>
+            </div>
+            <video id="flowAttachedVideo" controls loop playsinline class="w-full max-h-[420px] rounded-lg mx-auto"></video>
+          </div>
+
+          <!-- 3-Act Flow Scenebuilder Timeline Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] flex flex-col justify-between gap-2">
+              <div class="space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] mono font-bold text-amber-400">CLIP 1 • 0:00–0:03</span>
+                  <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-white/5 text-gray-300">Frames to Video</span>
+                </div>
+                <p id="uiFlowClip1" class="text-[11px] text-gray-300 leading-relaxed line-clamp-4"></p>
+              </div>
+              <button onclick="copyFlowPrompt('clip1')" id="btnFlowClip1" class="w-full py-1.5 rounded-lg bg-[#161927] hover:bg-[#202437] border border-[#2A2F45] text-[11px] mono font-bold text-amber-300">
+                Copy Clip 1 Prompt
+              </button>
+            </div>
+
+            <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] flex flex-col justify-between gap-2">
+              <div class="space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] mono font-bold text-pink-400">CLIP 2 • 0:03–0:10</span>
+                  <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-white/5 text-gray-300">Ingredients to Video</span>
+                </div>
+                <p id="uiFlowClip2" class="text-[11px] text-gray-300 leading-relaxed line-clamp-4"></p>
+              </div>
+              <button onclick="copyFlowPrompt('clip2')" id="btnFlowClip2" class="w-full py-1.5 rounded-lg bg-[#161927] hover:bg-[#202437] border border-[#2A2F45] text-[11px] mono font-bold text-pink-300">
+                Copy Clip 2 Prompt
+              </button>
+            </div>
+
+            <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] flex flex-col justify-between gap-2">
+              <div class="space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] mono font-bold text-emerald-400">CLIP 3 • 0:10–0:15</span>
+                  <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-white/5 text-gray-300">Scenebuilder Extend</span>
+                </div>
+                <p id="uiFlowClip3" class="text-[11px] text-gray-300 leading-relaxed line-clamp-4"></p>
+              </div>
+              <button onclick="copyFlowPrompt('clip3')" id="btnFlowClip3" class="w-full py-1.5 rounded-lg bg-[#161927] hover:bg-[#202437] border border-[#2A2F45] text-[11px] mono font-bold text-emerald-300">
+                Copy Clip 3 Prompt
+              </button>
+            </div>
+          </div>
+
+          <!-- Single-Turn Gemini Omni 1.1 Flash / Flow Master Prompt Bar -->
+          <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] flex flex-wrap items-center justify-between gap-3">
+            <div class="text-[11px] text-gray-300 flex-1 min-w-[220px]">
+              <span class="mono text-amber-400 font-bold">⚡ Single-Turn Master Prompt (`gemini-omni-1.1-flash` / Flow):</span>
+              <span id="uiFlowMasterPrompt" class="text-gray-400 ml-1 line-clamp-1"></span>
+            </div>
+            <button onclick="copyFlowPrompt('master')" id="btnFlowMaster" class="px-3 py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/40 text-xs mono font-bold text-amber-300">
+              📋 Copy Full Timecoded Prompt
+            </button>
+          </div>
+        </div>
+
       </div>
 
       <!-- RIGHT COLUMN (4 Cols): Brutal Bio Roast + Official Pawsport Pet ID Card -->
@@ -958,8 +1049,75 @@
         </div>
       `).join("");
 
+      // Populate Google Flow Scenebuilder & Omni 1.1 Flash Prompts
+      const flow = getFlowPromptsForOrder(order);
+      document.getElementById("uiFlowClip1").textContent = flow.clip1_framesToVideo;
+      document.getElementById("uiFlowClip2").textContent = flow.clip2_ingredientsToVideo;
+      document.getElementById("uiFlowClip3").textContent = flow.clip3_scenebuilderExtend;
+      document.getElementById("uiFlowMasterPrompt").textContent = flow.omniFlashSinglePrompt;
+
       selectPosterTheme("1");
       setSliderValue(78);
+    }
+
+    function getFlowPromptsForOrder(order) {
+      if (order.flowScenebuilder) return order.flowScenebuilder;
+      return {
+        clip1_framesToVideo: `[Google Flow • Frames to Video • 0:00–0:03 • Camera: Slow Dolly In] Start on the uploaded real photo of ${order.petName} (${order.breed}, ${order.markings}) looking guilty. Subtle handheld camera push-in, dramatic low brass movie trailer Braaam sound effect, deep Epic Movie Trailer Narrator voiceover: "In a world where no household rule is safe..."`,
+        clip2_ingredientsToVideo: `[Google Flow • Ingredients to Video • 0:03–0:10 • Camera: Dynamic Orbit] 3D Pixar/Disney animated theatrical sequence starring the exact ${order.breed} from Ingredient 1 (${order.markings}). ${order.petName} heroically commits their signature crime (${order.traits}) in dramatic slow-motion with cinematic rim lighting and flying sparks. Voiceover: "${order.trailerVoiceover}"`,
+        clip3_scenebuilderExtend: `[Google Flow • Scenebuilder Extend / Jump To • 0:10–0:15 • Camera: Crane Pull-Back] Extend the scene as the camera pulls back to reveal ${order.petName} striking a heroic pose inside a gold-framed theatrical movie poster titled "${order.movieTitle}" in glowing 3D cinema typography. Orchestral crescendo hit.`,
+        omniFlashSinglePrompt: `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image1] [0-3s] Slow dramatic dolly-in on ${order.petName} the ${order.breed} <IMAGE_REF_0> looking guilty in the starting frame. [3-7s] Transition into a 3D Pixar animated blockbuster heist scene where the exact same ${order.breed} <IMAGE_REF_0> commits ${order.traits} with cinematic sparks. [7-10s] Heroic theatrical movie poster reveal with bold text '${order.movieTitle}'. Include epic movie trailer voiceover and orchestral score.`
+      };
+    }
+
+    function copyFlowPrompt(which) {
+      const order = ORDERS_DB[currentOrderId];
+      const flow = getFlowPromptsForOrder(order);
+      let text = "";
+      let btnId = "";
+      let origLabel = "";
+      if (which === "clip1") {
+        text = flow.clip1_framesToVideo;
+        btnId = "btnFlowClip1";
+        origLabel = "Copy Clip 1 Prompt";
+      } else if (which === "clip2") {
+        text = flow.clip2_ingredientsToVideo;
+        btnId = "btnFlowClip2";
+        origLabel = "Copy Clip 2 Prompt";
+      } else if (which === "clip3") {
+        text = flow.clip3_scenebuilderExtend;
+        btnId = "btnFlowClip3";
+        origLabel = "Copy Clip 3 Prompt";
+      } else {
+        text = flow.omniFlashSinglePrompt;
+        btnId = "btnFlowMaster";
+        origLabel = "📋 Copy Full Timecoded Prompt";
+      }
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById(btnId);
+      if (btn) {
+        btn.textContent = "✓ Copied for Google Flow!";
+        setTimeout(() => { btn.textContent = origLabel; }, 1600);
+      }
+    }
+
+    function attachFlowMp4Video(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const videoUrl = URL.createObjectURL(file);
+      const videoEl = document.getElementById("flowAttachedVideo");
+      const wrapEl = document.getElementById("flowVideoPlayerWrap");
+      videoEl.src = videoUrl;
+      wrapEl.classList.remove("hidden");
+      videoEl.play();
+    }
+
+    function clearFlowMp4Video() {
+      const videoEl = document.getElementById("flowAttachedVideo");
+      const wrapEl = document.getElementById("flowVideoPlayerWrap");
+      videoEl.pause();
+      videoEl.src = "";
+      wrapEl.classList.add("hidden");
     }
 
     function selectPosterTheme(posterNum) {

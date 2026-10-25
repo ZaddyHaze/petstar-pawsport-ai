@@ -402,6 +402,37 @@ def run_pawsport_pipeline(data: dict) -> dict:
                 "filterStyle": "contrast(1.22) sepia(0.24) saturate(1.32)",
             },
         },
+        "flowScenebuilder": {
+            "flowUrl": "https://labs.google/fx/tools/flow",
+            "ingredientLock": f"Ingredient 1 (Character Reference): {pet_name} ({breed}) — {diagnosis.markings_detected}",
+            "clip1_framesToVideo": (
+                f"[Google Flow • Frames to Video • 0:00–0:03 • Camera: Slow Dolly In] "
+                f"Start on the uploaded real photo of {pet_name} ({breed}, {diagnosis.markings_detected}) looking guilty. "
+                f"Subtle handheld camera push-in, dramatic low brass movie trailer Braaam sound effect, "
+                f"deep Epic Movie Trailer Narrator voiceover: \"In a world where no household rule is safe...\""
+            ),
+            "clip2_ingredientsToVideo": (
+                f"[Google Flow • Ingredients to Video • 0:03–0:10 • Camera: Dynamic Orbit] "
+                f"3D Pixar/Disney animated theatrical sequence starring the exact {breed} from Ingredient 1 "
+                f"({diagnosis.markings_detected}). {pet_name} heroically commits their signature crime ({traits}) "
+                f"in dramatic slow-motion with cinematic rim lighting and flying sparks. "
+                f"Epic Movie Trailer Narrator voiceover: \"{diagnosis.trailer_voiceover}\""
+            ),
+            "clip3_scenebuilderExtend": (
+                f"[Google Flow • Scenebuilder Extend / Jump To • 0:10–0:15 • Camera: Crane Pull-Back] "
+                f"Extend the scene as the camera pulls back to reveal {pet_name} striking a heroic pose inside a "
+                f"gold-framed theatrical movie poster titled \"{diagnosis.movie_title}\" in glowing 3D cinema typography. "
+                f"Orchestral crescendo hit."
+            ),
+            "omniFlashSinglePrompt": (
+                f"[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image1] "
+                f"[0-3s] Slow dramatic dolly-in on {pet_name} the {breed} <IMAGE_REF_0> looking guilty in the starting frame. "
+                f"[3-7s] Transition into a 3D Pixar animated blockbuster heist scene where the exact same {breed} <IMAGE_REF_0> "
+                f"commits {traits.split(',')[0].strip().lower()} with cinematic sparks. "
+                f"[7-10s] Heroic theatrical movie poster reveal with bold text '{diagnosis.movie_title}'. "
+                f"Include epic movie trailer voiceover and orchestral score."
+            ),
+        },
         "merch": [
             {
                 "sku": "MERCH-CANVAS-16X20",
