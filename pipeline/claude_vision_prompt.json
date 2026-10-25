@@ -1,0 +1,82 @@
+{
+  "system_role": "You are an Oscar-winning Pixar/Hollywood movie trailer writer, character visual director, and savage pet behavior profiler. Scan the 3 uploaded pet photos for exact breed markings, fur color, eye color, ear shape, collar details, and guilty/derpy expression. Return ONLY valid JSON matching the schema below.",
+  "user_context": {
+    "pet_name": "{{1.pet_name}}",
+    "species_and_breed": "{{1.species_and_breed}}",
+    "owner_handle": "{{1.owner_handle}}",
+    "three_personality_traits": "{{1.three_personality_traits}}",
+    "preferred_genre": "{{1.preferred_genre}}",
+    "package_tier": "{{1.package_tier}}"
+  },
+  "output_schema": {
+    "movie_title": "ALL-CAPS blockbuster title featuring the pet's name and signature crime (e.g., 'BARNABY: THE CHEDDAR HEIST' or 'AGENT MOCHI: ZOOMIES PROTOCOL')",
+    "movie_tagline": "Punchy Hollywood movie poster tagline under 12 words (e.g., 'No counter is safe. No cheese is sacred.')",
+    "brutal_bio_roast": "A 1-2 sentence hilarious, brutally accurate bio roast calling out the pet's exact expression and domestic crimes (max 32 words).",
+    "pawsport_id_card": {
+      "serial_number": "PAW-2026-8841",
+      "codename": "THE VELVET MENACE",
+      "fur_and_collar_lock": "Exact visual description of fur markings, snout, ears, and collar locked for Flux IP-Adapter / PuLID.",
+      "threat_level": "DEFCON 1 (SNACK THIEF)",
+      "starring_rating": 98
+    },
+    "indicted_crimes": [
+      {
+        "code": "FELONY_01: COUNTER ESPIONAGE",
+        "tag": "CAUGHT ON 4K",
+        "desc": "Executed a silent zero-gravity leap onto the kitchen island to liberate 14oz of aged sharp cheddar."
+      },
+      {
+        "code": "FELONY_02: WEAPONIZED SIDE-EYE",
+        "tag": "ZERO REMORSE",
+        "desc": "Deploys guilt-inducing puppy eyes within 0.4 seconds of shredding a $60 throw pillow."
+      },
+      {
+        "code": "FELONY_03: 3AM ZOOMIES PROTOCOL",
+        "tag": "UNSTOPPABLE",
+        "desc": "Initiates full-throttle hardwood drift racing across the hallway at 3:14 AM sharp."
+      }
+    ],
+    "trailer_voiceover_script_40w": "Exactly 40-word 'Epic Movie Trailer Guy' voiceover script split into 3 timed segments: [0:00-0:03] Real photo hook calling out their guilty face, [0:03-0:10] Cinematic roast of their 3 crimes, [0:10-0:15] Reveal of the framed movie poster + CTA.",
+    "trailer_timed_captions": [
+      "0:00–0:03 • In a world where no kitchen counter is safe... meet {{1.pet_name}}.",
+      "0:03–0:10 • Part angel, part domestic terrorist. Wanted in 4 states for grand theft cheese and 3AM zoomies.",
+      "0:10–0:15 • Coming this summer: '{{movie_title}}'. Comment PAW to turn your pet into a movie star!"
+    ],
+    "flux_pulid_poster_prompts": {
+      "poster_1_pixar_blockbuster": "3D Pixar/Disney animated theatrical movie poster starring the exact pet from the reference photo (preserving exact fur markings, ear shape, eyes, and collar). Expressive cinematic lighting, dramatic heist action pose, native 3D movie title text '{{movie_title}}' at the top and credits block at bottom, 8k octane render.",
+      "poster_2_action_epic": "Hollywood IMAX action blockbuster movie poster starring the exact pet from the reference photo (preserving exact fur pattern and facial markings). Tactical hero vest, cinematic orange-and-teal rim lighting, sparks and dramatic city bokeh background, bold metallic title '{{movie_title}}', photorealistic 8k.",
+      "poster_3_noir_royalty": "Wes Anderson / Prestige Detective Noir theatrical poster starring the exact pet from the reference photo (preserving exact breed markings and eyes). Velvet detective cape, dramatic golden hour chiaroscuro lighting, vintage cinema typography '{{movie_title}}', ultra-detailed studio portrait."
+    },
+    "kling_runway_animation_prompt": "5-second cinematic 9:16 vertical animation: camera pushes in slowly on the Pixar-styled pet hero as dramatic golden sparks float upward, the pet gives a mischievous wink and heroic head tilt, theatrical lighting.",
+    "printify_merch_lineup": [
+      {
+        "sku_type": "Framed Gallery Canvas (16x20\")",
+        "price": "$49",
+        "numPrice": 49,
+        "provider": "Printify • Sensaria",
+        "badge": "Bestseller • #1 Gift"
+      },
+      {
+        "sku_type": "Heavyweight Studio Hoodie",
+        "price": "$59",
+        "numPrice": 59,
+        "provider": "Gelato • Lane Seven",
+        "badge": "Creator Favorite"
+      },
+      {
+        "sku_type": "Cinema Gloss Ceramic Mug (15oz)",
+        "price": "$24",
+        "numPrice": 24,
+        "provider": "Printify • District Photo",
+        "badge": "High Margin Impulse"
+      },
+      {
+        "sku_type": "Organic Canvas Tote Bag",
+        "price": "$29",
+        "numPrice": 29,
+        "provider": "Gelato • Stanley/Stella",
+        "badge": "Dog Park Flex"
+      }
+    ]
+  }
+}

@@ -1,0 +1,438 @@
+{
+  "paw849201": {
+    "id": "paw849201",
+    "petName": "Barnaby",
+    "ownerHandle": "@golden_barnaby",
+    "breed": "Golden Retriever",
+    "markings": "Honey-gold double coat, white chest blaze, red leather brass-tag collar",
+    "traits": "Steals aged cheddar off the kitchen island, weaponizes guilty puppy eyes, terrified of the Roomba",
+    "genre": "Pixar Heist Blockbuster",
+    "packageTier": "Node A: $9 Make My Pet Famous",
+    "movieTitle": "CRIMSON: THE CHEESE HEIST",
+    "movieTagline": "No counter is safe. No cheddar is sacred.",
+    "starringScore": 98,
+    "viralLift": "+340% Share Velocity",
+    "serialNumber": "PAW-2026-8492",
+    "codename": "THE GOLDEN GOURMET",
+    "threatLevel": "DEFCON 1 (DAIRY FELON)",
+    "beforeImg": "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1000&q=85",
+    "roastSummary": "\u201cBarnaby has the soulful eyes of a Victorian orphan and the criminal record of a career safe-cracker who just inhaled $14 of artisanal Kerrygold cheddar in 2.4 seconds.\u201d",
+    "trailerVoiceover": "In a world where no kitchen island is safe... one Golden Retriever risked it all for fourteen ounces of aged sharp cheddar. Coming this summer: Crimson, The Cheese Heist. Rated PG-13 for extreme side-eye.",
+    "roastCaptions": [
+      "0:00\u20130:03 \u2022 Look at this guilty face! @golden_barnaby just cleared a 42-inch counter for sharp cheddar!",
+      "0:03\u20130:10 \u2022 In a world where no charcuterie board survives... he leaves zero crumbs and zero remorse.",
+      "0:10\u20130:15 \u2022 Coming this Friday: 'CRIMSON: THE CHEESE HEIST' \u2014 Comment PAW to turn your pet into a poster!"
+    ],
+    "crimes": [
+      {
+        "code": "FELONY_01: GRAND THEFT DAIRY",
+        "tag": "CAUGHT IN 4K",
+        "color": "text-rose-400",
+        "desc": "Executed a silent counter-surf maneuver to liberate a full block of aged cheddar without disturbing the cheese knife."
+      },
+      {
+        "code": "FELONY_02: WEAPONIZED PUPPY EYES",
+        "tag": "ZERO REMORSE",
+        "color": "text-amber-400",
+        "desc": "Deploys a 45-degree head tilt and brow furrow that instantly nullifies all household disciplinary protocols."
+      },
+      {
+        "code": "FELONY_03: ROOMBA EVASION",
+        "tag": "LOCKED IN LORA",
+        "color": "text-emerald-400",
+        "desc": "Barks heroically at delivery trucks while retreating to the sofa whenever the robot vacuum undocks."
+      }
+    ],
+    "posters": {
+      "1": {
+        "name": "Poster 1: Pixar Animated Heist",
+        "themeBadge": "Pixar / Disney 3D Studio Render",
+        "titleOverlay": "CRIMSON: THE CHEESE HEIST",
+        "subtitleOverlay": "A PAWSPORT STUDIOS ORIGINAL \u2022 STARRING BARNABY",
+        "img": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.14) saturate(1.38) brightness(1.03)"
+      },
+      "2": {
+        "name": "Poster 2: Mission Impossible Action",
+        "themeBadge": "IMAX Action Blockbuster Render",
+        "titleOverlay": "PROTOCOL: GOLDEN PAW",
+        "subtitleOverlay": "HE DOES HIS OWN STUNTS \u2022 IN THEATERS FRIDAY",
+        "img": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.24) saturate(1.2) hue-rotate(-8deg)"
+      },
+      "3": {
+        "name": "Poster 3: Royal Detective Noir",
+        "themeBadge": "Prestige Cinema & Gallery Portrait",
+        "titleOverlay": "LORD BARNABY OF CHEDDAR",
+        "subtitleOverlay": "CRIME NEVER LOOKED THIS FLUFFY \u2022 MMXXVI",
+        "img": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.18) sepia(0.22) saturate(1.3)"
+      }
+    },
+    "merch": [
+      {
+        "sku": "MERCH-CANVAS-16X20",
+        "title": "16x20\" Framed Museum Movie Poster Canvas",
+        "price": "$49",
+        "numPrice": 49,
+        "provider": "Printify \u2022 Sensaria Gallery Frame",
+        "category": "Wall Art \u2022 #1 Bestseller",
+        "mockupType": "canvas"
+      },
+      {
+        "sku": "MERCH-HOODIE-BLK",
+        "title": "Heavyweight 'Cheese Heist' Starring Hoodie",
+        "price": "$59",
+        "numPrice": 59,
+        "provider": "Gelato \u2022 400GSM Studio Fleece",
+        "category": "Apparel \u2022 Owner Flex",
+        "mockupType": "hoodie"
+      },
+      {
+        "sku": "MERCH-MUG-15OZ",
+        "title": "15oz Cinema Gloss Mug ('Wanted: Barnaby')",
+        "price": "$24",
+        "numPrice": 24,
+        "provider": "Printify \u2022 District Photo",
+        "category": "Drinkware \u2022 Gift Ready",
+        "mockupType": "mug"
+      },
+      {
+        "sku": "MERCH-TOTE-ORG",
+        "title": "Organic Heavy Canvas Dog-Park Tote",
+        "price": "$29",
+        "numPrice": 29,
+        "provider": "Gelato \u2022 Eco Canvas",
+        "category": "Accessories \u2022 Everyday",
+        "mockupType": "tote"
+      }
+    ]
+  },
+  "paw910442": {
+    "id": "paw910442",
+    "petName": "Mochi",
+    "ownerHandle": "@mochi_the_frenchie",
+    "breed": "French Bulldog",
+    "markings": "Cream pied coat, oversized bat ears, black snoot, studded gold collar",
+    "traits": "Snores like a 1998 chainsaw, initiates 3AM hallway drift zoomies, judges every guest from the ottoman",
+    "genre": "Sci-Fi Action Epic",
+    "packageTier": "Node A: $9 Make My Pet Famous",
+    "movieTitle": "AGENT MOCHI: ZOOMIES PROTOCOL",
+    "movieTagline": "Built like a baked potato. Fast as a torpedo.",
+    "starringScore": 96,
+    "viralLift": "+410% Comment Wars",
+    "serialNumber": "PAW-2026-9104",
+    "codename": "THE BAT-EARED TORPEDO",
+    "threatLevel": "DEFCON 1 (SONIC SNORER)",
+    "beforeImg": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1000&q=85",
+    "roastSummary": "\u201cMochi is 24 pounds of compressed stubbornness shaped like a luxury sourdough loaf\u2014breathing at 85 decibels while plotting another 3AM living-room parkour run.\u201d",
+    "trailerVoiceover": "Built like a baked potato. Engineered for chaos. When the clock strikes three A.M., gravity is optional. Starring Mochi in... Agent Mochi: Zoomies Protocol.",
+    "roastCaptions": [
+      "0:00\u20130:03 \u2022 Frenchies are literally built like sentient baked potatoes! Meet @mochi_the_frenchie.",
+      "0:03\u20130:10 \u2022 Snores like a freight train at noon, turns into a Formula 1 car on hardwood at 3AM.",
+      "0:10\u20130:15 \u2022 Now playing: 'AGENT MOCHI: ZOOMIES PROTOCOL' \u2014 Click bio or comment PAW for yours!"
+    ],
+    "crimes": [
+      {
+        "code": "FELONY_01: 85dB SLEEP APNEA",
+        "tag": "SUBWOOFER SNOOT",
+        "color": "text-rose-400",
+        "desc": "Out-volumes the Dolby Atmos soundbar during every dramatic movie dialogue scene."
+      },
+      {
+        "code": "FELONY_02: 3AM PARKOUR DRIFT",
+        "tag": "ZERO TRACTION",
+        "color": "text-amber-400",
+        "desc": "Uses the linen sofa backrest as a banked NASCAR turn during midnight zoomie sprints."
+      },
+      {
+        "code": "FELONY_03: OTTOMAN SOVEREIGNTY",
+        "tag": "VIP ONLY",
+        "color": "text-emerald-400",
+        "desc": "Claims legal ownership of all heated blankets and side-eyes anyone who sits within 3 feet."
+      }
+    ],
+    "posters": {
+      "1": {
+        "name": "Poster 1: Pixar Animated Heist",
+        "themeBadge": "Pixar / Disney 3D Studio Render",
+        "titleOverlay": "AGENT MOCHI: ZOOMIES PROTOCOL",
+        "subtitleOverlay": "BUILT LIKE A POTATO \u2022 FAST AS LIGHTNING",
+        "img": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.16) saturate(1.42) brightness(1.04)"
+      },
+      "2": {
+        "name": "Poster 2: Cyberpunk Action Hero",
+        "themeBadge": "IMAX Sci-Fi Blockbuster Render",
+        "titleOverlay": "BLADE ZOOMIE 2049",
+        "subtitleOverlay": "ALL EARS \u2022 NO BRAKES \u2022 IMAX 3D",
+        "img": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.26) saturate(1.3) hue-rotate(12deg)"
+      },
+      "3": {
+        "name": "Poster 3: Royal Velvet Portrait",
+        "themeBadge": "Prestige Cinema & Gallery Portrait",
+        "titleOverlay": "EMPEROR MOCHI I",
+        "subtitleOverlay": "SUPREME RULER OF THE COUCH \u2022 MMXXVI",
+        "img": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.2) sepia(0.18) saturate(1.28)"
+      }
+    },
+    "merch": [
+      {
+        "sku": "MERCH-CANVAS-16X20",
+        "title": "16x20\" Framed 'Zoomies Protocol' Canvas",
+        "price": "$49",
+        "numPrice": 49,
+        "provider": "Printify \u2022 Sensaria Gallery Frame",
+        "category": "Wall Art \u2022 #1 Bestseller",
+        "mockupType": "canvas"
+      },
+      {
+        "sku": "MERCH-HOODIE-BLK",
+        "title": "Heavyweight 'Agent Mochi' Tour Hoodie",
+        "price": "$59",
+        "numPrice": 59,
+        "provider": "Gelato \u2022 400GSM Studio Fleece",
+        "category": "Apparel \u2022 Owner Flex",
+        "mockupType": "hoodie"
+      },
+      {
+        "sku": "MERCH-MUG-15OZ",
+        "title": "15oz Cinema Gloss Mug ('Built Like A Potato')",
+        "price": "$24",
+        "numPrice": 24,
+        "provider": "Printify \u2022 District Photo",
+        "category": "Drinkware \u2022 Gift Ready",
+        "mockupType": "mug"
+      },
+      {
+        "sku": "MERCH-TOTE-ORG",
+        "title": "Organic Heavy Canvas Frenchie Tote",
+        "price": "$29",
+        "numPrice": 29,
+        "provider": "Gelato \u2022 Eco Canvas",
+        "category": "Accessories \u2022 Everyday",
+        "mockupType": "tote"
+      }
+    ]
+  },
+  "paw773190": {
+    "id": "paw773190",
+    "petName": "Luna",
+    "ownerHandle": "@luna_tuxedo_boss",
+    "breed": "Tuxedo Cat",
+    "markings": "Jet-black coat with crisp white tuxedo bib, white paws, emerald green eyes",
+    "traits": "Maintains direct eye contact while pushing water glasses off tables, attacks ankles from under the bed, dressed for a gala 24/7",
+    "genre": "Noir Crime Thriller",
+    "packageTier": "Node B: $24 Private VIP Bundle",
+    "movieTitle": "THE 3AM KNOCKOFF",
+    "movieTagline": "Dressed for a black-tie gala. Wired for felony.",
+    "starringScore": 99,
+    "viralLift": "+295% Save Rate",
+    "serialNumber": "PAW-2026-7731",
+    "codename": "THE TUXEDO ASSASSIN",
+    "threatLevel": "DEFCON 1 (GRAVITY TESTER)",
+    "beforeImg": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1000&q=85",
+    "roastSummary": "\u201cLuna wears a permanent black-tie tuxedo just so she\u2019s appropriately dressed for the funeral of every water glass you ever dared leave near the edge of a nightstand.\u201d",
+    "trailerVoiceover": "She wears a tuxedo twenty-four hours a day... because crime is a formal affair. One paw. One glass of water. Unbroken eye contact. Starring Luna in... The Three A.M. Knockoff.",
+    "roastCaptions": [
+      "0:00\u20130:03 \u2022 Unbroken eye contact. One white paw slowly extending toward your water glass...",
+      "0:03\u20130:10 \u2022 @luna_tuxedo_boss is dressed for the Met Gala and wired for domestic sabotage.",
+      "0:10\u20130:15 \u2022 Coming soon: 'THE 3AM KNOCKOFF' \u2014 Comment PAW to turn your cat into a movie poster!"
+    ],
+    "crimes": [
+      {
+        "code": "FELONY_01: GRAVITY VERIFICATION",
+        "tag": "COLD BLOODED",
+        "color": "text-rose-400",
+        "desc": "Maintains unblinking emerald eye contact while nudging ceramic mugs off the desk edge."
+      },
+      {
+        "code": "FELONY_02: ANKLE AMBUSH",
+        "tag": "STEALTH OPS",
+        "color": "text-amber-400",
+        "desc": "Operates a classified strike perimeter underneath the bed skirt targeting bare heels."
+      },
+      {
+        "code": "FELONY_03: EMPTY BOWL FRAUD",
+        "tag": "OSCAR ACTING",
+        "color": "text-emerald-400",
+        "desc": "Screams as if starving whenever the center 0.5 inches of the kibble bowl becomes visible."
+      }
+    ],
+    "posters": {
+      "1": {
+        "name": "Poster 1: Pixar Animated Heist",
+        "themeBadge": "Pixar / Disney 3D Studio Render",
+        "titleOverlay": "THE 3AM KNOCKOFF",
+        "subtitleOverlay": "ONE PAW \u2022 ONE GLASS \u2022 ZERO REGRETS",
+        "img": "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.18) saturate(1.38) brightness(1.03)"
+      },
+      "2": {
+        "name": "Poster 2: 007 Spy Thriller",
+        "themeBadge": "IMAX Spy Blockbuster Render",
+        "titleOverlay": "LICENSE TO PURR",
+        "subtitleOverlay": "SHAKEN, THEN KNOCKED OFF THE TABLE",
+        "img": "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.26) saturate(1.15) brightness(0.98)"
+      },
+      "3": {
+        "name": "Poster 3: Gotham Noir Detective",
+        "themeBadge": "Prestige Cinema & Gallery Portrait",
+        "titleOverlay": "THE TUXEDO SYNDICATE",
+        "subtitleOverlay": "SHE OWNS THE NIGHTSTAND \u2022 MMXXVI",
+        "img": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.22) sepia(0.2) saturate(1.25)"
+      }
+    },
+    "merch": [
+      {
+        "sku": "MERCH-CANVAS-16X20",
+        "title": "16x20\" Framed 'The 3AM Knockoff' Canvas",
+        "price": "$49",
+        "numPrice": 49,
+        "provider": "Printify \u2022 Sensaria Gallery Frame",
+        "category": "Wall Art \u2022 #1 Bestseller",
+        "mockupType": "canvas"
+      },
+      {
+        "sku": "MERCH-HOODIE-BLK",
+        "title": "Heavyweight 'Tuxedo Syndicate' Hoodie",
+        "price": "$59",
+        "numPrice": 59,
+        "provider": "Gelato \u2022 400GSM Studio Fleece",
+        "category": "Apparel \u2022 Owner Flex",
+        "mockupType": "hoodie"
+      },
+      {
+        "sku": "MERCH-MUG-15OZ",
+        "title": "15oz Unbreakable Mug ('Push Me If You Dare')",
+        "price": "$24",
+        "numPrice": 24,
+        "provider": "Printify \u2022 District Photo",
+        "category": "Drinkware \u2022 Gift Ready",
+        "mockupType": "mug"
+      },
+      {
+        "sku": "MERCH-TOTE-ORG",
+        "title": "Organic Heavy Canvas Cat-Boss Tote",
+        "price": "$29",
+        "numPrice": 29,
+        "provider": "Gelato \u2022 Eco Canvas",
+        "category": "Accessories \u2022 Everyday",
+        "mockupType": "tote"
+      }
+    ]
+  },
+  "paw781272": {
+    "id": "paw781272",
+    "petName": "Chorizo",
+    "ownerHandle": "@chorizo_longboy",
+    "breed": "Miniature Dachshund",
+    "markings": "Signature Miniature Dachshund coat pattern, expressive eyes, and custom collar locked via PuLID.",
+    "traits": "Built like a footlong hotdog, barks at leaves, burrows under 6 blankets to steal socks",
+    "genre": "Pixar Heist Blockbuster",
+    "packageTier": "Node A: $9 Make My Pet Famous",
+    "movieTitle": "CHORIZO: GRAND THEFT SNACK",
+    "movieTagline": "Innocent eyes. Classified domestic criminal record.",
+    "starringScore": 97,
+    "viralLift": "+355% Share Velocity",
+    "serialNumber": "PAW-2026-1502",
+    "codename": "AGENT CHORIZO",
+    "threatLevel": "DEFCON 1 (SNACK FELON)",
+    "beforeImg": "renders/paw781272_before.jpg",
+    "roastSummary": "\u201cChorizo looks like an angel on a holiday card but operates a 24/7 extortion ring powered by built like a footlong hotdog, barks at leaves, burrows under 6 blankets to steal socks.\u201d",
+    "trailerVoiceover": "In a world where no snack is safe... one Miniature Dachshund broke every rule in the house. Known for built like a footlong hotdog, barks at leaves, burrows under 6 blankets to steal socks... Starring Chorizo in: CHORIZO, Grand Theft Snack. Coming to TikTok and Reels tonight.",
+    "roastCaptions": [
+      "0:00\u20130:03 \u2022 Don't let this face fool you! @chorizo_longboy's Miniature Dachshund Chorizo was caught in 4K!",
+      "0:03\u20130:10 \u2022 Wanted for: Built like a footlong hotdog, barks at leaves, burrows under 6 blankets to steal socks. Zero guilt, 100% main character energy.",
+      "0:10\u20130:15 \u2022 Now playing: 'CHORIZO: GRAND THEFT SNACK' \u2014 Comment PAW to cast your pet!"
+    ],
+    "crimes": [
+      {
+        "code": "FELONY_01: PRIMARY INDICTMENT",
+        "tag": "CAUGHT IN 4K",
+        "color": "text-rose-400",
+        "desc": "Habitually commits built like a footlong hotdog while maintaining unbroken eye contact."
+      },
+      {
+        "code": "FELONY_02: EMOTIONAL EXTORTION",
+        "tag": "ZERO REMORSE",
+        "color": "text-amber-400",
+        "desc": "Deploys weaponized miniature dachshund head-tilts to escape all household accountability."
+      },
+      {
+        "code": "FELONY_03: MIDNIGHT CHAOS",
+        "tag": "LOCKED IN LORA",
+        "color": "text-emerald-400",
+        "desc": "Treats the living room rug as a private Formula 1 circuit at 3:15 AM."
+      }
+    ],
+    "posters": {
+      "1": {
+        "name": "Poster 1: Pixar Heist Blockbuster",
+        "themeBadge": "Pixar / Disney 3D Studio Render",
+        "titleOverlay": "CHORIZO: GRAND THEFT SNACK",
+        "subtitleOverlay": "A PAWSPORT STUDIOS ORIGINAL \u2022 STARRING CHORIZO",
+        "img": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.18) saturate(1.45) brightness(1.05)"
+      },
+      "2": {
+        "name": "Poster 2: IMAX Action Blockbuster",
+        "themeBadge": "IMAX Action Blockbuster Render",
+        "titleOverlay": "PROTOCOL: CHORIZO",
+        "subtitleOverlay": "ALL STUNTS PERFORMED BY CHORIZO \u2022 IMAX 3D",
+        "img": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.28) saturate(1.25) hue-rotate(-10deg)"
+      },
+      "3": {
+        "name": "Poster 3: Prestige Detective Noir",
+        "themeBadge": "Prestige Cinema & Gallery Portrait",
+        "titleOverlay": "THE CHORIZO DOSSIER",
+        "subtitleOverlay": "CRIME NEVER LOOKED THIS FLUFFY \u2022 MMXXVI",
+        "img": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.22) sepia(0.24) saturate(1.32)"
+      }
+    },
+    "merch": [
+      {
+        "sku": "MERCH-CANVAS-16X20",
+        "title": "16x20\" Framed 'CHORIZO: GRAND THEFT SNACK' Gallery Canvas",
+        "price": "$49",
+        "numPrice": 49,
+        "provider": "Printify \u2022 Sensaria Gallery Frame",
+        "category": "Wall Art \u2022 #1 Bestseller",
+        "mockupType": "canvas"
+      },
+      {
+        "sku": "MERCH-HOODIE-BLK",
+        "title": "Heavyweight 'Chorizo World Tour' Studio Hoodie",
+        "price": "$59",
+        "numPrice": 59,
+        "provider": "Gelato \u2022 400GSM Studio Fleece",
+        "category": "Apparel \u2022 Owner Flex",
+        "mockupType": "hoodie"
+      },
+      {
+        "sku": "MERCH-MUG-15OZ",
+        "title": "15oz Cinema Gloss Mug ('Wanted: Chorizo')",
+        "price": "$24",
+        "numPrice": 24,
+        "provider": "Printify \u2022 District Photo",
+        "category": "Drinkware \u2022 Gift Ready",
+        "mockupType": "mug"
+      },
+      {
+        "sku": "MERCH-TOTE-ORG",
+        "title": "Organic Heavy Canvas 'AGENT CHORIZO' Tote",
+        "price": "$29",
+        "numPrice": 29,
+        "provider": "Gelato \u2022 Eco Canvas",
+        "category": "Accessories \u2022 Everyday",
+        "mockupType": "tote"
+      }
+    ]
+  }
+}

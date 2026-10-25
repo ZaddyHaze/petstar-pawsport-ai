@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="cinemaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Outer Cinema Badge Shield -->
+  <rect x="8" y="8" width="104" height="104" rx="26" fill="#0B0C10" stroke="url(#goldGrad)" stroke-width="3.5" />
+  <rect x="14" y="14" width="92" height="92" rx="20" fill="#12141D" stroke="rgba(245, 158, 11, 0.22)" stroke-width="1.5" />
+
+  <!-- Top Clapperboard Bar -->
+  <path d="M22 30 C22 23, 27 20, 34 20 L86 20 C93 20, 98 23, 98 30 L98 38 L22 38 Z" fill="url(#cinemaGrad)" />
+  <path d="M34 20 L26 38 M52 20 L44 38 M70 20 L62 38 M88 20 L80 38" stroke="#0B0C10" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Golden Hollywood Star Backdrop -->
+  <path d="M60 44 L65.5 55.5 L78 57.2 L69 66 L71.2 78.5 L60 72.5 L48.8 78.5 L51 66 L42 57.2 L54.5 55.5 Z" fill="url(#goldGrad)" opacity="0.22" />
+
+  <!-- Golden Paw Print Pad + Toes -->
+  <g filter="url(#glow)">
+    <!-- Main Pad -->
+    <path d="M60 66 C51 66, 45 73, 47 81 C48.5 86, 54 87, 60 87 C66 87, 71.5 86, 73 81 C75 73, 69 66, 60 66 Z" fill="url(#goldGrad)" />
+    <!-- 4 Toe Beans -->
+    <ellipse cx="43" cy="61" rx="5.2" ry="7" transform="rotate(-22 43 61)" fill="url(#goldGrad)" />
+    <ellipse cx="53.5" cy="53" rx="5.2" ry="7.2" transform="rotate(-7 53.5 53)" fill="url(#goldGrad)" />
+    <ellipse cx="66.5" cy="53" rx="5.2" ry="7.2" transform="rotate(7 66.5 53)" fill="url(#goldGrad)" />
+    <ellipse cx="77" cy="61" rx="5.2" ry="7" transform="rotate(22 77 61)" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Negative Space Star Inside Main Pad -->
+  <path d="M60 70.5 L62.1 75 L67 75.6 L63.4 79 L64.3 83.8 L60 81.4 L55.7 83.8 L56.6 79 L53 75.6 L57.9 75 Z" fill="#0B0C10" />
+</svg>

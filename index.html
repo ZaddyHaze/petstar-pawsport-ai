@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pawsport.ai (Petstar) — 24-Hour Viral Pet Persona & Custom Merch Studio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #F59E0B;
+      --gold-bright: #FDE047;
+      --magenta: #EC4899;
+      --violet: #8B5CF6;
+      --cinema-bg: #090A0F;
+      --panel-bg: #12141E;
+      --panel-border: #24283B;
+    }
+    body {
+      background-color: var(--cinema-bg);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(245, 158, 11, 0.08), transparent 35%),
+        radial-gradient(circle at 85% 15%, rgba(236, 72, 153, 0.08), transparent 35%);
+      color: #F3F4F6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Montserrat', 'Inter', sans-serif;
+    }
+    .font-poster {
+      font-family: 'Cinzel', 'Montserrat', serif;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-cinema {
+      background-color: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+    }
+    .card-cinema.active-poster {
+      border-color: #F59E0B;
+      box-shadow: 0 0 28px rgba(245, 158, 11, 0.22);
+    }
+    .roast-banner {
+      background: linear-gradient(135deg, rgba(68, 22, 48, 0.82) 0%, rgba(20, 18, 32, 0.95) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      box-shadow: 0 12px 32px -8px rgba(236, 72, 153, 0.22);
+    }
+    .pawsport-id-card {
+      background: linear-gradient(145deg, #161927 0%, #0D0F18 100%);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .pawsport-id-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(125deg, transparent 30%, rgba(253, 224, 71, 0.06) 48%, rgba(236, 72, 153, 0.06) 52%, transparent 70%);
+      pointer-events: none;
+    }
+    .btn-gold {
+      background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%);
+      color: #090A0F;
+      font-weight: 800;
+      transition: all 0.2s ease;
+    }
+    .btn-gold:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+    }
+    .btn-cinema {
+      background: linear-gradient(90deg, #EC4899 0%, #8B5CF6 100%);
+      color: #FFFFFF;
+      font-weight: 800;
+      transition: all 0.2s ease;
+    }
+    .btn-cinema:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35);
+    }
+    input[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      height: 6px;
+      border-radius: 999px;
+      background: #272B3F;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      background: #F59E0B;
+      box-shadow: 0 0 12px #F59E0B;
+      margin-top: -6px;
+      cursor: ew-resize;
+    }
+    .poster-text-shadow {
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9);
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-20 selection:bg-amber-500 selection:text-black">
+
+  <!-- TOP PROMO TICKER -->
+  <div class="bg-gradient-to-r from-amber-500/20 via-pink-500/20 to-violet-500/20 border-b border-amber-500/30 py-2 px-4 text-center text-xs font-medium tracking-wide">
+    <span class="inline-flex items-center gap-2">
+      <span class="px-2 py-0.5 rounded bg-amber-400 text-black font-extrabold uppercase text-[10px]">Viral Flywheel Live</span>
+      <span class="text-gray-200">Upload 3 pet photos + 3 traits • Get your <b>15-Sec Movie Trailer</b>, <b>3 Pixar Posters</b> &amp; <b>1-Click Custom Merch</b> in 4 minutes!</span>
+      <button onclick="switchMainTab('cast')" class="underline text-amber-300 hover:text-amber-200 font-bold ml-1">Claim $10 TikTok Opt-In Discount ($9 Total) →</button>
+    </span>
+  </div>
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#090A0F]/90 border-b border-[#24283B]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <!-- Brand -->
+      <div class="flex items-center gap-3.5 cursor-pointer" onclick="switchMainTab('studio')">
+        <img src="assets/logo.svg" alt="Pawsport.ai Logo" class="w-11 h-11 rounded-xl shadow-lg shadow-amber-500/10" />
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display text-xl font-black tracking-tight text-white">PAWSPORT<span class="text-amber-400">.AI</span></span>
+            <span class="text-[10px] mono uppercase px-2 py-0.5 rounded-full bg-pink-500/15 text-pink-300 border border-pink-500/30 font-semibold">Petstar Studio</span>
+          </div>
+          <p class="text-xs text-gray-400">Turn Your Pet Into a Viral Movie Star &amp; Custom Merch Line in 4 Minutes</p>
+        </div>
+      </div>
+
+      <!-- Pet Star Order Switcher -->
+      <div class="flex items-center gap-1.5 bg-[#12141E] p-1.5 rounded-xl border border-[#24283B]" id="orderSwitcherBar">
+        <span class="text-[11px] mono text-gray-400 px-2 hidden sm:inline">STARRING:</span>
+        <button onclick="loadOrder('paw849201')" id="pill-paw849201" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-500 text-black">
+          🐕 Barnaby (Golden)
+        </button>
+        <button onclick="loadOrder('paw910442')" id="pill-paw910442" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-300 hover:text-white">
+          🐾 Mochi (Frenchie)
+        </button>
+        <button onclick="loadOrder('paw773190')" id="pill-paw773190" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-300 hover:text-white">
+          🐈‍⬛ Luna (Tuxedo Cat)
+        </button>
+      </div>
+
+      <!-- Main Tabs -->
+      <div class="flex items-center gap-2">
+        <button onclick="switchMainTab('studio')" id="tabBtn-studio" class="px-3.5 py-2 rounded-xl text-xs font-bold border border-amber-500/50 bg-amber-500/15 text-amber-300 transition-all">
+          🎬 Pawsport Studio
+        </button>
+        <button onclick="switchMainTab('cast')" id="tabBtn-cast" class="px-3.5 py-2 rounded-xl text-xs font-bold btn-gold">
+          + Cast My Pet ($9)
+        </button>
+        <button onclick="switchMainTab('operator')" id="tabBtn-operator" class="px-3.5 py-2 rounded-xl text-xs font-bold border border-[#24283B] bg-[#12141E] text-gray-300 hover:text-white transition-all">
+          ⚙️ 4-Min Map &amp; GitHub API
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- TAB 1: PAWSPORT STUDIO (CLIENT PAYOFF PORTAL & 1-CLICK MERCH STORE)   -->
+  <!-- ===================================================================== -->
+  <main id="tab-studio" class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 space-y-8">
+
+    <!-- Top Movie Marquee Bar -->
+    <div class="card-cinema rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 border-l-4 border-l-amber-400">
+      <div class="space-y-1">
+        <div class="flex flex-wrap items-center gap-2">
+          <span id="uiPackageBadge" class="text-[11px] mono uppercase px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold">
+            Node A: $9 Make My Pet Famous
+          </span>
+          <span id="uiBreedBadge" class="text-xs text-gray-300 font-medium">Golden Retriever • @golden_barnaby</span>
+          <span id="uiViralLift" class="text-[11px] mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">+340% Share Velocity</span>
+        </div>
+        <h1 id="uiMovieTitle" class="font-display text-2xl sm:text-3xl font-black tracking-tight text-white">
+          “CRIMSON: THE CHEESE HEIST”
+        </h1>
+        <p id="uiMovieTagline" class="text-xs sm:text-sm text-amber-300/90 italic">
+          No counter is safe. No cheddar is sacred.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="text-right">
+          <div class="text-[11px] mono uppercase text-gray-400">Box Office Charisma</div>
+          <div class="flex items-baseline gap-1 justify-end">
+            <span id="uiStarringScore" class="font-display text-3xl font-black text-amber-400">98</span>
+            <span class="text-xs text-gray-400">/100</span>
+          </div>
+        </div>
+        <div class="h-10 w-px bg-[#24283B]"></div>
+        <button onclick="scrollToMerch()" class="btn-cinema px-4 py-2.5 rounded-xl text-xs font-extrabold shadow-lg">
+          🛍️ 1-Click Pet Merch Store ↓
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Studio Grid: Left (Interactive Poster Slider + 15s Trailer + 3 Posters) | Right (Roast + Pawsport ID Card) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- LEFT COLUMN (8 Cols) -->
+      <div class="lg:col-span-8 space-y-5">
+
+        <!-- Interactive Real Photo vs Pixar Movie Poster Split Comparison -->
+        <div class="card-cinema rounded-2xl overflow-hidden shadow-2xl">
+          <!-- Stage Top Bar -->
+          <div class="px-4 py-3 bg-[#0E1018] border-b border-[#24283B] flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <span class="text-xs font-bold tracking-wide uppercase text-gray-200">Interactive Photo-to-Movie-Poster Split Stage</span>
+              <span id="uiActivePosterBadge" class="text-[11px] mono px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                Pixar / Disney 3D Studio Render
+              </span>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <button onclick="setSliderValue(15)" class="text-gray-400 hover:text-white mono">Guilty Photo</button>
+              <input id="splitRangeInput" type="range" min="0" max="100" value="78" class="w-28 sm:w-36" oninput="updateSplitPosition(this.value)" />
+              <button onclick="setSliderValue(92)" class="text-amber-400 hover:text-amber-300 font-bold mono">Movie Poster</button>
+            </div>
+          </div>
+
+          <!-- Split Canvas Stage -->
+          <div id="splitStage" class="relative w-full h-[460px] sm:h-[520px] select-none overflow-hidden bg-black cursor-ew-resize"
+               onmousedown="startStageDrag(event)" ontouchstart="startStageDrag(event)">
+
+            <!-- BASE LAYER: AFTER (AI MOVIE POSTER WITH CINEMA TYPOGRAPHY OVERLAY) -->
+            <div class="absolute inset-0 w-full h-full">
+              <img id="afterPosterImg" src="" alt="AI Movie Poster" class="w-full h-full object-cover transition-all duration-300" />
+              <!-- Theatrical Vignette & Movie Poster Typography Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-black/75 flex flex-col justify-between p-6 sm:p-8 pointer-events-none">
+                <!-- Top Billing & Title -->
+                <div class="text-center space-y-1">
+                  <p id="posterTopSubtitle" class="text-[10px] sm:text-xs mono tracking-[0.28em] text-amber-300 uppercase font-bold poster-text-shadow">
+                    A PAWSPORT STUDIOS ORIGINAL • STARRING BARNABY
+                  </p>
+                  <h2 id="posterTopTitle" class="font-poster text-2xl sm:text-4xl font-black tracking-wider text-white uppercase poster-text-shadow">
+                    CRIMSON: THE CHEESE HEIST
+                  </h2>
+                </div>
+
+                <!-- Bottom Credits Block -->
+                <div class="text-center space-y-2">
+                  <p id="posterBottomTagline" class="text-xs sm:text-sm font-semibold italic text-amber-200 poster-text-shadow">
+                    “No counter is safe. No cheddar is sacred.”
+                  </p>
+                  <div class="text-[9px] sm:text-[10px] mono tracking-[0.18em] text-gray-300/90 uppercase leading-tight poster-text-shadow">
+                    PAWSPORT PICTURES PRESENTS A FLUX LORA PRODUCTION • EXECUTIVE PRODUCER <span id="posterCreditOwner">@GOLDEN_BARNABY</span><br/>
+                    DIRECTED BY CLAUDE 4.5 &amp; GEMINI VISION • ANIMATED IN KLING 1.6 • SOUNDTRACK BY ELEVENLABS
+                  </div>
+                  <div class="inline-flex items-center gap-2 pt-1">
+                    <span class="px-2 py-0.5 rounded border border-amber-400/60 bg-black/60 text-[10px] mono font-bold text-amber-300">RATED PG-13 • EXTREME SIDE-EYE</span>
+                    <span class="px-2 py-0.5 rounded border border-white/30 bg-black/60 text-[10px] mono text-white">IMAX 9:16</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CLIPPED LAYER: BEFORE (ORIGINAL GUILTY PET PHOTO) -->
+            <div id="beforeClipLayer" class="absolute inset-0 overflow-hidden" style="width: 22%;">
+              <img id="beforePetImg" src="" alt="Original Uploaded Pet Photo" class="h-full object-cover max-w-none" style="width: 800px;" />
+              <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[11px] mono font-bold text-white shadow">
+                📸 0:00 REAL GUILTY PHOTO
+              </div>
+            </div>
+
+            <!-- Badge top-right -->
+            <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-500/90 text-black text-[11px] mono font-extrabold shadow-lg pointer-events-none">
+              🎬 AI MOVIE POSTER
+            </div>
+
+            <!-- Vertical Divider Line & Handle -->
+            <div id="splitDividerLine" class="absolute top-0 bottom-0 w-0.5 bg-amber-400 shadow-[0_0_15px_#F59E0B] pointer-events-none" style="left: 22%;">
+              <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-amber-400 text-black font-black flex items-center justify-center shadow-xl border-2 border-white text-xs">
+                ⇄
+              </div>
+            </div>
+
+            <!-- Live 15-Sec Trailer Caption Overlay -->
+            <div id="trailerCaptionOverlay" class="hidden absolute bottom-20 left-1/2 -translate-x-1/2 w-[90%] max-w-xl bg-black/85 border border-amber-400/60 rounded-xl px-4 py-3 text-center shadow-2xl pointer-events-none">
+              <div class="text-[10px] mono uppercase text-amber-400 font-bold mb-0.5">🎙️ EPIC MOVIE TRAILER VOICEOVER (ELEVENLABS)</div>
+              <p id="trailerLiveCaptionText" class="text-xs sm:text-sm font-bold text-white"></p>
+            </div>
+          </div>
+
+          <!-- 15-Sec Viral Movie Trailer Player Bar -->
+          <div class="p-4 bg-[#0D0F17] border-t border-[#24283B] flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <button id="playTrailerBtn" onclick="toggleTrailerPlayback()" class="btn-gold px-4 py-2 rounded-xl text-xs font-extrabold flex items-center gap-2">
+                <span id="playTrailerIcon">▶</span>
+                <span id="playTrailerLabel">Play 15-Sec Movie Trailer</span>
+              </button>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-bold text-white">15-Sec 9:16 TikTok / Reels Movie Trailer</span>
+                  <span id="trailerTimeLabel" class="text-[11px] mono text-amber-400">0:00 / 0:15</span>
+                </div>
+                <p id="trailerScriptPreview" class="text-xs text-gray-400 line-clamp-1">
+                  Click Play to hear the “Epic Movie Trailer Guy” voiceover + automatic photo-to-poster reveal!
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <label class="inline-flex items-center gap-1.5 text-xs text-gray-300 cursor-pointer select-none">
+                <input type="checkbox" id="voiceoverToggle" checked class="accent-amber-400 rounded" />
+                <span>🔊 Trailer Voiceover</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Selectable Movie Poster Themes -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xs mono uppercase tracking-wider text-gray-400 font-bold">
+              🎨 Select Included High-Res Movie Poster Theme (Updates Stage &amp; Merch Below)
+            </h3>
+            <span class="text-xs text-amber-400 mono">Flux IP-Adapter / PuLID Fur-Lock Active</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5" id="posterThemeCards">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN (4 Cols): Brutal Bio Roast + Official Pawsport Pet ID Card -->
+      <div class="lg:col-span-4 space-y-5">
+
+        <!-- Brutal Bio Roast Box -->
+        <div class="roast-banner rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] mono uppercase tracking-wider px-2.5 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/40 font-bold">
+              🔥 The Brutal Bio Roast
+            </span>
+            <button onclick="copyRoastQuote()" id="copyRoastBtn" class="text-xs mono text-gray-300 hover:text-amber-300 underline">
+              Copy Caption
+            </button>
+          </div>
+          <blockquote id="uiRoastSummary" class="text-sm sm:text-base font-bold text-white leading-relaxed">
+            “Barnaby has the soulful eyes of a Victorian orphan and the criminal record of a career safe-cracker...”
+          </blockquote>
+          <div class="pt-1 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-300">
+            <span>🎙️ 40-Word Trailer Script Ready</span>
+            <span class="text-amber-300 font-semibold">✓ Verified by Pawsport.ai</span>
+          </div>
+        </div>
+
+        <!-- Official "Pawsport Pet ID" Card -->
+        <div class="pawsport-id-card rounded-2xl p-5 space-y-4 shadow-xl">
+          <div class="flex items-center justify-between border-b border-[#24283B] pb-3">
+            <div class="flex items-center gap-2.5">
+              <img src="assets/logo.svg" alt="Seal" class="w-8 h-8 rounded-lg" />
+              <div>
+                <div class="text-[10px] mono uppercase tracking-widest text-amber-400 font-bold">OFFICIAL DIGITAL DOCUMENT</div>
+                <div class="text-sm font-black tracking-wide text-white">PAWSPORT PET ID CARD</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div id="uiSerialNumber" class="text-xs mono font-bold text-amber-300">PAW-2026-8492</div>
+              <div class="text-[10px] mono text-emerald-400">● BIOMETRIC FUR LOCK</div>
+            </div>
+          </div>
+
+          <!-- Pet Biometrics Grid -->
+          <div class="grid grid-cols-2 gap-2.5 text-xs bg-[#0B0D14] p-3 rounded-xl border border-[#24283B]">
+            <div>
+              <span class="text-[10px] mono uppercase text-gray-400 block">ALIAS / CODENAME</span>
+              <span id="uiCodename" class="font-extrabold text-amber-300">THE GOLDEN GOURMET</span>
+            </div>
+            <div>
+              <span class="text-[10px] mono uppercase text-gray-400 block">THREAT LEVEL</span>
+              <span id="uiThreatLevel" class="font-extrabold text-rose-400">DEFCON 1 (DAIRY FELON)</span>
+            </div>
+            <div class="col-span-2 pt-1 border-t border-[#1E2233]">
+              <span class="text-[10px] mono uppercase text-gray-400 block">LOCKED FUR &amp; COLLAR MARKINGS (FLUX PULID)</span>
+              <span id="uiMarkings" class="text-gray-200 text-xs">Honey-gold double coat, white chest blaze, red leather brass-tag collar</span>
+            </div>
+          </div>
+
+          <!-- 3 Indicted Domestic Felonies -->
+          <div class="space-y-2.5">
+            <div class="text-[11px] mono uppercase text-gray-400 font-bold">📋 Indicted Domestic Felonies (3)</div>
+            <div id="uiCrimesList" class="space-y-2">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Dual-Channel Viral Share Box -->
+        <div class="card-cinema rounded-2xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-white">🔄 Dual-Channel Viral Distribution</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300">ManyChat Ready</span>
+          </div>
+          <p class="text-xs text-gray-400">
+            Posted on <b>@pawsport.ai</b> (tagging <span id="uiShareHandle" class="text-amber-300 font-semibold">@golden_barnaby</span>) + sent to owner for IG Story / TikTok repost.
+          </p>
+          <div class="flex gap-2">
+            <button onclick="copyViralHook()" id="copyHookBtn" class="flex-1 py-2 px-3 rounded-xl bg-[#1A1D2B] hover:bg-[#23273A] border border-[#2E334B] text-xs font-bold text-gray-200 transition-all">
+              📋 Copy TikTok “Comment PAW” Hook
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- 1-CLICK CUSTOM MERCH STORE (PRINTIFY / GELATO AUTO-MOCKUP)          -->
+    <!-- =================================================================== -->
+    <section id="merchStoreSection" class="pt-4 space-y-4">
+      <div class="flex flex-wrap items-end justify-between gap-4 border-b border-[#24283B] pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] mono uppercase px-2.5 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-500/30 font-bold">
+              Node C • 1-Click Print-On-Demand (~45% Margin)
+            </span>
+            <span class="text-xs mono text-gray-400">Auto-Mocked via Printify &amp; Gelato API at Minute 3:00</span>
+          </div>
+          <h2 class="font-display text-2xl font-black text-white mt-1">
+            🛍️ Official <span id="uiMerchPetName" class="text-amber-400">Barnaby</span> Movie Merch Store
+          </h2>
+        </div>
+        <p class="text-xs text-gray-400 max-w-md">
+          Every item below is dynamically mocked up with your currently selected Movie Poster (<span id="uiMerchActivePosterName" class="text-amber-300 font-semibold">Poster 1</span>). Zero inventory required.
+        </p>
+      </div>
+
+      <div id="merchGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Populated dynamically with live visual product mockups -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- TAB 2: + CAST MY PET (TALLY.SO + STRIPE INTAKE & CHECKOUT FUNNEL)     -->
+  <!-- ===================================================================== -->
+  <section id="tab-cast" class="hidden max-w-4xl mx-auto px-4 sm:px-6 pt-8 space-y-6">
+    <div class="card-cinema rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl border-t-4 border-t-amber-400">
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#24283B] pb-5">
+        <div>
+          <span class="text-[11px] mono uppercase px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold">
+            Minute 0:00 Intake • 4-Minute AI Fulfillment
+          </span>
+          <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-2">
+            🎬 Turn Your Pet Into a Viral Movie Star
+          </h2>
+          <p class="text-sm text-gray-400 mt-1">
+            Upload your pet’s photo + 3 personality traits. Our Gemini Vision + Nano Banana Poster Engine builds your complete Pawsport bundle immediately.
+          </p>
+        </div>
+        <div class="flex flex-col items-end gap-1">
+          <span class="text-[11px] mono text-gray-400">Quick-Fill Demo Pet:</span>
+          <div class="flex gap-1.5">
+            <button type="button" onclick="prefillSamplePet('dachshund')" class="px-2.5 py-1 rounded-lg bg-[#1A1D2C] hover:bg-[#25293D] text-xs font-semibold text-amber-300 border border-amber-500/30">
+              🌭 Chorizo (Dachshund)
+            </button>
+            <button type="button" onclick="prefillSamplePet('corgi')" class="px-2.5 py-1 rounded-lg bg-[#1A1D2C] hover:bg-[#25293D] text-xs font-semibold text-pink-300 border border-pink-500/30">
+              🍑 Waffle (Corgi)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <form id="castPetForm" onsubmit="submitCastPetForm(event)" class="space-y-6">
+        <!-- Step 1: Upload 3 Pet Photos -->
+        <div class="space-y-2">
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300">
+            1. Upload Pet Photo(s) (Locks Exact Fur Markings, Collar &amp; Expression) *
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <label class="col-span-1 sm:col-span-2 flex flex-col items-center justify-center border-2 border-dashed border-amber-500/40 hover:border-amber-400 rounded-2xl p-5 cursor-pointer bg-[#0D0F17] transition-all">
+              <input type="file" id="petPhotoInput" accept="image/*" class="hidden" onchange="handlePetPhotoUpload(event)" />
+              <div class="text-center space-y-1">
+                <div class="text-2xl">📸</div>
+                <div class="text-xs font-bold text-amber-300">Click to Upload Primary Pet Photo (JPG/PNG)</div>
+                <div class="text-[11px] text-gray-400">Or paste an image URL below • Works with dogs, cats &amp; chaos goblins</div>
+              </div>
+            </label>
+            <div class="relative rounded-2xl overflow-hidden border border-[#24283B] bg-black h-36 flex items-center justify-center">
+              <img id="uploadPreviewImg" src="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?auto=format&fit=crop&w=800&q=80" alt="Preview" class="w-full h-full object-cover" />
+              <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[10px] mono text-amber-300">PuLID Reference Locked</span>
+            </div>
+          </div>
+          <input type="url" id="petImageUrlInput" placeholder="Optional: Or paste a direct pet photo URL..."
+                 value="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?auto=format&fit=crop&w=800&q=80"
+                 oninput="syncUrlPreview(this.value)"
+                 class="w-full px-3.5 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-xs text-gray-200 focus:outline-none focus:border-amber-400" />
+        </div>
+
+        <!-- Step 2: Pet Name, Breed, Social Handle -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">2. Pet’s Name *</label>
+            <input type="text" id="petNameInput" required value="Chorizo" placeholder="e.g. Barnaby, Mochi, Luna"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">3. Species &amp; Breed *</label>
+            <input type="text" id="petBreedInput" required value="Miniature Dachshund" placeholder="e.g. Golden Retriever, Tuxedo Cat"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">4. Owner TikTok / IG Handle *</label>
+            <input type="text" id="ownerHandleInput" required value="@chorizo_longboy" placeholder="@your_handle (for repost tag)"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+        </div>
+
+        <!-- Step 3: 3 Personality Traits / Domestic Crimes & Movie Genre -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
+              5. Three Personality Traits / Domestic Crimes *
+            </label>
+            <input type="text" id="petTraitsInput" required
+                   value="Built like a footlong hotdog, barks at the wind, burrows under 6 blankets to steal socks"
+                   placeholder="e.g. Steals cheese off the counter, side-eyes strangers, terrified of the vacuum"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
+              6. Blockbuster Genre *
+            </label>
+            <select id="petGenreInput" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400">
+              <option value="Pixar Heist Blockbuster">Pixar Heist Blockbuster</option>
+              <option value="Sci-Fi Action Epic">Sci-Fi Action Epic</option>
+              <option value="Noir Crime Thriller">Noir Crime Thriller</option>
+              <option value="Royal Renaissance Drama">Royal Renaissance Drama</option>
+              <option value="Jurassic Kaiju Comedy">Jurassic Kaiju Comedy</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 4: Pricing Tier Selector ($9 Opt-In vs $24 Private VIP) -->
+        <div class="space-y-3">
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300">
+            7. Select Your Pawsport Package Tier *
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Node A: $9 Make My Pet Famous -->
+            <div id="tierCardPublic" onclick="selectCheckoutTier('public')" class="cursor-pointer rounded-2xl p-4 border-2 border-amber-400 bg-amber-500/10 transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-extrabold uppercase text-amber-300">🔥 Node A: “Make My Pet Famous”</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-xs line-through text-gray-400">$19</span>
+                  <span class="font-display text-2xl font-black text-white">$9</span>
+                </div>
+              </div>
+              <p class="text-xs text-gray-300 mt-1.5">
+                Includes 15-sec Movie Trailer, 3 Posters &amp; Pet ID Card. <b>$10 off</b> for letting us feature your pet on our TikTok/Reels feed &amp; tag your handle!
+              </p>
+            </div>
+
+            <!-- Node B: $24 Private VIP Bundle -->
+            <div id="tierCardPrivate" onclick="selectCheckoutTier('private')" class="cursor-pointer rounded-2xl p-4 border border-[#24283B] bg-[#0D0F17] hover:border-gray-500 transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-extrabold uppercase text-pink-300">👑 Node B: Private VIP Bundle</span>
+                <span class="font-display text-2xl font-black text-white">$24</span>
+              </div>
+              <p class="text-xs text-gray-400 mt-1.5">
+                100% private portal delivery + uncompressed 4K print files + 3 extra cinema themes. Not posted on public social feeds.
+              </p>
+            </div>
+          </div>
+
+          <!-- Optional 1-Click Merch Order Bump -->
+          <label class="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-pink-500/10 to-violet-500/10 border border-pink-500/30 cursor-pointer">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" id="canvasBumpCheckbox" onchange="recalcCheckoutTotal()" class="w-4 h-4 accent-amber-400" />
+              <div>
+                <div class="text-xs font-extrabold text-white">
+                  🎁 1-Click Order Bump: Add 16x20" Framed Movie Poster Canvas (+$39 — Save $10)
+                </div>
+                <div class="text-[11px] text-gray-300">
+                  Auto-printed &amp; shipped to your door via Printify Gallery Frame.
+                </div>
+              </div>
+            </div>
+            <span class="mono text-xs font-bold text-pink-300">+$39</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+          <div class="text-xs text-gray-400">
+            🔒 Stripe Verified • Instant 4-Minute AI Pipeline (`gemini-3.8-flash` + `gemini-nano-banana-2.1`)
+          </div>
+          <button type="submit" id="submitCastBtn" class="btn-gold px-7 py-3.5 rounded-2xl text-sm font-black shadow-xl flex items-center gap-2">
+            <span>🎬 Generate My Pet’s Movie Trailer &amp; Posters</span>
+            <span id="submitPriceBadge" class="px-2 py-0.5 rounded bg-black/20 text-xs mono">$9.00</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- TAB 3: OPERATOR, 4-MIN PIPELINE, VIRAL FLYWHEEL & GITHUB ORG API      -->
+  <!-- ===================================================================== -->
+  <section id="tab-operator" class="hidden max-w-7xl mx-auto px-4 sm:px-6 pt-8 space-y-8">
+
+    <!-- 1. The 4-Minute AI Fulfillment Map & Unit Economics -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-7 card-cinema rounded-2xl p-6 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="font-display text-lg font-black text-white">⚙️ The 4-Minute AI Fulfillment Map</h3>
+          <span class="text-xs mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">~$0.82 Total API Cost / Order</span>
+        </div>
+        <div class="space-y-3 text-xs">
+          <div class="p-3.5 rounded-xl bg-[#0D0F17] border border-[#24283B] flex items-start gap-3">
+            <span class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 mono font-bold">0:00</span>
+            <div>
+              <div class="font-bold text-white">INTAKE: Tally.so Form + Stripe ($9 Public / $24 VIP)</div>
+              <p class="text-gray-400">Captures 3 pet photos, 3 personality traits, owner handle, and triggers Make.com / `/api/cast` webhook.</p>
+            </div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-[#0D0F17] border border-[#24283B] flex items-start gap-3">
+            <span class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 mono font-bold">0:30</span>
+            <div>
+              <div class="font-bold text-white">PET LORA &amp; SCRIPT ENGINE: Claude 4.5 / Gemini 3.8 Flash + Fal.ai PuLID</div>
+              <p class="text-gray-400">Scans the 3 pet photos for exact breed markings, collar, and expression. Writes the 40-word Movie Trailer voiceover script and locks fur markings via Flux IP-Adapter / PuLID.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <div class="p-3 rounded-xl bg-[#0D0F17] border border-amber-500/30">
+              <div class="mono text-[10px] text-amber-400 font-bold">MINUTE 1:30 • BRANCH A</div>
+              <div class="font-bold text-white mt-0.5">Poster Generator</div>
+              <p class="text-gray-400 text-[11px] mt-1">Generates 3 high-res movie posters with native title typography in Flux / Nano Banana 2.1.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-[#0D0F17] border border-pink-500/30">
+              <div class="mono text-[10px] text-pink-400 font-bold">MINUTE 2:30 • BRANCH B</div>
+              <div class="font-bold text-white mt-0.5">Trailer Animator</div>
+              <p class="text-gray-400 text-[11px] mt-1">Runway Gen-3 / Kling animates a 5s clip + ElevenLabs voiceover + Creatomate 15s MP4.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-[#0D0F17] border border-emerald-500/30">
+              <div class="mono text-[10px] text-emerald-400 font-bold">MINUTE 3:00 • BRANCH C</div>
+              <div class="font-bold text-white mt-0.5">Auto-Merch Mockup</div>
+              <p class="text-gray-400 text-[11px] mt-1">Pushes poster PNG into Printify / Gelato API for 1-click $49 framed canvas checkout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue & Unit Economics Table -->
+      <div class="lg:col-span-5 card-cinema rounded-2xl p-6 space-y-4">
+        <h3 class="font-display text-lg font-black text-white">💰 Revenue &amp; Unit Economics Map</h3>
+        <div class="space-y-2.5 text-xs">
+          <div class="p-3 rounded-xl bg-[#0D0F17] border border-[#24283B] flex justify-between items-center">
+            <div>
+              <div class="font-bold text-amber-300">Node A: “Make My Pet Famous”</div>
+              <div class="text-gray-400">Owner allows pet in public TikTok/Reels feed</div>
+            </div>
+            <div class="text-right">
+              <div class="font-black text-white text-sm">$9</div>
+              <div class="text-[10px] mono text-emerald-400">~88% Margin</div>
+            </div>
+          </div>
+          <div class="p-3 rounded-xl bg-[#0D0F17] border border-[#24283B] flex justify-between items-center">
+            <div>
+              <div class="font-bold text-pink-300">Node B: Private VIP Bundle</div>
+              <div class="text-gray-400">Private delivery + 4K print files + 3 themes</div>
+            </div>
+            <div class="text-right">
+              <div class="font-black text-white text-sm">$24</div>
+              <div class="text-[10px] mono text-emerald-400">~92% Margin</div>
+            </div>
+          </div>
+          <div class="p-3 rounded-xl bg-[#0D0F17] border border-[#24283B] flex justify-between items-center">
+            <div>
+              <div class="font-bold text-violet-300">Node C: 1-Click Print-on-Demand</div>
+              <div class="text-gray-400">Printify/Gelato Canvas, Hoodie, Mug, Tote</div>
+            </div>
+            <div class="text-right">
+              <div class="font-black text-white text-sm">$39–$89</div>
+              <div class="text-[10px] mono text-emerald-400">~45% Margin</div>
+            </div>
+          </div>
+          <div class="p-3 rounded-xl bg-[#0D0F17] border border-[#24283B] flex justify-between items-center">
+            <div>
+              <div class="font-bold text-emerald-300">Node D: Pet Brand Sponsorships</div>
+              <div class="text-gray-400">Pet food/insurance sponsors weekly Top 5</div>
+            </div>
+            <div class="text-right">
+              <div class="font-black text-white text-sm">$1.5k–$4k/mo</div>
+              <div class="text-[10px] mono text-emerald-400">B2B Layer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 30-Day Launch Roadmap -->
+    <div class="card-cinema rounded-2xl p-6 space-y-4">
+      <h3 class="font-display text-lg font-black text-white">📅 30-Day Viral Launch Roadmap</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 rounded-xl bg-[#0D0F17] border border-amber-500/30 space-y-2">
+          <div class="mono text-amber-400 font-bold">PHASE 1: SEED (DAYS 1–5)</div>
+          <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
+            <li>Take 5 dogs/cats from friends or Reddit (<code>r/roastmypet</code>)</li>
+            <li>Generate 5 “Movie Trailer Roasts” using Flux + ElevenLabs</li>
+            <li>Post 2x/day across TikTok, IG Reels, and YouTube Shorts</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0D0F17] border border-pink-500/30 space-y-2">
+          <div class="mono text-pink-400 font-bold">PHASE 2: LAUNCH (DAYS 6–15)</div>
+          <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
+            <li>Launch Tally + Stripe checkout ($9 Public / $24 VIP)</li>
+            <li>Set up ManyChat: <i>“Comment PAW and I’ll DM you the link to turn your dog into a poster”</i></li>
+            <li>Feature customer pets daily and tag owners for reposts</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0D0F17] border border-emerald-500/30 space-y-2">
+          <div class="mono text-emerald-400 font-bold">PHASE 3: SCALE (DAYS 16–30)</div>
+          <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
+            <li>Add breed-specific landing pages (Dachshunds, Golden Retrievers, Frenchies)</li>
+            <li>Add a 1-click holiday gift upsell ($49–$59 framed canvas shipped to their door)</li>
+            <li>Pitch weekly “Top 5 Guilty Pets” sponsorships to pet brands</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. GitHub REST API (2026-03-10) Organization Repository Creator (`POST /orgs/{org}/repos`) -->
+    <div class="card-cinema rounded-2xl p-6 space-y-5 border border-amber-500/40">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#24283B] pb-4">
+        <div>
+          <span class="text-[11px] mono uppercase px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold">
+            GitHub REST API • apiVersion=2026-03-10
+          </span>
+          <h3 class="font-display text-xl font-black text-white mt-1">
+            🚀 Create Organization Repository (`POST /orgs/{org}/repos`)
+          </h3>
+          <p class="text-xs text-gray-400">
+            Live integration with <code>https://api.github.com/orgs/{org}/repos</code> (with automatic personal repo fallback if your account has no orgs).
+          </p>
+        </div>
+        <a href="https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-an-organization-repository" target="_blank"
+           class="text-xs mono text-amber-300 hover:underline">
+          View GitHub 2026-03-10 Docs ↗
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+        <div>
+          <label class="block font-bold text-gray-300 mb-1">Organization (`org` path param) *</label>
+          <input type="text" id="ghOrgInput" value="ZaddyHaze" placeholder="e.g. my-org or ZaddyHaze"
+                 class="w-full px-3 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-white mono" />
+        </div>
+        <div>
+          <label class="block font-bold text-gray-300 mb-1">Repository Name (`name`) *</label>
+          <input type="text" id="ghRepoNameInput" value="petstar-pawsport-ai"
+                 class="w-full px-3 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-white mono" />
+        </div>
+        <div>
+          <label class="block font-bold text-gray-300 mb-1">Visibility</label>
+          <select id="ghVisibilityInput" class="w-full px-3 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-white mono">
+            <option value="public">public (private: false)</option>
+            <option value="private">private (private: true)</option>
+          </select>
+        </div>
+        <div class="flex items-end">
+          <button onclick="triggerGitHubRepoCreate()" id="ghCreateBtn" class="w-full btn-gold py-2.5 px-4 rounded-xl font-extrabold">
+            ⚡ POST /orgs/{org}/repos
+          </button>
+        </div>
+      </div>
+
+      <pre id="ghApiResponseBox" class="p-4 rounded-xl bg-[#07080C] border border-[#24283B] text-[11px] mono text-emerald-300 overflow-x-auto max-h-60">curl -L -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer &lt;YOUR-TOKEN&gt;" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/orgs/ORG/repos \
+  -d '{"name":"petstar-pawsport-ai","description":"Pawsport.ai (Petstar) — 24-Hour Viral Pet Persona & Custom Merch Studio","private":false,"has_issues":true,"has_projects":true,"has_wiki":true}'</pre>
+    </div>
+
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 1-CLICK PRINTIFY / GELATO MERCH CHECKOUT MODAL                        -->
+  <!-- ===================================================================== -->
+  <div id="merchModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="card-cinema rounded-3xl max-w-lg w-full p-6 space-y-4 border border-amber-400/50 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-[#24283B] pb-3">
+        <div>
+          <span class="text-[10px] mono uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">Printify / Gelato API Auto-Mockup</span>
+          <h4 id="modalMerchTitle" class="font-display text-lg font-black text-white mt-1">16x20" Framed Gallery Canvas</h4>
+        </div>
+        <button onclick="closeMerchModal()" class="text-gray-400 hover:text-white text-lg font-bold">✕</button>
+      </div>
+      <div class="flex items-center gap-4 bg-[#0D0F17] p-3.5 rounded-2xl border border-[#24283B]">
+        <img id="modalMerchImg" src="" alt="Merch Preview" class="w-20 h-24 object-cover rounded-xl border border-amber-400/40" />
+        <div class="text-xs space-y-1">
+          <div id="modalMerchStar" class="font-bold text-amber-300">Starring: Barnaby</div>
+          <div id="modalMerchProvider" class="text-gray-400">Fulfilled by Printify • Sensaria Gallery Frame</div>
+          <div id="modalMerchPrice" class="font-display text-xl font-black text-white">$49.00</div>
+        </div>
+      </div>
+      <div class="space-y-1">
+        <div class="text-[10px] mono uppercase text-gray-400">Auto-Generated Printify API Payload (Minute 3:00):</div>
+        <pre id="modalMerchPayload" class="p-3 rounded-xl bg-black border border-[#24283B] text-[10px] mono text-amber-300 overflow-x-auto"></pre>
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closeMerchModal()" class="px-4 py-2 rounded-xl bg-[#1A1D2C] text-xs font-bold text-gray-300">Close</button>
+        <button onclick="confirmMerchOrder()" id="confirmMerchBtn" class="btn-gold px-5 py-2 rounded-xl text-xs font-extrabold">
+          ✓ Complete 1-Click Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- APPLICATION JAVASCRIPT                                                -->
+  <!-- ===================================================================== -->
+  <script>
+    const FALLBACK_ORDERS = {
+      "paw849201": {
+        "id": "paw849201",
+        "petName": "Barnaby",
+        "ownerHandle": "@golden_barnaby",
+        "breed": "Golden Retriever",
+        "markings": "Honey-gold double coat, white chest blaze, red leather brass-tag collar",
+        "traits": "Steals aged cheddar off the kitchen island, weaponizes guilty puppy eyes, terrified of the Roomba",
+        "genre": "Pixar Heist Blockbuster",
+        "packageTier": "Node A: $9 Make My Pet Famous",
+        "movieTitle": "CRIMSON: THE CHEESE HEIST",
+        "movieTagline": "No counter is safe. No cheddar is sacred.",
+        "starringScore": 98,
+        "viralLift": "+340% Share Velocity",
+        "serialNumber": "PAW-2026-8492",
+        "codename": "THE GOLDEN GOURMET",
+        "threatLevel": "DEFCON 1 (DAIRY FELON)",
+        "beforeImg": "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1000&q=85",
+        "roastSummary": "“Barnaby has the soulful eyes of a Victorian orphan and the criminal record of a career safe-cracker who just inhaled $14 of artisanal Kerrygold cheddar in 2.4 seconds.”",
+        "trailerVoiceover": "In a world where no kitchen island is safe... one Golden Retriever risked it all for fourteen ounces of aged sharp cheddar. Coming this summer: Crimson, The Cheese Heist. Rated PG-13 for extreme side-eye.",
+        "roastCaptions": [
+          "0:00–0:03 • Look at this guilty face! @golden_barnaby just cleared a 42-inch counter for sharp cheddar!",
+          "0:03–0:10 • In a world where no charcuterie board survives... he leaves zero crumbs and zero remorse.",
+          "0:10–0:15 • Coming this Friday: 'CRIMSON: THE CHEESE HEIST' — Comment PAW to turn your pet into a poster!"
+        ],
+        "crimes": [
+          {"code": "FELONY_01: GRAND THEFT DAIRY", "tag": "CAUGHT IN 4K", "color": "text-rose-400", "desc": "Executed a silent counter-surf maneuver to liberate a full block of aged cheddar without disturbing the cheese knife."},
+          {"code": "FELONY_02: WEAPONIZED PUPPY EYES", "tag": "ZERO REMORSE", "color": "text-amber-400", "desc": "Deploys a 45-degree head tilt and brow furrow that instantly nullifies all household disciplinary protocols."},
+          {"code": "FELONY_03: ROOMBA EVASION", "tag": "LOCKED IN LORA", "color": "text-emerald-400", "desc": "Barks heroically at delivery trucks while retreating to the sofa whenever the robot vacuum undocks."}
+        ],
+        "posters": {
+          "1": {"name": "Poster 1: Pixar Animated Heist", "themeBadge": "Pixar / Disney 3D Studio Render", "titleOverlay": "CRIMSON: THE CHEESE HEIST", "subtitleOverlay": "A PAWSPORT STUDIOS ORIGINAL • STARRING BARNABY", "img": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=1000&q=85", "filterStyle": "contrast(1.14) saturate(1.38) brightness(1.03)"},
+          "2": {"name": "Poster 2: Mission Impossible Action", "themeBadge": "IMAX Action Blockbuster Render", "titleOverlay": "PROTOCOL: GOLDEN PAW", "subtitleOverlay": "HE DOES HIS OWN STUNTS • IN THEATERS FRIDAY", "img": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1000&q=85", "filterStyle": "contrast(1.24) saturate(1.2) hue-rotate(-8deg)"},
+          "3": {"name": "Poster 3: Royal Detective Noir", "themeBadge": "Prestige Cinema & Gallery Portrait", "titleOverlay": "LORD BARNABY OF CHEDDAR", "subtitleOverlay": "CRIME NEVER LOOKED THIS FLUFFY • MMXXVI", "img": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=85", "filterStyle": "contrast(1.18) sepia(0.22) saturate(1.3)"}
+        },
+        "merch": [
+          {"sku": "MERCH-CANVAS-16X20", "title": "16x20\" Framed Museum Movie Poster Canvas", "price": "$49", "numPrice": 49, "provider": "Printify • Sensaria Gallery Frame", "category": "Wall Art • #1 Bestseller", "mockupType": "canvas"},
+          {"sku": "MERCH-HOODIE-BLK", "title": "Heavyweight 'Cheese Heist' Starring Hoodie", "price": "$59", "numPrice": 59, "provider": "Gelato • 400GSM Studio Fleece", "category": "Apparel • Owner Flex", "mockupType": "hoodie"},
+          {"sku": "MERCH-MUG-15OZ", "title": "15oz Cinema Gloss Mug ('Wanted: Barnaby')", "price": "$24", "numPrice": 24, "provider": "Printify • District Photo", "category": "Drinkware • Gift Ready", "mockupType": "mug"},
+          {"sku": "MERCH-TOTE-ORG", "title": "Organic Heavy Canvas Dog-Park Tote", "price": "$29", "numPrice": 29, "provider": "Gelato • Eco Canvas", "category": "Accessories • Everyday", "mockupType": "tote"}
+        ]
+      }
+    };
+
+    let ORDERS_DB = { ...FALLBACK_ORDERS };
+    let currentOrderId = "paw849201";
+    let currentPosterNum = "1";
+    let isDraggingStage = false;
+    let trailerTimer = null;
+    let trailerSeconds = 0;
+    let selectedCheckoutTier = "public";
+    let uploadedBase64DataUrl = null;
+
+    async function initApp() {
+      try {
+        const res = await fetch("/api/orders");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.orders && Object.keys(data.orders).length > 0) {
+            ORDERS_DB = { ...FALLBACK_ORDERS, ...data.orders };
+          }
+        }
+      } catch (e) {
+        console.warn("Using embedded fallback orders:", e);
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const requestedOrder = params.get("order");
+      if (requestedOrder && ORDERS_DB[requestedOrder]) {
+        currentOrderId = requestedOrder;
+      }
+      renderOrderSwitcherPills();
+      loadOrder(currentOrderId);
+    }
+
+    function renderOrderSwitcherPills() {
+      const bar = document.getElementById("orderSwitcherBar");
+      const baseIds = ["paw849201", "paw910442", "paw773190"];
+      Object.keys(ORDERS_DB).forEach(oid => {
+        if (!baseIds.includes(oid) && !document.getElementById(`pill-${oid}`)) {
+          const o = ORDERS_DB[oid];
+          const btn = document.createElement("button");
+          btn.id = `pill-${oid}`;
+          btn.className = "order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-300 hover:text-white";
+          btn.onclick = () => loadOrder(oid);
+          btn.textContent = `⭐ ${o.petName}`;
+          bar.appendChild(btn);
+        }
+      });
+    }
+
+    function loadOrder(orderId) {
+      stopTrailerPlayback();
+      const order = ORDERS_DB[orderId] || ORDERS_DB["paw849201"];
+      currentOrderId = order.id;
+      currentPosterNum = "1";
+
+      document.querySelectorAll(".order-pill").forEach(btn => {
+        if (btn.id === `pill-${order.id}`) {
+          btn.className = "order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-500 text-black";
+        } else {
+          btn.className = "order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-300 hover:text-white";
+        }
+      });
+
+      document.getElementById("uiPackageBadge").textContent = order.packageTier;
+      document.getElementById("uiBreedBadge").textContent = `${order.breed} • ${order.ownerHandle}`;
+      document.getElementById("uiViralLift").textContent = order.viralLift;
+      document.getElementById("uiMovieTitle").textContent = `“${order.movieTitle}”`;
+      document.getElementById("uiMovieTagline").textContent = order.movieTagline;
+      document.getElementById("uiStarringScore").textContent = order.starringScore;
+      document.getElementById("beforePetImg").src = order.beforeImg;
+      document.getElementById("uiRoastSummary").textContent = order.roastSummary;
+      document.getElementById("uiSerialNumber").textContent = order.serialNumber;
+      document.getElementById("uiCodename").textContent = order.codename;
+      document.getElementById("uiThreatLevel").textContent = order.threatLevel;
+      document.getElementById("uiMarkings").textContent = order.markings;
+      document.getElementById("uiShareHandle").textContent = order.ownerHandle;
+      document.getElementById("posterCreditOwner").textContent = order.ownerHandle.toUpperCase();
+      document.getElementById("uiMerchPetName").textContent = order.petName;
+      document.getElementById("trailerScriptPreview").textContent = `🎙️ “${order.trailerVoiceover}”`;
+
+      // Render Crimes
+      const crimesEl = document.getElementById("uiCrimesList");
+      crimesEl.innerHTML = order.crimes.map(c => `
+        <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] space-y-1">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] mono font-bold ${c.color}">${c.code}</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-white/5 text-gray-300">${c.tag}</span>
+          </div>
+          <p class="text-xs text-gray-300 leading-snug">${c.desc}</p>
+        </div>
+      `).join("");
+
+      selectPosterTheme("1");
+      setSliderValue(78);
+    }
+
+    function selectPosterTheme(posterNum) {
+      currentPosterNum = String(posterNum);
+      const order = ORDERS_DB[currentOrderId];
+      const poster = order.posters[currentPosterNum];
+
+      const afterImg = document.getElementById("afterPosterImg");
+      afterImg.src = poster.img;
+      afterImg.style.filter = poster.filterStyle || "none";
+
+      document.getElementById("uiActivePosterBadge").textContent = poster.themeBadge;
+      document.getElementById("posterTopTitle").textContent = poster.titleOverlay;
+      document.getElementById("posterTopSubtitle").textContent = poster.subtitleOverlay;
+      document.getElementById("posterBottomTagline").textContent = `“${order.movieTagline}”`;
+      document.getElementById("uiMerchActivePosterName").textContent = poster.name;
+
+      // Render 3 Poster Cards
+      const container = document.getElementById("posterThemeCards");
+      container.innerHTML = Object.entries(order.posters).map(([num, p]) => {
+        const active = num === currentPosterNum;
+        return `
+          <div onclick="selectPosterTheme('${num}')"
+               class="card-cinema ${active ? 'active-poster' : ''} rounded-2xl p-3 cursor-pointer transition-all hover:border-amber-400/60 flex flex-col justify-between gap-2">
+            <div class="relative h-36 rounded-xl overflow-hidden bg-black">
+              <img src="${p.img}" style="filter: ${p.filterStyle || 'none'}" class="w-full h-full object-cover" alt="${p.name}" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/50 p-2.5 flex flex-col justify-between">
+                <span class="text-[9px] mono uppercase px-1.5 py-0.5 rounded bg-black/70 text-amber-300 self-start">${p.themeBadge}</span>
+                <div class="font-poster text-xs font-black text-white uppercase leading-tight poster-text-shadow">${p.titleOverlay}</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-1">
+              <span class="text-xs font-bold ${active ? 'text-amber-400' : 'text-gray-200'}">${p.name}</span>
+              <span class="text-[10px] mono ${active ? 'text-amber-300 font-bold' : 'text-gray-500'}">${active ? '● ACTIVE' : 'Select'}</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      renderMerchStore();
+    }
+
+    function renderMerchStore() {
+      const order = ORDERS_DB[currentOrderId];
+      const poster = order.posters[currentPosterNum];
+      const grid = document.getElementById("merchGrid");
+
+      grid.innerHTML = order.merch.map((item, idx) => {
+        let mockupVisual = "";
+        if (item.mockupType === "canvas") {
+          mockupVisual = `
+            <div class="relative w-36 h-44 bg-[#181B28] p-2 rounded-lg shadow-2xl border-4 border-[#2E3348] flex items-center justify-center">
+              <img src="${poster.img}" style="filter:${poster.filterStyle}" class="w-full h-full object-cover rounded-sm" />
+              <div class="absolute bottom-3 inset-x-3 text-center font-poster text-[9px] font-black text-white bg-black/70 py-0.5 uppercase">${poster.titleOverlay}</div>
+            </div>
+          `;
+        } else if (item.mockupType === "hoodie") {
+          mockupVisual = `
+            <div class="relative w-40 h-44 rounded-2xl bg-gradient-to-b from-[#1E2130] to-[#10121C] border border-[#2F354D] flex flex-col items-center justify-center p-3 shadow-inner">
+              <div class="text-[9px] mono text-gray-400 mb-1">400GSM STUDIO HOODIE</div>
+              <div class="w-24 h-28 rounded-lg overflow-hidden border border-amber-400/50 relative shadow-lg">
+                <img src="${poster.img}" style="filter:${poster.filterStyle}" class="w-full h-full object-cover" />
+                <div class="absolute bottom-0 inset-x-0 bg-black/80 text-[7px] font-poster text-amber-300 text-center py-0.5 font-bold">${order.petName.toUpperCase()}</div>
+              </div>
+            </div>
+          `;
+        } else if (item.mockupType === "mug") {
+          mockupVisual = `
+            <div class="relative flex items-center">
+              <div class="w-32 h-36 rounded-2xl bg-white p-2 shadow-xl flex flex-col items-center justify-center border-2 border-gray-200">
+                <div class="w-full h-24 rounded-lg overflow-hidden relative">
+                  <img src="${poster.img}" style="filter:${poster.filterStyle}" class="w-full h-full object-cover" />
+                  <div class="absolute bottom-0 inset-x-0 bg-black/75 text-[7px] mono text-amber-300 text-center py-0.5 font-bold">${poster.titleOverlay}</div>
+                </div>
+                <div class="text-[8px] mono font-extrabold text-gray-800 mt-1">15OZ CINEMA GLOSS</div>
+              </div>
+              <div class="w-5 h-20 border-4 border-white rounded-r-xl -ml-1"></div>
+            </div>
+          `;
+        } else {
+          mockupVisual = `
+            <div class="relative flex flex-col items-center">
+              <div class="w-16 h-6 border-t-4 border-x-4 border-[#D6C7B2] rounded-t-full"></div>
+              <div class="w-32 h-36 rounded-b-xl bg-[#EAE0D0] p-2.5 shadow-xl flex flex-col items-center justify-center border border-[#C8B9A6]">
+                <div class="w-24 h-28 rounded overflow-hidden relative shadow">
+                  <img src="${poster.img}" style="filter:${poster.filterStyle}" class="w-full h-full object-cover" />
+                  <div class="absolute bottom-0 inset-x-0 bg-black/80 text-[7px] font-poster text-white text-center py-0.5">${order.codename}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="card-cinema rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-400/50 transition-all">
+            <div>
+              <div class="h-52 bg-[#0C0E16] flex items-center justify-center p-4 relative border-b border-[#24283B]">
+                ${mockupVisual}
+                <span class="absolute top-3 left-3 text-[10px] mono px-2 py-0.5 rounded bg-black/80 text-amber-300 border border-amber-500/30">${item.category}</span>
+              </div>
+              <div class="p-4 space-y-1.5">
+                <div class="text-[11px] mono text-gray-400">${item.provider}</div>
+                <h4 class="text-sm font-bold text-white leading-snug">${item.title}</h4>
+              </div>
+            </div>
+            <div class="p-4 pt-0 flex items-center justify-between">
+              <span class="font-display text-xl font-black text-amber-400">${item.price}</span>
+              <button onclick="openMerchModal(${idx})" class="btn-gold px-3.5 py-2 rounded-xl text-xs font-extrabold">
+                1-Click Buy →
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openMerchModal(merchIdx) {
+      const order = ORDERS_DB[currentOrderId];
+      const poster = order.posters[currentPosterNum];
+      const item = order.merch[merchIdx];
+
+      document.getElementById("modalMerchTitle").textContent = item.title;
+      document.getElementById("modalMerchImg").src = poster.img;
+      document.getElementById("modalMerchStar").textContent = `Starring: ${order.petName} (${poster.titleOverlay})`;
+      document.getElementById("modalMerchProvider").textContent = item.provider;
+      document.getElementById("modalMerchPrice").textContent = `${item.price}.00`;
+
+      const printifyPayload = {
+        external_order_id: `${order.id}-${item.sku}`,
+        label: `${order.petName} — ${poster.titleOverlay}`,
+        line_items: [
+          {
+            sku: item.sku,
+            quantity: 1,
+            print_areas: {
+              front: poster.img
+            }
+          }
+        ],
+        shipping_method: 1,
+        send_shipping_notification: true
+      };
+      document.getElementById("modalMerchPayload").textContent = JSON.stringify(printifyPayload, null, 2);
+      document.getElementById("confirmMerchBtn").textContent = `✓ Complete 1-Click Order (${item.price})`;
+      document.getElementById("merchModal").classList.remove("hidden");
+    }
+
+    function closeMerchModal() {
+      document.getElementById("merchModal").classList.add("hidden");
+    }
+
+    function confirmMerchOrder() {
+      const btn = document.getElementById("confirmMerchBtn");
+      btn.textContent = "🎉 Order Dispatched to Printify!";
+      setTimeout(() => {
+        closeMerchModal();
+      }, 1100);
+    }
+
+    // Split Slider Controls
+    function setSliderValue(val) {
+      document.getElementById("splitRangeInput").value = val;
+      updateSplitPosition(val);
+    }
+
+    function updateSplitPosition(posterRevealPct) {
+      // posterRevealPct = 0 means 100% Before photo; 100 means 100% Movie Poster
+      const beforeWidthPct = Math.max(0, Math.min(100, 100 - Number(posterRevealPct)));
+      const stage = document.getElementById("splitStage");
+      const beforeLayer = document.getElementById("beforeClipLayer");
+      const beforeImg = document.getElementById("beforePetImg");
+      const divider = document.getElementById("splitDividerLine");
+
+      if (stage && beforeImg) {
+        beforeImg.style.width = `${stage.clientWidth}px`;
+      }
+      beforeLayer.style.width = `${beforeWidthPct}%`;
+      divider.style.left = `${beforeWidthPct}%`;
+    }
+
+    function startStageDrag(e) {
+      isDraggingStage = true;
+      handleStageMove(e);
+    }
+
+    function handleStageMove(e) {
+      if (!isDraggingStage) return;
+      const stage = document.getElementById("splitStage");
+      const rect = stage.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const relX = Math.max(0, Math.min(rect.width, clientX - rect.left));
+      const beforePct = (relX / rect.width) * 100;
+      const posterRevealPct = Math.round(100 - beforePct);
+      setSliderValue(posterRevealPct);
+    }
+
+    window.addEventListener("mousemove", handleStageMove);
+    window.addEventListener("touchmove", handleStageMove);
+    window.addEventListener("mouseup", () => { isDraggingStage = false; });
+    window.addEventListener("touchend", () => { isDraggingStage = false; });
+    window.addEventListener("resize", () => {
+      updateSplitPosition(document.getElementById("splitRangeInput").value);
+    });
+
+    // 15-Sec Movie Trailer Player + Web Speech API Voiceover
+    function toggleTrailerPlayback() {
+      if (trailerTimer) {
+        stopTrailerPlayback();
+        return;
+      }
+      const order = ORDERS_DB[currentOrderId];
+      trailerSeconds = 0;
+      document.getElementById("playTrailerIcon").textContent = "⏹";
+      document.getElementById("playTrailerLabel").textContent = "Stop Trailer";
+      document.getElementById("trailerCaptionOverlay").classList.remove("hidden");
+
+      // Speak trailer voiceover if enabled
+      if (document.getElementById("voiceoverToggle").checked && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(order.trailerVoiceover);
+        utter.rate = 0.94;
+        utter.pitch = 0.72;
+        window.speechSynthesis.speak(utter);
+      }
+
+      updateTrailerTick();
+      trailerTimer = setInterval(() => {
+        trailerSeconds += 1;
+        if (trailerSeconds > 15) {
+          stopTrailerPlayback();
+          setSliderValue(92);
+          return;
+        }
+        updateTrailerTick();
+      }, 1000);
+    }
+
+    function updateTrailerTick() {
+      const order = ORDERS_DB[currentOrderId];
+      const secStr = String(trailerSeconds).padStart(2, "0");
+      document.getElementById("trailerTimeLabel").textContent = `0:${secStr} / 0:15`;
+
+      let captionIdx = 0;
+      if (trailerSeconds <= 3) {
+        captionIdx = 0;
+        setSliderValue(15 + trailerSeconds * 5); // Show mostly Guilty Before Photo
+      } else if (trailerSeconds <= 10) {
+        captionIdx = 1;
+        setSliderValue(35 + (trailerSeconds - 3) * 6); // Sweep transition
+      } else {
+        captionIdx = 2;
+        setSliderValue(94); // Full Movie Poster Reveal
+      }
+      document.getElementById("trailerLiveCaptionText").textContent =
+        order.roastCaptions[captionIdx] || order.roastCaptions[0];
+    }
+
+    function stopTrailerPlayback() {
+      if (trailerTimer) {
+        clearInterval(trailerTimer);
+        trailerTimer = null;
+      }
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+      document.getElementById("playTrailerIcon").textContent = "▶";
+      document.getElementById("playTrailerLabel").textContent = "Play 15-Sec Movie Trailer";
+      document.getElementById("trailerCaptionOverlay").classList.add("hidden");
+    }
+
+    // Tab Navigation
+    function switchMainTab(tabName) {
+      ["studio", "cast", "operator"].forEach(t => {
+        const el = document.getElementById(`tab-${t}`);
+        if (el) el.classList.toggle("hidden", t !== tabName);
+      });
+      if (tabName === "studio") {
+        setTimeout(() => updateSplitPosition(document.getElementById("splitRangeInput").value), 50);
+      }
+    }
+
+    function scrollToMerch() {
+      document.getElementById("merchStoreSection").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function copyRoastQuote() {
+      const order = ORDERS_DB[currentOrderId];
+      navigator.clipboard.writeText(`${order.roastSummary} 🎬 ${order.movieTitle} #pawsport #roastmypet`);
+      const btn = document.getElementById("copyRoastBtn");
+      btn.textContent = "✓ Copied!";
+      setTimeout(() => { btn.textContent = "Copy Caption"; }, 1500);
+    }
+
+    function copyViralHook() {
+      const order = ORDERS_DB[currentOrderId];
+      const text = `We turned ${order.ownerHandle}'s ${order.breed} ${order.petName} into a Pixar movie trailer 😂🎬 "${order.movieTitle}" — Comment PAW and I'll DM you the link to turn your pet into a movie poster!`;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById("copyHookBtn");
+      btn.textContent = "✓ Copied TikTok Hook & ManyChat CTA!";
+      setTimeout(() => { btn.textContent = "📋 Copy TikTok “Comment PAW” Hook"; }, 1800);
+    }
+
+    // Cast My Pet Intake Form Handlers
+    function prefillSamplePet(type) {
+      uploadedBase64DataUrl = null;
+      if (type === "dachshund") {
+        document.getElementById("petNameInput").value = "Chorizo";
+        document.getElementById("petBreedInput").value = "Miniature Dachshund";
+        document.getElementById("ownerHandleInput").value = "@chorizo_longboy";
+        document.getElementById("petTraitsInput").value = "Built like a footlong hotdog, barks at leaves, burrows under 6 blankets to steal socks";
+        document.getElementById("petGenreInput").value = "Pixar Heist Blockbuster";
+        const url = "https://images.unsplash.com/photo-1612536057832-2ff7ead58194?auto=format&fit=crop&w=800&q=80";
+        document.getElementById("petImageUrlInput").value = url;
+        document.getElementById("uploadPreviewImg").src = url;
+      } else {
+        document.getElementById("petNameInput").value = "Waffle";
+        document.getElementById("petBreedInput").value = "Pembroke Welsh Corgi";
+        document.getElementById("ownerHandleInput").value = "@waffle_the_loaf";
+        document.getElementById("petTraitsInput").value = "10/10 loaf aerodynamics, herds the vacuum cleaner, demands cheese tax every 20 minutes";
+        document.getElementById("petGenreInput").value = "Sci-Fi Action Epic";
+        const url = "https://images.unsplash.com/photo-1612536057832-2ff7ead58194?auto=format&fit=crop&w=800&q=80";
+        document.getElementById("petImageUrlInput").value = url;
+        document.getElementById("uploadPreviewImg").src = url;
+      }
+    }
+
+    function handlePetPhotoUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        uploadedBase64DataUrl = e.target.result;
+        document.getElementById("uploadPreviewImg").src = uploadedBase64DataUrl;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function syncUrlPreview(url) {
+      if (url && url.startsWith("http")) {
+        uploadedBase64DataUrl = null;
+        document.getElementById("uploadPreviewImg").src = url;
+      }
+    }
+
+    function selectCheckoutTier(tier) {
+      selectedCheckoutTier = tier;
+      const pubCard = document.getElementById("tierCardPublic");
+      const privCard = document.getElementById("tierCardPrivate");
+      if (tier === "public") {
+        pubCard.className = "cursor-pointer rounded-2xl p-4 border-2 border-amber-400 bg-amber-500/10 transition-all";
+        privCard.className = "cursor-pointer rounded-2xl p-4 border border-[#24283B] bg-[#0D0F17] hover:border-gray-500 transition-all";
+      } else {
+        privCard.className = "cursor-pointer rounded-2xl p-4 border-2 border-pink-400 bg-pink-500/10 transition-all";
+        pubCard.className = "cursor-pointer rounded-2xl p-4 border border-[#24283B] bg-[#0D0F17] hover:border-gray-500 transition-all";
+      }
+      recalcCheckoutTotal();
+    }
+
+    function recalcCheckoutTotal() {
+      let base = selectedCheckoutTier === "public" ? 9 : 24;
+      if (document.getElementById("canvasBumpCheckbox").checked) {
+        base += 39;
+      }
+      document.getElementById("submitPriceBadge").textContent = `$${base}.00`;
+    }
+
+    async function submitCastPetForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById("submitCastBtn");
+      const origHtml = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<span>⚡ Scanning Fur Markings &amp; Rendering 3 Movie Posters...</span>`;
+
+      const payload = {
+        pet_name: document.getElementById("petNameInput").value.trim(),
+        breed: document.getElementById("petBreedInput").value.trim(),
+        owner_handle: document.getElementById("ownerHandleInput").value.trim(),
+        traits: document.getElementById("petTraitsInput").value.trim(),
+        genre: document.getElementById("petGenreInput").value,
+        package_tier: selectedCheckoutTier === "public" ? "Node A: $9 Make My Pet Famous" : "Node B: $24 Private VIP Bundle",
+        image_base64: uploadedBase64DataUrl,
+        image_url: document.getElementById("petImageUrlInput").value.trim()
+      };
+
+      try {
+        const res = await fetch("/api/cast", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data && data.order) {
+          ORDERS_DB[data.order.id] = data.order;
+          renderOrderSwitcherPills();
+          switchMainTab("studio");
+          loadOrder(data.order.id);
+        }
+      } catch (err) {
+        alert("Error running pipeline: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = origHtml;
+      }
+    }
+
+    async function triggerGitHubRepoCreate() {
+      const btn = document.getElementById("ghCreateBtn");
+      const box = document.getElementById("ghApiResponseBox");
+      const org = document.getElementById("ghOrgInput").value.trim();
+      const name = document.getElementById("ghRepoNameInput").value.trim();
+      const visibility = document.getElementById("ghVisibilityInput").value;
+
+      btn.disabled = true;
+      btn.textContent = "Calling GitHub API (2026-03-10)...";
+      try {
+        const res = await fetch("/api/github/create-org-repo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            org,
+            name,
+            private: visibility === "private",
+            visibility,
+            fallback_to_user: true
+          })
+        });
+        const data = await res.json();
+        box.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        box.textContent = JSON.stringify({ error: err.message }, null, 2);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "⚡ POST /orgs/{org}/repos";
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", initApp);
+  </script>
+</body>
+</html>
