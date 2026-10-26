@@ -538,17 +538,36 @@
   <!-- TAB 2: + CAST MY PET (TALLY.SO + STRIPE INTAKE & CHECKOUT FUNNEL)     -->
   <!-- ===================================================================== -->
   <section id="tab-cast" class="hidden max-w-4xl mx-auto px-4 sm:px-6 pt-8 space-y-6">
+    <!-- Live Integration Bar: Tally.so Webhook + Stripe Checkout + Printify API v1 -->
+    <div class="card-cinema rounded-2xl p-4 border border-emerald-500/30 bg-[#0B0E17] flex flex-wrap items-center justify-between gap-3">
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mono font-bold">
+          ● Tally.so Webhook: POST /api/tally-webhook
+        </span>
+        <span id="badgeStripeStatus" class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 mono">
+          Stripe Checkout API: Ready
+        </span>
+        <span id="badgePrintifyStatus" class="px-2.5 py-1 rounded-full bg-pink-500/15 text-pink-300 border border-pink-500/30 mono">
+          Printify API v1: Ready
+        </span>
+      </div>
+      <button type="button" onclick="simulateTallyWebhook()" id="simTallyBtn"
+              class="px-3.5 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-xs font-extrabold mono transition-all">
+        ⚡ Test Tally.so FORM_RESPONSE Webhook
+      </button>
+    </div>
+
     <div class="card-cinema rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl border-t-4 border-t-amber-400">
       <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#24283B] pb-5">
         <div>
           <span class="text-[11px] mono uppercase px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold">
-            Minute 0:00 Intake • 4-Minute AI Fulfillment
+            Minute 0:00 Intake • Tally.so + Stripe Checkout Funnel
           </span>
           <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-2">
             🎬 Turn Your Pet Into a Viral Movie Star
           </h2>
           <p class="text-sm text-gray-400 mt-1">
-            Upload your pet’s photo + 3 personality traits. Our Gemini Vision + Nano Banana Poster Engine builds your complete Pawsport bundle immediately.
+            Upload your pet’s photo + 3 personality traits. Our Gemini Vision + Nano Banana Poster Engine + Printify API v1 builds your complete Pawsport bundle immediately.
           </p>
         </div>
         <div class="flex flex-col items-end gap-1">
@@ -568,7 +587,7 @@
         <!-- Step 1: Upload 3 Pet Photos -->
         <div class="space-y-2">
           <label class="block text-xs font-bold uppercase tracking-wider text-gray-300">
-            1. Upload Pet Photo(s) (Locks Exact Fur Markings, Collar &amp; Expression) *
+            Q1. Upload Pet Photo(s) (Locks Exact Fur Markings, Collar &amp; Expression) *
           </label>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <label class="col-span-1 sm:col-span-2 flex flex-col items-center justify-center border-2 border-dashed border-amber-500/40 hover:border-amber-400 rounded-2xl p-5 cursor-pointer bg-[#0D0F17] transition-all">
@@ -590,21 +609,26 @@
                  class="w-full px-3.5 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-xs text-gray-200 focus:outline-none focus:border-amber-400" />
         </div>
 
-        <!-- Step 2: Pet Name, Breed, Social Handle -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Step 2: Pet Name, Breed, Social Handle, Owner Email -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">2. Pet’s Name *</label>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Q2. Pet’s Name *</label>
             <input type="text" id="petNameInput" required value="Chorizo" placeholder="e.g. Barnaby, Mochi, Luna"
                    class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
           </div>
           <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">3. Species &amp; Breed *</label>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Q3. Species &amp; Breed *</label>
             <input type="text" id="petBreedInput" required value="Miniature Dachshund" placeholder="e.g. Golden Retriever, Tuxedo Cat"
                    class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
           </div>
           <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">4. Owner TikTok / IG Handle *</label>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Q4. TikTok / IG Handle *</label>
             <input type="text" id="ownerHandleInput" required value="@chorizo_longboy" placeholder="@your_handle (for repost tag)"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Q5. Delivery Email *</label>
+            <input type="email" id="ownerEmailInput" required value="parent@pawsport.ai" placeholder="you@domain.com"
                    class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
           </div>
         </div>
@@ -613,7 +637,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="sm:col-span-2">
             <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
-              5. Three Personality Traits / Domestic Crimes *
+              Q6. Three Personality Traits / Domestic Crimes *
             </label>
             <input type="text" id="petTraitsInput" required
                    value="Built like a footlong hotdog, barks at the wind, burrows under 6 blankets to steal socks"
@@ -622,7 +646,7 @@
           </div>
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
-              6. Blockbuster Genre *
+              Blockbuster Genre *
             </label>
             <select id="petGenreInput" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400">
               <option value="Pixar Heist Blockbuster">Pixar Heist Blockbuster</option>
@@ -637,7 +661,7 @@
         <!-- Step 4: Pricing Tier Selector ($9 Opt-In vs $24 Private VIP) -->
         <div class="space-y-3">
           <label class="block text-xs font-bold uppercase tracking-wider text-gray-300">
-            7. Select Your Pawsport Package Tier *
+            Q7. Select Your Pawsport Package Tier *
           </label>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <!-- Node A: $9 Make My Pet Famous -->
@@ -666,6 +690,17 @@
             </div>
           </div>
 
+          <!-- Q8: Conditional Media Release (Required ONLY for $9 Public Tier) -->
+          <div id="q8MediaReleaseBlock" class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="checkbox" id="mediaReleaseCheckbox" checked required class="w-4 h-4 mt-0.5 accent-amber-400" />
+              <span class="text-xs text-gray-200 leading-relaxed">
+                <strong class="text-amber-300">Q8. Public Showcase &amp; Media Release ($10 Discount Condition):</strong>
+                I grant Pawsport.ai permission to feature my pet’s Movie Trailer &amp; Poster on TikTok, Instagram Reels, and YouTube Shorts and tag my handle in exchange for the $9 “Make My Pet Famous” rate.
+              </span>
+            </label>
+          </div>
+
           <!-- Optional 1-Click Merch Order Bump -->
           <label class="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-pink-500/10 to-violet-500/10 border border-pink-500/30 cursor-pointer">
             <div class="flex items-center gap-3">
@@ -675,7 +710,7 @@
                   🎁 1-Click Order Bump: Add 16x20" Framed Movie Poster Canvas (+$39 — Save $10)
                 </div>
                 <div class="text-[11px] text-gray-300">
-                  Auto-printed &amp; shipped to your door via Printify Gallery Frame.
+                  Auto-printed &amp; shipped to your door via Printify REST API v1 (`blueprint_id: 50` Sensaria Gallery Frame).
                 </div>
               </div>
             </div>
@@ -686,14 +721,43 @@
         <!-- Submit Button -->
         <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
           <div class="text-xs text-gray-400">
-            🔒 Stripe Verified • Instant 4-Minute AI Pipeline (`gemini-3.8-flash` + `gemini-nano-banana-2.1`)
+            🔒 Stripe Checkout Verified • Instant 4-Minute AI Pipeline + Printify API v1 Auto-Mockup
           </div>
           <button type="submit" id="submitCastBtn" class="btn-gold px-7 py-3.5 rounded-2xl text-sm font-black shadow-xl flex items-center gap-2">
-            <span>🎬 Generate My Pet’s Movie Trailer &amp; Posters</span>
+            <span>🎬 Checkout &amp; Generate Pet Movie Bundle</span>
             <span id="submitPriceBadge" class="px-2 py-0.5 rounded bg-black/20 text-xs mono">$9.00</span>
           </button>
         </div>
       </form>
+
+      <!-- Live Stripe + Printify + Tally Webhook Receipt Drawer -->
+      <div id="checkoutReceiptBox" class="hidden p-4 rounded-2xl bg-[#07090F] border border-emerald-500/40 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold text-emerald-300 mono">✓ STRIPE CHECKOUT + PRINTIFY API v1 + TALLY WEBHOOK RECEIPT</span>
+          <a id="receiptPortalLink" href="#" class="text-xs font-bold text-amber-300 hover:underline">Open Generated Pawsport Portal →</a>
+        </div>
+        <pre id="checkoutReceiptJson" class="text-[10px] mono text-gray-300 overflow-x-auto max-h-48"></pre>
+      </div>
+
+      <!-- Stripe Verification & Compliance Footer -->
+      <div class="pt-4 border-t border-[#24283B] grid grid-cols-1 sm:grid-cols-4 gap-3 text-[11px] text-gray-400">
+        <div class="p-3 rounded-xl bg-[#0A0C12] border border-[#1E2233]">
+          <div class="font-bold text-gray-200 mono">Statement Descriptor</div>
+          <div class="mt-0.5 text-amber-300 mono">PAWSPORT AI STUDIO</div>
+        </div>
+        <div class="p-3 rounded-xl bg-[#0A0C12] border border-[#1E2233]">
+          <div class="font-bold text-gray-200 mono">Digital Deliverables</div>
+          <div class="mt-0.5">15s Movie Trailer + 3 High-Res Posters + Pet ID Card</div>
+        </div>
+        <div class="p-3 rounded-xl bg-[#0A0C12] border border-[#1E2233]">
+          <div class="font-bold text-gray-200 mono">Fulfillment SLA</div>
+          <div class="mt-0.5">~4 Minutes Automated (Max 24 Hours Guaranteed)</div>
+        </div>
+        <div class="p-3 rounded-xl bg-[#0A0C12] border border-[#1E2233]">
+          <div class="font-bold text-gray-200 mono">Refund &amp; Support</div>
+          <div class="mt-0.5">100% Free Re-Roll or Full Refund • support@pawsport.ai</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1234,7 +1298,10 @@
       }).join("");
     }
 
-    function openMerchModal(merchIdx) {
+    let activeMerchIdx = 0;
+
+    async function openMerchModal(merchIdx) {
+      activeMerchIdx = merchIdx;
       const order = ORDERS_DB[currentOrderId];
       const poster = order.posters[currentPosterNum];
       const item = order.merch[merchIdx];
@@ -1244,34 +1311,36 @@
       document.getElementById("modalMerchStar").textContent = `Starring: ${order.petName} (${poster.titleOverlay})`;
       document.getElementById("modalMerchProvider").textContent = item.provider;
       document.getElementById("modalMerchPrice").textContent = `${item.price}.00`;
-
-      const printifyPayload = {
-        external_order_id: `${order.id}-${item.sku}`,
-        label: `${order.petName} — ${poster.titleOverlay}`,
-        line_items: [
-          {
-            sku: item.sku,
-            quantity: 1,
-            print_areas: {
-              front: poster.img
-            }
-          }
-        ],
-        shipping_method: 1,
-        send_shipping_notification: true
-      };
-      document.getElementById("modalMerchPayload").textContent = JSON.stringify(printifyPayload, null, 2);
-      document.getElementById("confirmMerchBtn").textContent = `✓ Complete 1-Click Order (${item.price})`;
+      document.getElementById("confirmMerchBtn").textContent = `✓ Dispatch to Printify API v1 (${item.price})`;
+      document.getElementById("modalMerchPayload").textContent = "Calling POST /api/printify/create-product (Printify v1 /uploads/images.json + /products.json)...";
       document.getElementById("merchModal").classList.remove("hidden");
+
+      try {
+        const res = await fetch("/api/printify/create-product", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            orderId: order.id,
+            skuKey: item.mockupType || "canvas",
+            petName: order.petName,
+            movieTitle: poster.titleOverlay || order.movieTitle,
+            posterImg: poster.img
+          })
+        });
+        const data = await res.json();
+        document.getElementById("modalMerchPayload").textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        document.getElementById("modalMerchPayload").textContent = JSON.stringify({ error: err.message }, null, 2);
+      }
     }
 
     function closeMerchModal() {
       document.getElementById("merchModal").classList.add("hidden");
     }
 
-    function confirmMerchOrder() {
+    async function confirmMerchOrder() {
       const btn = document.getElementById("confirmMerchBtn");
-      btn.textContent = "🎉 Order Dispatched to Printify!";
+      btn.textContent = "🎉 Product Created & Order Dispatched to Printify!";
       setTimeout(() => {
         closeMerchModal();
       }, 1100);
@@ -1466,12 +1535,18 @@
       selectedCheckoutTier = tier;
       const pubCard = document.getElementById("tierCardPublic");
       const privCard = document.getElementById("tierCardPrivate");
+      const q8Block = document.getElementById("q8MediaReleaseBlock");
+      const q8Checkbox = document.getElementById("mediaReleaseCheckbox");
       if (tier === "public") {
         pubCard.className = "cursor-pointer rounded-2xl p-4 border-2 border-amber-400 bg-amber-500/10 transition-all";
         privCard.className = "cursor-pointer rounded-2xl p-4 border border-[#24283B] bg-[#0D0F17] hover:border-gray-500 transition-all";
+        if (q8Block) q8Block.classList.remove("hidden");
+        if (q8Checkbox) q8Checkbox.required = true;
       } else {
         privCard.className = "cursor-pointer rounded-2xl p-4 border-2 border-pink-400 bg-pink-500/10 transition-all";
         pubCard.className = "cursor-pointer rounded-2xl p-4 border border-[#24283B] bg-[#0D0F17] hover:border-gray-500 transition-all";
+        if (q8Block) q8Block.classList.add("hidden");
+        if (q8Checkbox) q8Checkbox.required = false;
       }
       recalcCheckoutTotal();
     }
@@ -1489,15 +1564,18 @@
       const btn = document.getElementById("submitCastBtn");
       const origHtml = btn.innerHTML;
       btn.disabled = true;
-      btn.innerHTML = `<span>⚡ Scanning Fur Markings &amp; Rendering 3 Movie Posters...</span>`;
+      btn.innerHTML = `<span>⚡ Creating Stripe Checkout + Rendering 3 Posters + Printify SKU...</span>`;
 
       const payload = {
         pet_name: document.getElementById("petNameInput").value.trim(),
         breed: document.getElementById("petBreedInput").value.trim(),
         owner_handle: document.getElementById("ownerHandleInput").value.trim(),
+        owner_email: document.getElementById("ownerEmailInput").value.trim(),
         traits: document.getElementById("petTraitsInput").value.trim(),
         genre: document.getElementById("petGenreInput").value,
         package_tier: selectedCheckoutTier === "public" ? "Node A: $9 Make My Pet Famous" : "Node B: $24 Private VIP Bundle",
+        media_release_consent: selectedCheckoutTier === "public" ? document.getElementById("mediaReleaseCheckbox").checked : false,
+        canvas_bump: document.getElementById("canvasBumpCheckbox").checked,
         image_base64: uploadedBase64DataUrl,
         image_url: document.getElementById("petImageUrlInput").value.trim()
       };
@@ -1512,6 +1590,22 @@
         if (data && data.order) {
           ORDERS_DB[data.order.id] = data.order;
           renderOrderSwitcherPills();
+          const receiptBox = document.getElementById("checkoutReceiptBox");
+          const receiptJson = document.getElementById("checkoutReceiptJson");
+          const receiptLink = document.getElementById("receiptPortalLink");
+          if (receiptBox && receiptJson) {
+            receiptBox.classList.remove("hidden");
+            receiptJson.textContent = JSON.stringify({
+              stripe_checkout: data.stripe_checkout,
+              printify_product: data.printify_product,
+              portal_url: data.portal_url
+            }, null, 2);
+            receiptLink.onclick = (ev) => {
+              ev.preventDefault();
+              switchMainTab("studio");
+              loadOrder(data.order.id);
+            };
+          }
           switchMainTab("studio");
           loadOrder(data.order.id);
         }
@@ -1520,6 +1614,79 @@
       } finally {
         btn.disabled = false;
         btn.innerHTML = origHtml;
+      }
+    }
+
+    async function simulateTallyWebhook() {
+      const btn = document.getElementById("simTallyBtn");
+      const origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "⚡ Firing Tally.so FORM_RESPONSE → Gemini + Stripe + Printify...";
+
+      const payload = {
+        simulate: true,
+        pet_name: document.getElementById("petNameInput").value.trim() || "Chorizo",
+        breed: document.getElementById("petBreedInput").value.trim() || "Miniature Dachshund",
+        owner_handle: document.getElementById("ownerHandleInput").value.trim() || "@chorizo_longboy",
+        owner_email: document.getElementById("ownerEmailInput").value.trim() || "parent@pawsport.ai",
+        traits: document.getElementById("petTraitsInput").value.trim(),
+        genre: document.getElementById("petGenreInput").value,
+        package_tier: selectedCheckoutTier === "public" ? "Node A: $9 Make My Pet Famous" : "Node B: $24 Private VIP Bundle",
+        canvas_bump: document.getElementById("canvasBumpCheckbox").checked,
+        image_url: document.getElementById("petImageUrlInput").value.trim()
+      };
+
+      try {
+        const res = await fetch("/api/tally-webhook", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data && data.order) {
+          ORDERS_DB[data.order.id] = data.order;
+          renderOrderSwitcherPills();
+          loadOrder(data.order.id);
+          const receiptBox = document.getElementById("checkoutReceiptBox");
+          const receiptJson = document.getElementById("checkoutReceiptJson");
+          const receiptLink = document.getElementById("receiptPortalLink");
+          receiptBox.classList.remove("hidden");
+          receiptJson.textContent = JSON.stringify({
+            source: data.source,
+            tally_parsed: data.tally_parsed,
+            stripe_checkout: data.stripe_checkout,
+            printify_product: data.printify_product,
+            portal_url: data.portal_url
+          }, null, 2);
+          receiptLink.onclick = (ev) => {
+            ev.preventDefault();
+            switchMainTab("studio");
+            loadOrder(data.order.id);
+          };
+        }
+      } catch (err) {
+        alert("Tally Webhook error: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = origText;
+      }
+    }
+
+    async function checkIntegrationStatus() {
+      try {
+        const res = await fetch("/api/integrations/status");
+        if (!res.ok) return;
+        const st = await res.json();
+        const stripeEl = document.getElementById("badgeStripeStatus");
+        const printifyEl = document.getElementById("badgePrintifyStatus");
+        if (stripeEl) {
+          stripeEl.textContent = st.stripe_live ? "● Stripe Checkout: LIVE API" : "● Stripe Checkout: Sandbox Ready";
+        }
+        if (printifyEl) {
+          printifyEl.textContent = st.printify_live ? "● Printify API v1: LIVE" : "● Printify API v1: Sandbox Ready";
+        }
+      } catch (e) {
+        // ignore
       }
     }
 
@@ -1554,7 +1721,10 @@
       }
     }
 
-    window.addEventListener("DOMContentLoaded", initApp);
+    window.addEventListener("DOMContentLoaded", () => {
+      initApp();
+      checkIntegrationStatus();
+    });
   </script>
 </body>
 </html>

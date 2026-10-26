@@ -543,5 +543,315 @@
         "mockupType": "tote"
       }
     ]
+  },
+  "paw783173": {
+    "id": "paw783173",
+    "petName": "Waffle",
+    "ownerHandle": "@waffle_the_loaf",
+    "breed": "Pembroke Welsh Corgi",
+    "markings": "Fawn-colored French Bulldog with a distinct white blaze on the forehead, large erect ears, wearing a bright mustard-yellow Champion hoodie.",
+    "traits": "Snores like a freight train, steals pizza crusts, refuses to walk in the rain",
+    "genre": "Pixar Heist Blockbuster",
+    "packageTier": "Node A: $9 Make My Pet Famous",
+    "movieTitle": "WAFFLE: THE SNOOZE PATROL",
+    "movieTagline": "He\u2019s not lazy, he\u2019s just waiting for the perfect crust.",
+    "starringScore": 98,
+    "viralLift": "+485% Share Velocity",
+    "serialNumber": "PAW-2026-5839",
+    "codename": "THE MUSTARD MENACE",
+    "threatLevel": "DEFCON 4 (DANGER OF DROOLING)",
+    "beforeImg": "renders/paw783173_before.jpg",
+    "roastSummary": "This Frenchie acts like he\u2019s running a marathon in his dreams, but he won't even step outside if there's a light drizzle. With a face like a squashed potato, he\u2019s weaponized 'sleepy mode' to evade all responsibility for his snack-stealing spree.",
+    "trailerVoiceover": "In a world where comfort is the only mission, one tiny legend has mastered the art of doing absolutely nothing. He steals your pizza, ignores your calls, and snores loud enough to wake the dead. Witness the legend of Waffle.",
+    "roastCaptions": [
+      "0:00\u20130:03 \u2022 The cutest criminal you'll ever see.",
+      "0:03\u20130:10 \u2022 He\u2019s 10% dog, 90% pizza-crust-seeking missile, and 100% unimpressed by your rainy day.",
+      "0:10\u20130:15 \u2022 WAFFLE: THE SNOOZE PATROL. Coming soon to a couch near you."
+    ],
+    "crimes": [
+      {
+        "code": "FELONY_01: PIZZA LARCENY",
+        "tag": "CRUST BANDIT",
+        "color": "text-rose-400",
+        "desc": "Systematically targets every unattended pizza crust within a three-mile radius."
+      },
+      {
+        "code": "FELONY_02: ACOUSTIC TERRORISM",
+        "tag": "SNORE LORD",
+        "color": "text-amber-400",
+        "desc": "Utilizes rhythmic snoring patterns equivalent to a heavy freight train during quiet moments."
+      },
+      {
+        "code": "FELONY_03: OUTDOOR DEFIANCE",
+        "tag": "ANTI-RAIN PROTESTER",
+        "color": "text-emerald-400",
+        "desc": "Categorically refuses to step paw on wet pavement, demanding a personal umbrella service."
+      }
+    ],
+    "posters": {
+      "1": {
+        "name": "Poster 1: Pixar Heist Blockbuster",
+        "themeBadge": "Pixar / Disney 3D Studio Render",
+        "titleOverlay": "WAFFLE: THE SNOOZE PATROL",
+        "subtitleOverlay": "A PAWSPORT STUDIOS ORIGINAL \u2022 STARRING WAFFLE",
+        "img": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.18) saturate(1.45) brightness(1.05)"
+      },
+      "2": {
+        "name": "Poster 2: IMAX Action Blockbuster",
+        "themeBadge": "IMAX Action Blockbuster Render",
+        "titleOverlay": "MUSTARD: RECON",
+        "subtitleOverlay": "ALL STUNTS PERFORMED BY WAFFLE \u2022 IMAX 3D",
+        "img": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.28) saturate(1.25) hue-rotate(-10deg)"
+      },
+      "3": {
+        "name": "Poster 3: Prestige Detective Noir",
+        "themeBadge": "Prestige Cinema & Gallery Portrait",
+        "titleOverlay": "THE SLEEPER AWAKENS",
+        "subtitleOverlay": "CRIME NEVER LOOKED THIS FLUFFY \u2022 MMXXVI",
+        "img": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.22) sepia(0.24) saturate(1.32)"
+      }
+    },
+    "flowScenebuilder": {
+      "flowUrl": "https://labs.google/fx/tools/flow",
+      "ingredientLock": "Ingredient 1 (Character Reference): Waffle (Pembroke Welsh Corgi) \u2014 Fawn-colored French Bulldog with a distinct white blaze on the forehead, large erect ears, wearing a bright mustard-yellow Champion hoodie.",
+      "clip1_framesToVideo": "[Google Flow \u2022 Frames to Video \u2022 0:00\u20130:03 \u2022 Camera: Slow Dolly In] Start on the uploaded real photo of Waffle (Pembroke Welsh Corgi, Fawn-colored French Bulldog with a distinct white blaze on the forehead, large erect ears, wearing a bright mustard-yellow Champion hoodie.) looking guilty. Subtle handheld camera push-in, dramatic low brass movie trailer Braaam sound effect, deep Epic Movie Trailer Narrator voiceover: \"In a world where no household rule is safe...\"",
+      "clip2_ingredientsToVideo": "[Google Flow \u2022 Ingredients to Video \u2022 0:03\u20130:10 \u2022 Camera: Dynamic Orbit] 3D Pixar/Disney animated theatrical sequence starring the exact Pembroke Welsh Corgi from Ingredient 1 (Fawn-colored French Bulldog with a distinct white blaze on the forehead, large erect ears, wearing a bright mustard-yellow Champion hoodie.). Waffle heroically commits their signature crime (Snores like a freight train, steals pizza crusts, refuses to walk in the rain) in dramatic slow-motion with cinematic rim lighting and flying sparks. Epic Movie Trailer Narrator voiceover: \"In a world where comfort is the only mission, one tiny legend has mastered the art of doing absolutely nothing. He steals your pizza, ignores your calls, and snores loud enough to wake the dead. Witness the legend of Waffle.\"",
+      "clip3_scenebuilderExtend": "[Google Flow \u2022 Scenebuilder Extend / Jump To \u2022 0:10\u20130:15 \u2022 Camera: Crane Pull-Back] Extend the scene as the camera pulls back to reveal Waffle striking a heroic pose inside a gold-framed theatrical movie poster titled \"WAFFLE: THE SNOOZE PATROL\" in glowing 3D cinema typography. Orchestral crescendo hit.",
+      "omniFlashSinglePrompt": "[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image1] [0-3s] Slow dramatic dolly-in on Waffle the Pembroke Welsh Corgi <IMAGE_REF_0> looking guilty in the starting frame. [3-7s] Transition into a 3D Pixar animated blockbuster heist scene where the exact same Pembroke Welsh Corgi <IMAGE_REF_0> commits snores like a freight train with cinematic sparks. [7-10s] Heroic theatrical movie poster reveal with bold text 'WAFFLE: THE SNOOZE PATROL'. Include epic movie trailer voiceover and orchestral score."
+    },
+    "merch": [
+      {
+        "sku": "MERCH-CANVAS-16X20",
+        "title": "16x20\" Framed 'WAFFLE: THE SNOOZE PATROL' Gallery Canvas",
+        "price": "$49",
+        "numPrice": 49,
+        "provider": "Printify \u2022 Sensaria Gallery Frame",
+        "category": "Wall Art \u2022 #1 Bestseller",
+        "mockupType": "canvas"
+      },
+      {
+        "sku": "MERCH-HOODIE-BLK",
+        "title": "Heavyweight 'Waffle World Tour' Studio Hoodie",
+        "price": "$59",
+        "numPrice": 59,
+        "provider": "Gelato \u2022 400GSM Studio Fleece",
+        "category": "Apparel \u2022 Owner Flex",
+        "mockupType": "hoodie"
+      },
+      {
+        "sku": "MERCH-MUG-15OZ",
+        "title": "15oz Cinema Gloss Mug ('Wanted: Waffle')",
+        "price": "$24",
+        "numPrice": 24,
+        "provider": "Printify \u2022 District Photo",
+        "category": "Drinkware \u2022 Gift Ready",
+        "mockupType": "mug"
+      },
+      {
+        "sku": "MERCH-TOTE-ORG",
+        "title": "Organic Heavy Canvas 'THE MUSTARD MENACE' Tote",
+        "price": "$29",
+        "numPrice": 29,
+        "provider": "Gelato \u2022 Eco Canvas",
+        "category": "Accessories \u2022 Everyday",
+        "mockupType": "tote"
+      }
+    ]
+  },
+  "paw850300": {
+    "id": "paw850300",
+    "petName": "Waffle",
+    "ownerHandle": "@waffle_the_loaf",
+    "breed": "Pembroke Welsh Corgi",
+    "markings": "Fawn French Bulldog with a white blaze on the snout and forehead, wearing a bright yellow Champion hoodie.",
+    "traits": "Snores like a freight train, steals pizza crusts, refuses to walk in the rain",
+    "genre": "Pixar Heist Blockbuster",
+    "packageTier": "Node A: $9 Make My Pet Famous",
+    "movieTitle": "WAFFLE: THE SNOOZE PATROL",
+    "movieTagline": "He\u2019s got the moves, the snooze, and zero desire to go outside.",
+    "starringScore": 98,
+    "viralLift": "+420% Share Velocity",
+    "serialNumber": "PAW-2026-6160",
+    "codename": "THE NAP TRAP",
+    "threatLevel": "DEFCON 5 (PROFESSIONAL NAPER)",
+    "beforeImg": "renders/paw850300_before.jpg",
+    "roastSummary": "This Frenchie looks like he was designed by someone who only had a potato and a dream. Between the perpetual nap face and the yellow hoodie, he\u2019s less 'Champion' and more 'Unemployed Couch Ornament'.",
+    "trailerVoiceover": "In a world where rain is the ultimate enemy and pizza crusts are currency, one tiny hero dares to do absolutely nothing. He snore-defies gravity. He resists the outdoors. Prepare yourself for the sleepiest heist of the summer. Waffle is back.",
+    "roastCaptions": [
+      "0:00\u20130:03 \u2022 Meet the laziest hero in Hollywood.",
+      "0:03\u20130:10 \u2022 He\u2019s wanted for pizza theft and severe lack of motivation.",
+      "0:10\u20130:15 \u2022 WAFFLE: THE SNOOZE PATROL. Coming soon to a couch near you."
+    ],
+    "crimes": [
+      {
+        "code": "FELONY_01: SONIC DISTURBANCE",
+        "tag": "TOTAL MAYHEM",
+        "color": "text-rose-400",
+        "desc": "Operating a nasal freight train that keeps the entire household awake until 3 AM."
+      },
+      {
+        "code": "FELONY_02: PIZZA EXTORTION",
+        "tag": "CRUST BANDIT",
+        "color": "text-amber-400",
+        "desc": "Utilizing high-level puppy eyes to forcibly seize abandoned crusts from unsuspecting owners."
+      },
+      {
+        "code": "FELONY_03: OBSTRUCTION OF WALKS",
+        "tag": "ZERO EXERCISE",
+        "color": "text-emerald-400",
+        "desc": "Performing a full-body strike whenever a single drop of water touches the pavement."
+      }
+    ],
+    "posters": {
+      "1": {
+        "name": "Poster 1: Pixar Heist Blockbuster",
+        "themeBadge": "Pixar / Disney 3D Studio Render",
+        "titleOverlay": "WAFFLE: THE SNOOZE PATROL",
+        "subtitleOverlay": "A PAWSPORT STUDIOS ORIGINAL \u2022 STARRING WAFFLE",
+        "img": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.18) saturate(1.45) brightness(1.05)"
+      },
+      "2": {
+        "name": "Poster 2: IMAX Action Blockbuster",
+        "themeBadge": "IMAX Action Blockbuster Render",
+        "titleOverlay": "THE PIZZA CRUST CONSPIRACY",
+        "subtitleOverlay": "ALL STUNTS PERFORMED BY WAFFLE \u2022 IMAX 3D",
+        "img": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.28) saturate(1.25) hue-rotate(-10deg)"
+      },
+      "3": {
+        "name": "Poster 3: Prestige Detective Noir",
+        "themeBadge": "Prestige Cinema & Gallery Portrait",
+        "titleOverlay": "DREAMS OF THE FRENCHIE",
+        "subtitleOverlay": "CRIME NEVER LOOKED THIS FLUFFY \u2022 MMXXVI",
+        "img": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=85",
+        "filterStyle": "contrast(1.22) sepia(0.24) saturate(1.32)"
+      }
+    },
+    "flowScenebuilder": {
+      "flowUrl": "https://labs.google/fx/tools/flow",
+      "ingredientLock": "Ingredient 1 (Character Reference): Waffle (Pembroke Welsh Corgi) \u2014 Fawn French Bulldog with a white blaze on the snout and forehead, wearing a bright yellow Champion hoodie.",
+      "clip1_framesToVideo": "[Google Flow \u2022 Frames to Video \u2022 0:00\u20130:03 \u2022 Camera: Slow Dolly In] Start on the uploaded real photo of Waffle (Pembroke Welsh Corgi, Fawn French Bulldog with a white blaze on the snout and forehead, wearing a bright yellow Champion hoodie.) looking guilty. Subtle handheld camera push-in, dramatic low brass movie trailer Braaam sound effect, deep Epic Movie Trailer Narrator voiceover: \"In a world where no household rule is safe...\"",
+      "clip2_ingredientsToVideo": "[Google Flow \u2022 Ingredients to Video \u2022 0:03\u20130:10 \u2022 Camera: Dynamic Orbit] 3D Pixar/Disney animated theatrical sequence starring the exact Pembroke Welsh Corgi from Ingredient 1 (Fawn French Bulldog with a white blaze on the snout and forehead, wearing a bright yellow Champion hoodie.). Waffle heroically commits their signature crime (Snores like a freight train, steals pizza crusts, refuses to walk in the rain) in dramatic slow-motion with cinematic rim lighting and flying sparks. Epic Movie Trailer Narrator voiceover: \"In a world where rain is the ultimate enemy and pizza crusts are currency, one tiny hero dares to do absolutely nothing. He snore-defies gravity. He resists the outdoors. Prepare yourself for the sleepiest heist of the summer. Waffle is back.\"",
+      "clip3_scenebuilderExtend": "[Google Flow \u2022 Scenebuilder Extend / Jump To \u2022 0:10\u20130:15 \u2022 Camera: Crane Pull-Back] Extend the scene as the camera pulls back to reveal Waffle striking a heroic pose inside a gold-framed theatrical movie poster titled \"WAFFLE: THE SNOOZE PATROL\" in glowing 3D cinema typography. Orchestral crescendo hit.",
+      "omniFlashSinglePrompt": "[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image1] [0-3s] Slow dramatic dolly-in on Waffle the Pembroke Welsh Corgi <IMAGE_REF_0> looking guilty in the starting frame. [3-7s] Transition into a 3D Pixar animated blockbuster heist scene where the exact same Pembroke Welsh Corgi <IMAGE_REF_0> commits snores like a freight train with cinematic sparks. [7-10s] Heroic theatrical movie poster reveal with bold text 'WAFFLE: THE SNOOZE PATROL'. Include epic movie trailer voiceover and orchestral score."
+    },
+    "merch": [
+      {
+        "sku": "MERCH-CANVAS-16X20",
+        "title": "16x20\" Framed 'WAFFLE: THE SNOOZE PATROL' Gallery Canvas",
+        "price": "$49",
+        "numPrice": 49,
+        "provider": "Printify \u2022 Sensaria Gallery Frame",
+        "category": "Wall Art \u2022 #1 Bestseller",
+        "mockupType": "canvas"
+      },
+      {
+        "sku": "MERCH-HOODIE-BLK",
+        "title": "Heavyweight 'Waffle World Tour' Studio Hoodie",
+        "price": "$59",
+        "numPrice": 59,
+        "provider": "Gelato \u2022 400GSM Studio Fleece",
+        "category": "Apparel \u2022 Owner Flex",
+        "mockupType": "hoodie"
+      },
+      {
+        "sku": "MERCH-MUG-15OZ",
+        "title": "15oz Cinema Gloss Mug ('Wanted: Waffle')",
+        "price": "$24",
+        "numPrice": 24,
+        "provider": "Printify \u2022 District Photo",
+        "category": "Drinkware \u2022 Gift Ready",
+        "mockupType": "mug"
+      },
+      {
+        "sku": "MERCH-TOTE-ORG",
+        "title": "Organic Heavy Canvas 'THE NAP TRAP' Tote",
+        "price": "$29",
+        "numPrice": 29,
+        "provider": "Gelato \u2022 Eco Canvas",
+        "category": "Accessories \u2022 Everyday",
+        "mockupType": "tote"
+      }
+    ],
+    "stripeCheckout": {
+      "mode": "sandbox",
+      "live_stripe_connected": false,
+      "session_id": "cs_test_9f02bd9676db421ea8f9d373",
+      "created": 1793015436,
+      "statement_descriptor": "PAWSPORT AI STUDIO",
+      "checkout_url": "http://localhost:8096/?order=paw850300&checkout=success",
+      "total_cents": 4800,
+      "total_formatted": "$48.00",
+      "line_items": [
+        {
+          "name": "Pawsport.ai 'Make My Pet Famous' Bundle ($10 TikTok Opt-In Discount) \u2014 Starring Waffle",
+          "amount_cents": 900,
+          "amount_formatted": "$9.00",
+          "quantity": 1
+        },
+        {
+          "name": "1-Click Order Bump: 16x20\" Framed 'Waffle' Movie Poster Canvas (Printify)",
+          "amount_cents": 3900,
+          "amount_formatted": "$39.00",
+          "quantity": 1
+        }
+      ],
+      "note": "Stripe Sandbox Mode active (Add STRIPE_SECRET_KEY to .env for live Stripe hosted redirect)"
+    },
+    "printifyDefaultProduct": {
+      "mode": "sandbox",
+      "live_api_connected": false,
+      "message": "Printify Sandbox Mode active (Add PRINTIFY_API_TOKEN to .env for live shop creation)",
+      "endpoints": {
+        "1_upload_image": "POST https://api.printify.com/v1/uploads/images.json",
+        "2_create_product": "POST https://api.printify.com/v1/shops/{shop_id}/products.json",
+        "3_submit_order": "POST https://api.printify.com/v1/shops/{shop_id}/orders.json"
+      },
+      "image_upload_response": {
+        "id": "671a9f586801",
+        "file_name": "paw850300_canvas.png",
+        "preview_url": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1000&q=85"
+      },
+      "product_create_payload": {
+        "title": "Waffle \u2014 'WAFFLE: THE SNOOZE PATROL' 16x20\" Gallery Movie Poster Canvas",
+        "description": "Official Pawsport.ai Theatrical Movie Merch starring Waffle in 'WAFFLE: THE SNOOZE PATROL'. Printed on museum-grade stock via Printify.",
+        "blueprint_id": 50,
+        "print_provider_id": 2,
+        "variants": [
+          {
+            "id": 34244,
+            "price": 4900,
+            "is_enabled": true
+          }
+        ],
+        "print_areas": [
+          {
+            "variant_ids": [
+              34244
+            ],
+            "placeholders": [
+              {
+                "position": "front",
+                "images": [
+                  {
+                    "id": "671a9f586801",
+                    "x": 0.5,
+                    "y": 0.5,
+                    "scale": 1.0,
+                    "angle": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "retail_price_usd": "$49.00"
+    },
+    "tallyEventId": "tally_aac2f4c2"
   }
 }

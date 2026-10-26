@@ -41,18 +41,22 @@ RENDERS_DIR.mkdir(parents=True, exist_ok=True)
 
 sys.path.insert(0, str(BASE_DIR / "scripts"))
 from create_github_org_repo import create_organization_repository  # noqa: E402
+from printify_client import create_printify_product_or_sandbox  # noqa: E402
+from stripe_tally_handler import (  # noqa: E402
+    build_sample_tally_webhook_payload,
+    create_stripe_checkout_or_sandbox,
+    parse_tally_webhook_payload,
+)
 
-# Load GEMINI_API_KEY from candidate .env files
+# Load environment variables from candidate .env files
 for env_candidate in [
-    BASE_DIR / ".env",
-    BASE_DIR.parent / "roastmyspace" / ".env",
-    BASE_DIR.parent / "gemini-live-voice-agent" / ".env",
     Path.home() / ".env",
+    BASE_DIR.parent / "gemini-live-voice-agent" / ".env",
+    BASE_DIR.parent / "roastmyspace" / ".env",
+    BASE_DIR / ".env",
 ]:
     if env_candidate.exists():
         load_dotenv(env_candidate, override=True)
-        if os.environ.get("GEMINI_API_KEY") and os.environ.get("GEMINI_API_KEY") != "YOUR_API_KEY":
-            break
 
 
 # ---------------------------------------------------------------------------
@@ -514,6 +518,18 @@ class PetstarHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
+        if parsed.path == "/api/integrations/status":
+            self._send_json(
+                200,
+                {
+                    "gemini_configured": bool(os.environ.get("GEMINI_API_KEY")),
+                    "printify_live": bool(os.environ.get("PRINTIFY_API_TOKEN")),
+                    "printify_shop_id": os.environ.get("PRINTIFY_SHOP_ID") or "auto-detect / sandbox",
+                    "stripe_live": bool(os.environ.get("STRIPE_SECRET_KEY")),
+                    "tally_webhook_url": "http://localhost:8096/api/tally-webhook",
+                },
+            )
+            return
         if parsed.path == "/api/orders":
             self._send_json(200, {"orders": load_saved_orders()})
             return
@@ -534,16 +550,93 @@ class PetstarHandler(SimpleHTTPRequestHandler):
             raw_body = self.rfile.read(length).decode("utf-8") if length > 0 else "{}"
             payload = json.loads(raw_body)
 
-            if parsed.path in ("/api/cast", "/api/tally-webhook"):
-                new_order = run_pawsport_pipeline(payload)
+            if parsed.path == "/api/tally-webhook":
+                raw_tally = (
+                    build_sample_tally_webhook_payload(payload)
+                    if payload.get("simulate")
+                    else payload
+                )
+                normalized = parse_tally_webhook_payload(raw_tally)
+                new_order = run_pawsport_pipeline(normalized)
+                stripe_session = create_stripe_checkout_or_sandbox(normalized, new_order["id"])
+                printify_canvas = create_printify_product_or_sandbox(
+                    order_id=new_order["id"],
+                    pet_name=new_order["petName"],
+                    movie_title=new_order["movieTitle"],
+                    mockup_type="canvas",
+                    poster_img=new_order["posters"]["1"]["img"],
+                    base_dir=BASE_DIR,
+                )
+                new_order["stripeCheckout"] = stripe_session
+                new_order["printifyDefaultProduct"] = printify_canvas
+                new_order["tallyEventId"] = normalized.get("tally_response_id")
+                save_order_to_disk(new_order)
                 self._send_json(
                     200,
                     {
                         "status": "ok",
+                        "source": "tally_webhook",
+                        "tally_parsed": normalized,
+                        "stripe_checkout": stripe_session,
+                        "printify_product": printify_canvas,
                         "portal_url": f"http://localhost:8096/?order={new_order['id']}",
                         "order": new_order,
                     },
                 )
+                return
+
+            if parsed.path == "/api/cast":
+                new_order = run_pawsport_pipeline(payload)
+                stripe_session = create_stripe_checkout_or_sandbox(payload, new_order["id"])
+                printify_canvas = create_printify_product_or_sandbox(
+                    order_id=new_order["id"],
+                    pet_name=new_order["petName"],
+                    movie_title=new_order["movieTitle"],
+                    mockup_type="canvas",
+                    poster_img=new_order["posters"]["1"]["img"],
+                    base_dir=BASE_DIR,
+                )
+                new_order["stripeCheckout"] = stripe_session
+                new_order["printifyDefaultProduct"] = printify_canvas
+                save_order_to_disk(new_order)
+                self._send_json(
+                    200,
+                    {
+                        "status": "ok",
+                        "stripe_checkout": stripe_session,
+                        "printify_product": printify_canvas,
+                        "portal_url": f"http://localhost:8096/?order={new_order['id']}",
+                        "order": new_order,
+                    },
+                )
+                return
+
+            if parsed.path == "/api/printify/create-product":
+                order_id = payload.get("orderId", "paw849201")
+                sku_key = payload.get("skuKey", "canvas")
+                orders = load_saved_orders()
+                order_obj = orders.get(order_id, {})
+                pet_name = payload.get("petName") or order_obj.get("petName", "Barnaby")
+                movie_title = payload.get("movieTitle") or order_obj.get("movieTitle", "THE GOODEST HEIST")
+                poster_rel = (
+                    payload.get("posterImg")
+                    or order_obj.get("posters", {}).get("1", {}).get("img", "")
+                )
+                res = create_printify_product_or_sandbox(
+                    order_id=order_id,
+                    pet_name=pet_name,
+                    movie_title=movie_title,
+                    mockup_type=sku_key,
+                    poster_img=poster_rel,
+                    base_dir=BASE_DIR,
+                )
+                self._send_json(200, res)
+                return
+
+            if parsed.path == "/api/stripe/create-checkout-session":
+                order_id = payload.get("orderId") or f"paw{random.randint(100000, 999999)}"
+                res = create_stripe_checkout_or_sandbox(payload, order_id)
+                self._send_json(200, res)
                 return
 
             if parsed.path == "/api/github/create-org-repo":
