@@ -1,0 +1,200 @@
+/* ==========================================================================
+   Principal Design Engineer — Reference OKLCH Tokens & Fluid Typography Scale
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* 1. Surface Hierarchy (60-30-10 Rule — Luminance-Driven Elevation) */
+  --bg-canvas: oklch(0.145 0.012 265);        /* ~#090A0F Deep obsidian canvas */
+  --bg-surface: oklch(0.18 0.014 265);        /* ~#10121A Primary card/panel surface */
+  --bg-elevated: oklch(0.22 0.016 265);       /* ~#171A24 Popover / modal / hover surface */
+  --bg-glass: oklch(0.18 0.014 265 / 0.72);   /* Translucent glass surface */
+
+  /* 2. Crisp Hairline Borders & Specular Highlights */
+  --border-subtle: oklch(1 0 0 / 0.08);       /* Standard 1px structural border */
+  --border-strong: oklch(1 0 0 / 0.15);       /* Interactive / focused card border */
+  --border-highlight: oklch(1 0 0 / 0.12);    /* Top-edge specular inner highlight */
+
+  /* 3. WCAG AA-Compliant Typography Hierarchy */
+  --text-primary: oklch(0.96 0.005 265);      /* ~#F3F4F6 High-contrast headings/body */
+  --text-secondary: oklch(0.79 0.012 265);    /* ~#B8C0CC Secondary descriptions */
+  --text-muted: oklch(0.68 0.015 265);        /* ~#9098A6 Muted metadata (>= 4.6:1 on canvas) */
+
+  /* 4. Semantic Accents (No Generic Neon Purple/Blue Slop) */
+  --accent-primary: oklch(0.72 0.15 165);     /* Precision emerald/teal accent */
+  --accent-primary-fg: oklch(0.14 0.02 165);  /* Contrast text on primary accent */
+  --accent-subtle: color-mix(in oklch, var(--accent-primary) 14%, transparent);
+
+  /* 5. Status & Delta Tokens */
+  --status-success: oklch(0.74 0.16 155);
+  --status-warning: oklch(0.80 0.15 75);
+  --status-danger: oklch(0.68 0.19 25);
+  --status-info: oklch(0.72 0.13 235);
+
+  /* 6. Font Families (Ensure matching <link> or next/font import in layout) */
+  --font-display: 'Instrument Serif', 'Newsreader', Georgia, serif;
+  --font-sans: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* 7. Fluid Typography Scale (Smooth scaling from 390px mobile to 1440px+ desktop) */
+  --text-xs: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);     /* 12px -> 13px */
+  --text-sm: clamp(0.84375rem, 0.81rem + 0.15vw, 0.9375rem);  /* 13.5px -> 15px */
+  --text-base: clamp(0.9375rem, 0.90rem + 0.18vw, 1.0625rem); /* 15px -> 17px */
+  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);    /* 18px -> 21px */
+  --text-xl: clamp(1.375rem, 1.22rem + 0.65vw, 1.75rem);      /* 22px -> 28px */
+  --text-2xl: clamp(1.75rem, 1.45rem + 1.25vw, 2.5rem);       /* 28px -> 40px */
+  --text-display: clamp(2.25rem, 1.75rem + 2.2vw, 3.75rem);   /* 36px -> 60px */
+
+  /* 8. 4px / 8px Spatial Scale */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+
+  /* 9. Border Radii */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.625rem; /* 10px */
+  --radius-lg: 0.875rem; /* 14px */
+  --radius-xl: 1.25rem;  /* 20px */
+
+  /* 10. Choreographed Motion Curves */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 240ms;
+  --duration-slow: 400ms;
+}
+
+/* Editorial Swiss Grid / Warm Alabaster Light Mode Override */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-canvas: oklch(0.982 0.006 85);         /* ~#FAF9F5 Warm alabaster paper */
+  --bg-surface: oklch(1 0 0);                 /* Pure crisp surface */
+  --bg-elevated: oklch(0.965 0.008 85);       /* Subtle stone elevated surface */
+  --bg-glass: oklch(1 0 0 / 0.82);
+
+  --border-subtle: oklch(0.15 0.01 265 / 0.09);
+  --border-strong: oklch(0.15 0.01 265 / 0.18);
+  --border-highlight: oklch(1 0 0 / 0.8);
+
+  --text-primary: oklch(0.18 0.015 265);      /* ~#111318 Deep ink */
+  --text-secondary: oklch(0.38 0.015 265);    /* ~#434854 Secondary copy */
+  --text-muted: oklch(0.50 0.014 265);        /* ~#636A78 Muted metadata (>= 4.7:1 on paper) */
+
+  --accent-primary: oklch(0.48 0.14 165);
+  --accent-primary-fg: oklch(0.99 0 0);
+  --accent-subtle: color-mix(in oklch, var(--accent-primary) 10%, transparent);
+}
+
+/* ==========================================================================
+   Base Resets & High-Craft Utility Primitives
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevent flex/grid children from blowing out 390px mobile viewports */
+.min-w-0 {
+  min-width: 0;
+}
+
+/* Mandatory tabular numerals for metrics, prices, counters, and tables */
+.tabular-nums,
+table,
+time,
+[data-numeric="true"] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Optimal reading measure for long-form copy */
+.prose-measure {
+  max-width: 65ch;
+}
+
+/* Elevated surface with crisp 1px border & top-edge specular highlight */
+.surface-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 1px 0 0 var(--border-highlight);
+}
+
+/* Explicit state transitions (Never use `transition: all`) */
+.interactive-control {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--ease-out-expo);
+}
+
+.interactive-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.interactive-control:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Layout-matched Shimmer Skeleton (Zero CLS) */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(1 0 0 / 0.06) 50%,
+    transparent 100%
+  );
+  animation: shimmer-sweep 1.6s var(--ease-out-expo) infinite;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
