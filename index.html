@@ -6,6 +6,7 @@
   <title>Pawsport.ai (Petstar) — 24-Hour Viral Pet Persona & Custom Merch Studio</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://tally.so/widgets/embed.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
@@ -573,22 +574,38 @@
         <pre id="checkoutReceiptJson" class="text-[10px] mono text-gray-300 overflow-x-auto max-h-40"></pre>
       </div>
 
-      <!-- Collapsible Developer & Webhook Tools -->
+      <!-- Collapsible Developer & Tally.so Embed Tools -->
       <details class="rounded-xl bg-[#0B0D14] border border-white/[0.06] px-4 py-3 text-xs">
         <summary class="cursor-pointer font-semibold text-gray-400 hover:text-white flex items-center justify-between list-none">
-          <span>⚡ Developer &amp; Webhook Tools (Tally.so / Stripe / Printify Status)</span>
+          <span>⚡ Tally.so Live Form (`Yj57KJ`) &amp; Webhook Tools</span>
           <span class="mono text-[10px]">Expand ▼</span>
         </summary>
-        <div class="pt-3 mt-3 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
-          <div class="flex flex-wrap items-center gap-2 text-[11px] mono">
-            <span class="text-emerald-300">● POST /api/tally-webhook</span>
-            <span id="badgeStripeStatus" class="text-amber-300">● Stripe: Ready</span>
-            <span id="badgePrintifyStatus" class="text-pink-300">● Printify v1: Ready</span>
+        <div class="pt-3 mt-3 border-t border-white/[0.06] space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-2 text-[11px] mono">
+              <span class="text-emerald-300">● POST /api/tally-webhook</span>
+              <span id="badgeStripeStatus" class="text-amber-300">● Stripe: Ready</span>
+              <span id="badgePrintifyStatus" class="text-pink-300">● Printify v1: Ready</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" data-tally-open="Yj57KJ" data-tally-layout="modal" data-tally-width="650" data-tally-hide-title="1"
+                      class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 text-[11px] font-bold mono">
+                ⚡ Launch Tally Pop-Out
+              </button>
+              <button type="button" onclick="simulateTallyWebhook()" id="simTallyBtn"
+                      class="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-[11px] font-bold mono">
+                ⚡ Test Tally Webhook
+              </button>
+            </div>
           </div>
-          <button type="button" onclick="simulateTallyWebhook()" id="simTallyBtn"
-                  class="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-[11px] font-bold mono">
-            ⚡ Test Tally.so FORM_RESPONSE Webhook
-          </button>
+          <div class="rounded-xl bg-black/50 border border-white/[0.06] p-3">
+            <iframe data-tally-src="https://tally.so/embed/Yj57KJ?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="2443" frameborder="0" marginheight="0" marginwidth="0" title="RoastMySpace"></iframe>
+            <script>
+              if (typeof Tally !== "undefined") {
+                Tally.loadEmbeds();
+              }
+            </script>
+          </div>
         </div>
       </details>
     </div>
