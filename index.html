@@ -427,25 +427,38 @@
   <!-- TAB 2: + CAST MY PET (CLEAN CHECKOUT + COLLAPSIBLE DEV TOOLS)         -->
   <!-- ===================================================================== -->
   <section id="tab-cast" class="hidden max-w-3xl mx-auto px-4 sm:px-6 pt-8 space-y-6">
-    <div class="rounded-3xl bg-[#11131D] border border-white/[0.09] p-6 sm:p-8 space-y-6 shadow-2xl">
-      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.07] pb-5">
-        <div>
-          <h2 class="font-display text-2xl font-black text-white">
-            🎬 Cast Your Pet in a Movie Trailer
-          </h2>
-          <p class="text-xs text-gray-400 mt-1">
-            Upload a photo + 3 personality traits. Delivered in ~4 minutes.
-          </p>
-        </div>
-        <div class="flex items-center gap-1.5">
-          <button type="button" onclick="prefillSamplePet('dachshund')" class="px-2.5 py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-xs font-medium text-amber-300">
-            🌭 Try Chorizo
-          </button>
-          <button type="button" onclick="prefillSamplePet('corgi')" class="px-2.5 py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-xs font-medium text-pink-300">
-            🍑 Try Waffle
-          </button>
+    <div class="rounded-3xl bg-[#11131D] border border-white/[0.09] overflow-hidden shadow-2xl">
+      <!-- Cinema Header Banner Photo + Overlapping Seal -->
+      <div class="relative h-40 sm:h-48 w-full bg-black overflow-hidden border-b border-white/[0.07]">
+        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=1400&q=85"
+             alt="Pawsport Cinema Header"
+             class="w-full h-full object-cover object-center opacity-75" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#11131D] via-black/30 to-transparent"></div>
+        <div class="absolute bottom-3 left-6 flex items-center gap-3">
+          <img src="assets/logo.svg" alt="Pawsport Seal" class="w-12 h-12 rounded-2xl border-2 border-amber-400/60 shadow-xl bg-[#090A0F]" />
+          <div>
+            <span class="text-[10px] mono uppercase tracking-widest text-amber-300 font-bold">PAWSPORT PICTURES • CASTING DESK</span>
+            <h2 class="font-display text-xl sm:text-2xl font-black text-white">
+              🎬 Cast Your Pet in a Movie Trailer
+            </h2>
+          </div>
         </div>
       </div>
+
+      <div class="p-6 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.07] pb-4">
+          <p class="text-xs text-gray-400">
+            Upload a photo + 3 personality traits. Get a 15s Movie Trailer, 3 Posters &amp; Pet ID Card in ~4 minutes.
+          </p>
+          <div class="flex items-center gap-1.5">
+            <button type="button" onclick="prefillSamplePet('dachshund')" class="px-2.5 py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-xs font-medium text-amber-300">
+              🌭 Try Chorizo
+            </button>
+            <button type="button" onclick="prefillSamplePet('corgi')" class="px-2.5 py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-xs font-medium text-pink-300">
+              🍑 Try Waffle
+            </button>
+          </div>
+        </div>
 
       <form id="castPetForm" onsubmit="submitCastPetForm(event)" class="space-y-5">
         <!-- Photo Upload -->
@@ -608,6 +621,7 @@
           </div>
         </div>
       </details>
+      </div>
     </div>
   </section>
 
