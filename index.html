@@ -111,135 +111,109 @@
     }
   </style>
 </head>
-<body class="min-h-screen pb-20 selection:bg-amber-500 selection:text-black">
+<body class="min-h-screen pb-24 selection:bg-amber-500 selection:text-black">
 
-  <!-- TOP PROMO TICKER -->
-  <div class="bg-gradient-to-r from-amber-500/20 via-pink-500/20 to-violet-500/20 border-b border-amber-500/30 py-2 px-4 text-center text-xs font-medium tracking-wide">
-    <span class="inline-flex items-center gap-2">
-      <span class="px-2 py-0.5 rounded bg-amber-400 text-black font-extrabold uppercase text-[10px]">Viral Flywheel Live</span>
-      <span class="text-gray-200">Upload 3 pet photos + 3 traits • Get your <b>15-Sec Movie Trailer</b>, <b>3 Pixar Posters</b> &amp; <b>1-Click Custom Merch</b> in 4 minutes!</span>
-      <button onclick="switchMainTab('cast')" class="underline text-amber-300 hover:text-amber-200 font-bold ml-1">Claim $10 TikTok Opt-In Discount ($9 Total) →</button>
-    </span>
-  </div>
-
-  <!-- HEADER & NAVIGATION -->
-  <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#090A0F]/90 border-b border-[#24283B]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+  <!-- SLEEK MINIMAL HEADER -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#090A0F]/85 border-b border-white/[0.07]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       <!-- Brand -->
-      <div class="flex items-center gap-3.5 cursor-pointer" onclick="switchMainTab('studio')">
-        <img src="assets/logo.svg" alt="Pawsport.ai Logo" class="w-11 h-11 rounded-xl shadow-lg shadow-amber-500/10" />
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="font-display text-xl font-black tracking-tight text-white">PAWSPORT<span class="text-amber-400">.AI</span></span>
-            <span class="text-[10px] mono uppercase px-2 py-0.5 rounded-full bg-pink-500/15 text-pink-300 border border-pink-500/30 font-semibold">Petstar Studio</span>
-          </div>
-          <p class="text-xs text-gray-400">Turn Your Pet Into a Viral Movie Star &amp; Custom Merch Line in 4 Minutes</p>
-        </div>
+      <div class="flex items-center gap-3 cursor-pointer" onclick="switchMainTab('studio')">
+        <img src="assets/logo.svg" alt="Pawsport.ai" class="w-9 h-9 rounded-xl" />
+        <span class="font-display text-lg font-black tracking-tight text-white">PAWSPORT<span class="text-amber-400">.AI</span></span>
       </div>
 
-      <!-- Pet Star Order Switcher -->
-      <div class="flex items-center gap-1.5 bg-[#12141E] p-1.5 rounded-xl border border-[#24283B]" id="orderSwitcherBar">
-        <span class="text-[11px] mono text-gray-400 px-2 hidden sm:inline">STARRING:</span>
-        <button onclick="loadOrder('paw849201')" id="pill-paw849201" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-500 text-black">
-          🐕 Barnaby (Golden)
+      <!-- Pet Star Switcher Pills -->
+      <div class="flex items-center gap-1 bg-[#11131C] p-1 rounded-xl border border-white/[0.07] overflow-x-auto max-w-md" id="orderSwitcherBar">
+        <button onclick="loadOrder('paw849201')" id="pill-paw849201" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-amber-500 text-black whitespace-nowrap">
+          🐕 Barnaby
         </button>
-        <button onclick="loadOrder('paw910442')" id="pill-paw910442" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-300 hover:text-white">
-          🐾 Mochi (Frenchie)
+        <button onclick="loadOrder('paw910442')" id="pill-paw910442" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-300 hover:text-white whitespace-nowrap">
+          🐾 Mochi
         </button>
-        <button onclick="loadOrder('paw773190')" id="pill-paw773190" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-300 hover:text-white">
-          🐈‍⬛ Luna (Tuxedo Cat)
+        <button onclick="loadOrder('paw773190')" id="pill-paw773190" class="order-pill px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-300 hover:text-white whitespace-nowrap">
+          🐈‍⬛ Luna
         </button>
       </div>
 
-      <!-- Main Tabs -->
+      <!-- Main Navigation -->
       <div class="flex items-center gap-2">
-        <button onclick="switchMainTab('studio')" id="tabBtn-studio" class="px-3.5 py-2 rounded-xl text-xs font-bold border border-amber-500/50 bg-amber-500/15 text-amber-300 transition-all">
-          🎬 Pawsport Studio
+        <button onclick="switchMainTab('studio')" id="tabBtn-studio" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-300 hover:text-white transition-all">
+          Studio
         </button>
-        <button onclick="switchMainTab('cast')" id="tabBtn-cast" class="px-3.5 py-2 rounded-xl text-xs font-bold btn-gold">
+        <button onclick="switchMainTab('operator')" id="tabBtn-operator" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-400 hover:text-white transition-all hidden sm:inline-block">
+          Blueprint &amp; API
+        </button>
+        <button onclick="switchMainTab('cast')" id="tabBtn-cast" class="px-4 py-2 rounded-xl text-xs font-extrabold btn-gold shadow-sm">
           + Cast My Pet ($9)
-        </button>
-        <button onclick="switchMainTab('operator')" id="tabBtn-operator" class="px-3.5 py-2 rounded-xl text-xs font-bold border border-[#24283B] bg-[#12141E] text-gray-300 hover:text-white transition-all">
-          ⚙️ 4-Min Map &amp; GitHub API
         </button>
       </div>
     </div>
   </header>
 
   <!-- ===================================================================== -->
-  <!-- TAB 1: PAWSPORT STUDIO (CLIENT PAYOFF PORTAL & 1-CLICK MERCH STORE)   -->
+  <!-- TAB 1: PAWSPORT STUDIO (CLEAN EDITORIAL STAGE + MERCH)                -->
   <!-- ===================================================================== -->
-  <main id="tab-studio" class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 space-y-8">
+  <main id="tab-studio" class="max-w-6xl mx-auto px-4 sm:px-6 pt-8 space-y-12">
 
-    <!-- Top Movie Marquee Bar -->
-    <div class="card-cinema rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 border-l-4 border-l-amber-400">
-      <div class="space-y-1">
-        <div class="flex flex-wrap items-center gap-2">
-          <span id="uiPackageBadge" class="text-[11px] mono uppercase px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold">
-            Node A: $9 Make My Pet Famous
-          </span>
-          <span id="uiBreedBadge" class="text-xs text-gray-300 font-medium">Golden Retriever • @golden_barnaby</span>
-          <span id="uiViralLift" class="text-[11px] mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">+340% Share Velocity</span>
+    <!-- Clean Editorial Title Header -->
+    <div class="flex flex-wrap items-end justify-between gap-4 border-b border-white/[0.07] pb-6">
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2.5 text-xs text-gray-400">
+          <span id="uiBreedBadge" class="font-medium text-amber-400">Golden Retriever • @golden_barnaby</span>
+          <span>•</span>
+          <span id="uiPackageBadge" class="mono text-[11px] text-gray-400">Node A: $9 Make My Pet Famous</span>
+          <span id="uiViralLift" class="hidden">+340% Share Velocity</span>
+          <span id="uiStarringScore" class="hidden">98</span>
         </div>
-        <h1 id="uiMovieTitle" class="font-display text-2xl sm:text-3xl font-black tracking-tight text-white">
+        <h1 id="uiMovieTitle" class="font-display text-3xl sm:text-4xl font-black tracking-tight text-white">
           “CRIMSON: THE CHEESE HEIST”
         </h1>
-        <p id="uiMovieTagline" class="text-xs sm:text-sm text-amber-300/90 italic">
+        <p id="uiMovieTagline" class="text-sm text-gray-400 italic">
           No counter is safe. No cheddar is sacred.
         </p>
       </div>
 
-      <div class="flex items-center gap-4">
-        <div class="text-right">
-          <div class="text-[11px] mono uppercase text-gray-400">Box Office Charisma</div>
-          <div class="flex items-baseline gap-1 justify-end">
-            <span id="uiStarringScore" class="font-display text-3xl font-black text-amber-400">98</span>
-            <span class="text-xs text-gray-400">/100</span>
-          </div>
-        </div>
-        <div class="h-10 w-px bg-[#24283B]"></div>
-        <button onclick="scrollToMerch()" class="btn-cinema px-4 py-2.5 rounded-xl text-xs font-extrabold shadow-lg">
-          🛍️ 1-Click Pet Merch Store ↓
+      <div class="flex items-center gap-2.5">
+        <button id="playTrailerBtn" onclick="toggleTrailerPlayback()" class="btn-gold px-4 py-2.5 rounded-xl text-xs font-extrabold flex items-center gap-2">
+          <span id="playTrailerIcon">▶</span>
+          <span id="playTrailerLabel">Play 15s Trailer</span>
+        </button>
+        <button onclick="scrollToMerch()" class="px-4 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.1] text-xs font-bold text-white transition-all">
+          🛍️ Shop Merch ↓
         </button>
       </div>
     </div>
 
-    <!-- Main Studio Grid: Left (Interactive Poster Slider + 15s Trailer + 3 Posters) | Right (Roast + Pawsport ID Card) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- Main 2-Column Hero Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-      <!-- LEFT COLUMN (8 Cols) -->
-      <div class="lg:col-span-8 space-y-5">
+      <!-- LEFT COLUMN (7 Cols): Poster Split Stage + Compact Theme Pills -->
+      <div class="lg:col-span-7 space-y-4">
 
-        <!-- Interactive Real Photo vs Pixar Movie Poster Split Comparison -->
-        <div class="card-cinema rounded-2xl overflow-hidden shadow-2xl">
-          <!-- Stage Top Bar -->
-          <div class="px-4 py-3 bg-[#0E1018] border-b border-[#24283B] flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
-              <span class="text-xs font-bold tracking-wide uppercase text-gray-200">Interactive Photo-to-Movie-Poster Split Stage</span>
-              <span id="uiActivePosterBadge" class="text-[11px] mono px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">
-                Pixar / Disney 3D Studio Render
-              </span>
-            </div>
-            <div class="flex items-center gap-3 text-xs">
-              <button onclick="setSliderValue(15)" class="text-gray-400 hover:text-white mono">Guilty Photo</button>
-              <input id="splitRangeInput" type="range" min="0" max="100" value="78" class="w-28 sm:w-36" oninput="updateSplitPosition(this.value)" />
-              <button onclick="setSliderValue(92)" class="text-amber-400 hover:text-amber-300 font-bold mono">Movie Poster</button>
+        <!-- Interactive Photo-to-Poster Split Stage -->
+        <div class="rounded-2xl overflow-hidden border border-white/[0.09] bg-[#0D0F17] shadow-2xl">
+          <!-- Minimal Top Bar -->
+          <div class="px-4 py-2.5 bg-[#0B0D14] border-b border-white/[0.06] flex items-center justify-between gap-2 text-xs">
+            <span id="uiActivePosterBadge" class="mono text-[11px] text-amber-300 font-medium">
+              Pixar / Disney 3D Studio Render
+            </span>
+            <div class="flex items-center gap-2.5">
+              <button onclick="setSliderValue(15)" class="text-gray-400 hover:text-white text-[11px] mono">Before</button>
+              <input id="splitRangeInput" type="range" min="0" max="100" value="78" class="w-24 sm:w-32" oninput="updateSplitPosition(this.value)" />
+              <button onclick="setSliderValue(92)" class="text-amber-400 hover:text-amber-300 font-bold text-[11px] mono">Poster</button>
             </div>
           </div>
 
           <!-- Split Canvas Stage -->
-          <div id="splitStage" class="relative w-full h-[460px] sm:h-[520px] select-none overflow-hidden bg-black cursor-ew-resize"
+          <div id="splitStage" class="relative w-full h-[460px] sm:h-[510px] select-none overflow-hidden bg-black cursor-ew-resize"
                onmousedown="startStageDrag(event)" ontouchstart="startStageDrag(event)">
 
-            <!-- BASE LAYER: AFTER (AI MOVIE POSTER WITH CINEMA TYPOGRAPHY OVERLAY) -->
+            <!-- AFTER (AI MOVIE POSTER) -->
             <div class="absolute inset-0 w-full h-full">
               <img id="afterPosterImg" src="" alt="AI Movie Poster" class="w-full h-full object-cover transition-all duration-300" />
-              <!-- Theatrical Vignette & Movie Poster Typography Overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-black/75 flex flex-col justify-between p-6 sm:p-8 pointer-events-none">
-                <!-- Top Billing & Title -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-black/70 flex flex-col justify-between p-6 sm:p-8 pointer-events-none">
                 <div class="text-center space-y-1">
-                  <p id="posterTopSubtitle" class="text-[10px] sm:text-xs mono tracking-[0.28em] text-amber-300 uppercase font-bold poster-text-shadow">
+                  <p id="posterTopSubtitle" class="text-[10px] mono tracking-[0.26em] text-amber-300 uppercase font-bold poster-text-shadow">
                     A PAWSPORT STUDIOS ORIGINAL • STARRING BARNABY
                   </p>
                   <h2 id="posterTopTitle" class="font-poster text-2xl sm:text-4xl font-black tracking-wider text-white uppercase poster-text-shadow">
@@ -247,408 +221,286 @@
                   </h2>
                 </div>
 
-                <!-- Bottom Credits Block -->
-                <div class="text-center space-y-2">
+                <div class="text-center space-y-1.5">
                   <p id="posterBottomTagline" class="text-xs sm:text-sm font-semibold italic text-amber-200 poster-text-shadow">
                     “No counter is safe. No cheddar is sacred.”
                   </p>
-                  <div class="text-[9px] sm:text-[10px] mono tracking-[0.18em] text-gray-300/90 uppercase leading-tight poster-text-shadow">
-                    PAWSPORT PICTURES PRESENTS A FLUX LORA PRODUCTION • EXECUTIVE PRODUCER <span id="posterCreditOwner">@GOLDEN_BARNABY</span><br/>
-                    DIRECTED BY CLAUDE 4.5 &amp; GEMINI VISION • ANIMATED IN KLING 1.6 • SOUNDTRACK BY ELEVENLABS
-                  </div>
-                  <div class="inline-flex items-center gap-2 pt-1">
-                    <span class="px-2 py-0.5 rounded border border-amber-400/60 bg-black/60 text-[10px] mono font-bold text-amber-300">RATED PG-13 • EXTREME SIDE-EYE</span>
-                    <span class="px-2 py-0.5 rounded border border-white/30 bg-black/60 text-[10px] mono text-white">IMAX 9:16</span>
+                  <div class="text-[9px] mono tracking-[0.18em] text-gray-300/80 uppercase poster-text-shadow">
+                    EXECUTIVE PRODUCER <span id="posterCreditOwner">@GOLDEN_BARNABY</span> • RATED PG-13 FOR EXTREME SIDE-EYE
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- CLIPPED LAYER: BEFORE (ORIGINAL GUILTY PET PHOTO) -->
+            <!-- BEFORE (ORIGINAL PET PHOTO) -->
             <div id="beforeClipLayer" class="absolute inset-0 overflow-hidden" style="width: 22%;">
               <img id="beforePetImg" src="" alt="Original Uploaded Pet Photo" class="h-full object-cover max-w-none" style="width: 800px;" />
-              <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[11px] mono font-bold text-white shadow">
-                📸 0:00 REAL GUILTY PHOTO
+              <div class="absolute top-3.5 left-3.5 px-2.5 py-1 rounded-full bg-black/75 border border-white/15 text-[10px] mono font-semibold text-white">
+                Original Photo
               </div>
-            </div>
-
-            <!-- Badge top-right -->
-            <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-500/90 text-black text-[11px] mono font-extrabold shadow-lg pointer-events-none">
-              🎬 AI MOVIE POSTER
             </div>
 
             <!-- Vertical Divider Line & Handle -->
             <div id="splitDividerLine" class="absolute top-0 bottom-0 w-0.5 bg-amber-400 shadow-[0_0_15px_#F59E0B] pointer-events-none" style="left: 22%;">
-              <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-amber-400 text-black font-black flex items-center justify-center shadow-xl border-2 border-white text-xs">
+              <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-amber-400 text-black font-black flex items-center justify-center shadow-xl border-2 border-white text-xs">
                 ⇄
               </div>
             </div>
 
             <!-- Live 15-Sec Trailer Caption Overlay -->
-            <div id="trailerCaptionOverlay" class="hidden absolute bottom-20 left-1/2 -translate-x-1/2 w-[90%] max-w-xl bg-black/85 border border-amber-400/60 rounded-xl px-4 py-3 text-center shadow-2xl pointer-events-none">
-              <div class="text-[10px] mono uppercase text-amber-400 font-bold mb-0.5">🎙️ EPIC MOVIE TRAILER VOICEOVER (ELEVENLABS)</div>
+            <div id="trailerCaptionOverlay" class="hidden absolute bottom-16 left-1/2 -translate-x-1/2 w-[90%] max-w-lg bg-black/85 border border-amber-400/50 rounded-xl px-4 py-2.5 text-center shadow-2xl pointer-events-none">
               <p id="trailerLiveCaptionText" class="text-xs sm:text-sm font-bold text-white"></p>
             </div>
           </div>
 
-          <!-- 15-Sec Viral Movie Trailer Player Bar -->
-          <div class="p-4 bg-[#0D0F17] border-t border-[#24283B] flex flex-wrap items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-              <button id="playTrailerBtn" onclick="toggleTrailerPlayback()" class="btn-gold px-4 py-2 rounded-xl text-xs font-extrabold flex items-center gap-2">
-                <span id="playTrailerIcon">▶</span>
-                <span id="playTrailerLabel">Play 15-Sec Movie Trailer</span>
-              </button>
-              <div>
-                <div class="flex items-center gap-2">
-                  <span class="text-xs font-bold text-white">15-Sec 9:16 TikTok / Reels Movie Trailer</span>
-                  <span id="trailerTimeLabel" class="text-[11px] mono text-amber-400">0:00 / 0:15</span>
-                </div>
-                <p id="trailerScriptPreview" class="text-xs text-gray-400 line-clamp-1">
-                  Click Play to hear the “Epic Movie Trailer Guy” voiceover + automatic photo-to-poster reveal!
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <label class="inline-flex items-center gap-1.5 text-xs text-gray-300 cursor-pointer select-none">
+          <!-- Compact Audio / Script Footer -->
+          <div class="px-4 py-2.5 bg-[#0B0D14] border-t border-white/[0.06] flex items-center justify-between gap-3 text-xs">
+            <p id="trailerScriptPreview" class="text-gray-400 truncate flex-1">
+              🎙️ Click Play Trailer to hear the voiceover narration.
+            </p>
+            <div class="flex items-center gap-3 shrink-0">
+              <span id="trailerTimeLabel" class="text-[11px] mono text-amber-400">0:00 / 0:15</span>
+              <label class="inline-flex items-center gap-1.5 text-[11px] text-gray-300 cursor-pointer select-none">
                 <input type="checkbox" id="voiceoverToggle" checked class="accent-amber-400 rounded" />
-                <span>🔊 Trailer Voiceover</span>
+                <span>🔊 Voice</span>
               </label>
             </div>
           </div>
         </div>
 
-        <!-- 3 Selectable Movie Poster Themes -->
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-xs mono uppercase tracking-wider text-gray-400 font-bold">
-              🎨 Select Included High-Res Movie Poster Theme (Updates Stage &amp; Merch Below)
-            </h3>
-            <span class="text-xs text-amber-400 mono">Flux IP-Adapter / PuLID Fur-Lock Active</span>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5" id="posterThemeCards">
-            <!-- Dynamically populated by JS -->
-          </div>
-        </div>
-
-        <!-- Google Flow (labs.google/fx/tools/flow) Scenebuilder & Ingredients Bridge -->
-        <div class="card-cinema rounded-2xl p-5 space-y-4 border border-amber-500/35">
-          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[#24283B] pb-3.5">
-            <div class="flex items-center gap-2.5">
-              <span class="px-2.5 py-1 rounded-lg bg-gradient-to-r from-amber-500/25 to-pink-500/25 border border-amber-400/40 text-amber-300 text-xs mono font-extrabold">
-                🎬 GOOGLE FLOW STUDIO BRIDGE
-              </span>
-              <div>
-                <h3 class="text-sm font-black text-white">
-                  Zero-Cost 15-Sec Trailer via Google Flow (`Veo` + `Imagen` + `Scenebuilder`)
-                </h3>
-                <p class="text-[11px] text-gray-400">
-                  Replaces Fal.ai + Kling + ElevenLabs + Creatomate ($0.82/order → $0.00) using <b>Ingredients to Video</b> &amp; <b>Frames to Video</b>.
-                </p>
-              </div>
-            </div>
-            <div class="flex items-center gap-2">
-              <label class="px-3 py-1.5 rounded-xl bg-[#1A1D2C] hover:bg-[#25293E] border border-[#2F354D] text-xs font-bold text-gray-200 cursor-pointer transition-all">
-                <span>📤 Attach Flow MP4</span>
-                <input type="file" accept="video/mp4,video/*" class="hidden" onchange="attachFlowMp4Video(event)" />
-              </label>
-              <a href="https://labs.google/fx/tools/flow" target="_blank"
-                 class="btn-gold px-3.5 py-1.5 rounded-xl text-xs font-extrabold inline-flex items-center gap-1">
-                <span>Open Google Flow ↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Attached Flow Video Player (hidden until user drops a Flow MP4) -->
-          <div id="flowVideoPlayerWrap" class="hidden rounded-xl overflow-hidden bg-black border border-amber-400/50 p-2">
-            <div class="flex items-center justify-between px-2 pb-1.5">
-              <span class="text-[11px] mono text-amber-300 font-bold">▶ LIVE GOOGLE FLOW 9:16 TRAILER MP4</span>
-              <button onclick="clearFlowMp4Video()" class="text-[11px] mono text-gray-400 hover:text-white">✕ Close Video</button>
-            </div>
-            <video id="flowAttachedVideo" controls loop playsinline class="w-full max-h-[420px] rounded-lg mx-auto"></video>
-          </div>
-
-          <!-- 3-Act Flow Scenebuilder Timeline Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-            <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] flex flex-col justify-between gap-2">
-              <div class="space-y-1">
-                <div class="flex items-center justify-between">
-                  <span class="text-[10px] mono font-bold text-amber-400">CLIP 1 • 0:00–0:03</span>
-                  <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-white/5 text-gray-300">Frames to Video</span>
-                </div>
-                <p id="uiFlowClip1" class="text-[11px] text-gray-300 leading-relaxed line-clamp-4"></p>
-              </div>
-              <button onclick="copyFlowPrompt('clip1')" id="btnFlowClip1" class="w-full py-1.5 rounded-lg bg-[#161927] hover:bg-[#202437] border border-[#2A2F45] text-[11px] mono font-bold text-amber-300">
-                Copy Clip 1 Prompt
-              </button>
-            </div>
-
-            <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] flex flex-col justify-between gap-2">
-              <div class="space-y-1">
-                <div class="flex items-center justify-between">
-                  <span class="text-[10px] mono font-bold text-pink-400">CLIP 2 • 0:03–0:10</span>
-                  <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-white/5 text-gray-300">Ingredients to Video</span>
-                </div>
-                <p id="uiFlowClip2" class="text-[11px] text-gray-300 leading-relaxed line-clamp-4"></p>
-              </div>
-              <button onclick="copyFlowPrompt('clip2')" id="btnFlowClip2" class="w-full py-1.5 rounded-lg bg-[#161927] hover:bg-[#202437] border border-[#2A2F45] text-[11px] mono font-bold text-pink-300">
-                Copy Clip 2 Prompt
-              </button>
-            </div>
-
-            <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] flex flex-col justify-between gap-2">
-              <div class="space-y-1">
-                <div class="flex items-center justify-between">
-                  <span class="text-[10px] mono font-bold text-emerald-400">CLIP 3 • 0:10–0:15</span>
-                  <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-white/5 text-gray-300">Scenebuilder Extend</span>
-                </div>
-                <p id="uiFlowClip3" class="text-[11px] text-gray-300 leading-relaxed line-clamp-4"></p>
-              </div>
-              <button onclick="copyFlowPrompt('clip3')" id="btnFlowClip3" class="w-full py-1.5 rounded-lg bg-[#161927] hover:bg-[#202437] border border-[#2A2F45] text-[11px] mono font-bold text-emerald-300">
-                Copy Clip 3 Prompt
-              </button>
-            </div>
-          </div>
-
-          <!-- Single-Turn Gemini Omni 1.1 Flash / Flow Master Prompt Bar -->
-          <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] flex flex-wrap items-center justify-between gap-3">
-            <div class="text-[11px] text-gray-300 flex-1 min-w-[220px]">
-              <span class="mono text-amber-400 font-bold">⚡ Single-Turn Master Prompt (`gemini-omni-1.1-flash` / Flow):</span>
-              <span id="uiFlowMasterPrompt" class="text-gray-400 ml-1 line-clamp-1"></span>
-            </div>
-            <button onclick="copyFlowPrompt('master')" id="btnFlowMaster" class="px-3 py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 border border-amber-400/40 text-xs mono font-bold text-amber-300">
-              📋 Copy Full Timecoded Prompt
-            </button>
-          </div>
+        <!-- 3 Compact Poster Style Selector Cards -->
+        <div class="grid grid-cols-3 gap-3" id="posterThemeCards">
+          <!-- Populated by JS -->
         </div>
 
       </div>
 
-      <!-- RIGHT COLUMN (4 Cols): Brutal Bio Roast + Official Pawsport Pet ID Card -->
-      <div class="lg:col-span-4 space-y-5">
+      <!-- RIGHT COLUMN (5 Cols): Unified Dossier Card + Collapsible Google Flow Drawer -->
+      <div class="lg:col-span-5 space-y-4">
 
-        <!-- Brutal Bio Roast Box -->
-        <div class="roast-banner rounded-2xl p-5 space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-[11px] mono uppercase tracking-wider px-2.5 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/40 font-bold">
-              🔥 The Brutal Bio Roast
-            </span>
-            <button onclick="copyRoastQuote()" id="copyRoastBtn" class="text-xs mono text-gray-300 hover:text-amber-300 underline">
-              Copy Caption
-            </button>
-          </div>
-          <blockquote id="uiRoastSummary" class="text-sm sm:text-base font-bold text-white leading-relaxed">
-            “Barnaby has the soulful eyes of a Victorian orphan and the criminal record of a career safe-cracker...”
-          </blockquote>
-          <div class="pt-1 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-300">
-            <span>🎙️ 40-Word Trailer Script Ready</span>
-            <span class="text-amber-300 font-semibold">✓ Verified by Pawsport.ai</span>
-          </div>
-        </div>
+        <!-- Unified Pawsport Dossier Card -->
+        <div class="rounded-2xl bg-[#11131D] border border-white/[0.08] p-6 space-y-6 shadow-xl">
 
-        <!-- Official "Pawsport Pet ID" Card -->
-        <div class="pawsport-id-card rounded-2xl p-5 space-y-4 shadow-xl">
-          <div class="flex items-center justify-between border-b border-[#24283B] pb-3">
-            <div class="flex items-center gap-2.5">
-              <img src="assets/logo.svg" alt="Seal" class="w-8 h-8 rounded-lg" />
+          <!-- 1. The Roast Quote -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] mono uppercase tracking-wider text-amber-400 font-bold">🔥 Official Roast</span>
+              <button onclick="copyRoastQuote()" id="copyRoastBtn" class="text-[11px] mono text-gray-400 hover:text-white">
+                Copy Caption
+              </button>
+            </div>
+            <blockquote id="uiRoastSummary" class="text-sm sm:text-base font-semibold text-gray-100 leading-relaxed">
+              “Barnaby has the soulful eyes of a Victorian orphan and the criminal record of a career safe-cracker...”
+            </blockquote>
+          </div>
+
+          <!-- 2. Compact Pawsport Pet ID Grid -->
+          <div class="p-3.5 rounded-xl bg-[#0B0D14] border border-white/[0.06] space-y-2.5 text-xs">
+            <div class="flex items-center justify-between border-b border-white/[0.06] pb-2">
+              <span class="text-[10px] mono uppercase tracking-wider text-gray-400 font-semibold">PAWSPORT ID</span>
+              <span id="uiSerialNumber" class="text-[11px] mono font-bold text-amber-300">PAW-2026-8492</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
               <div>
-                <div class="text-[10px] mono uppercase tracking-widest text-amber-400 font-bold">OFFICIAL DIGITAL DOCUMENT</div>
-                <div class="text-sm font-black tracking-wide text-white">PAWSPORT PET ID CARD</div>
+                <span class="text-[10px] mono text-gray-500 block">CODENAME</span>
+                <span id="uiCodename" class="font-bold text-white">THE GOLDEN GOURMET</span>
+              </div>
+              <div>
+                <span class="text-[10px] mono text-gray-500 block">THREAT LEVEL</span>
+                <span id="uiThreatLevel" class="font-bold text-rose-400">DEFCON 1 (DAIRY FELON)</span>
               </div>
             </div>
-            <div class="text-right">
-              <div id="uiSerialNumber" class="text-xs mono font-bold text-amber-300">PAW-2026-8492</div>
-              <div class="text-[10px] mono text-emerald-400">● BIOMETRIC FUR LOCK</div>
+            <div class="pt-1 border-t border-white/[0.05]">
+              <span class="text-[10px] mono text-gray-500 block">BIOMETRIC FUR LOCK</span>
+              <span id="uiMarkings" class="text-gray-300 text-[11px]">Honey-gold double coat, white chest blaze</span>
             </div>
           </div>
 
-          <!-- Pet Biometrics Grid -->
-          <div class="grid grid-cols-2 gap-2.5 text-xs bg-[#0B0D14] p-3 rounded-xl border border-[#24283B]">
-            <div>
-              <span class="text-[10px] mono uppercase text-gray-400 block">ALIAS / CODENAME</span>
-              <span id="uiCodename" class="font-extrabold text-amber-300">THE GOLDEN GOURMET</span>
-            </div>
-            <div>
-              <span class="text-[10px] mono uppercase text-gray-400 block">THREAT LEVEL</span>
-              <span id="uiThreatLevel" class="font-extrabold text-rose-400">DEFCON 1 (DAIRY FELON)</span>
-            </div>
-            <div class="col-span-2 pt-1 border-t border-[#1E2233]">
-              <span class="text-[10px] mono uppercase text-gray-400 block">LOCKED FUR &amp; COLLAR MARKINGS (FLUX PULID)</span>
-              <span id="uiMarkings" class="text-gray-200 text-xs">Honey-gold double coat, white chest blaze, red leather brass-tag collar</span>
-            </div>
-          </div>
-
-          <!-- 3 Indicted Domestic Felonies -->
-          <div class="space-y-2.5">
-            <div class="text-[11px] mono uppercase text-gray-400 font-bold">📋 Indicted Domestic Felonies (3)</div>
+          <!-- 3. Indicted Domestic Crimes -->
+          <div class="space-y-2">
+            <div class="text-[10px] mono uppercase tracking-wider text-gray-400 font-bold">Indicted Domestic Crimes</div>
             <div id="uiCrimesList" class="space-y-2">
               <!-- Populated by JS -->
             </div>
           </div>
-        </div>
 
-        <!-- Dual-Channel Viral Share Box -->
-        <div class="card-cinema rounded-2xl p-4 space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-white">🔄 Dual-Channel Viral Distribution</span>
-            <span class="text-[10px] mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300">ManyChat Ready</span>
-          </div>
-          <p class="text-xs text-gray-400">
-            Posted on <b>@pawsport.ai</b> (tagging <span id="uiShareHandle" class="text-amber-300 font-semibold">@golden_barnaby</span>) + sent to owner for IG Story / TikTok repost.
-          </p>
-          <div class="flex gap-2">
-            <button onclick="copyViralHook()" id="copyHookBtn" class="flex-1 py-2 px-3 rounded-xl bg-[#1A1D2B] hover:bg-[#23273A] border border-[#2E334B] text-xs font-bold text-gray-200 transition-all">
-              📋 Copy TikTok “Comment PAW” Hook
+          <!-- 4. Share Hook Button -->
+          <div class="pt-1 flex items-center justify-between gap-2 border-t border-white/[0.06]">
+            <span class="text-[11px] text-gray-400">Tagging <span id="uiShareHandle" class="text-amber-300 font-medium">@golden_barnaby</span></span>
+            <button onclick="copyViralHook()" id="copyHookBtn" class="px-3 py-1.5 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-xs font-semibold text-gray-200 transition-all">
+              📋 Copy TikTok Hook
             </button>
           </div>
         </div>
+
+        <!-- Collapsible Drawer: Google Flow Video Prompts & MP4 Player -->
+        <details class="group rounded-2xl bg-[#11131D] border border-white/[0.08] overflow-hidden">
+          <summary class="px-5 py-3.5 cursor-pointer flex items-center justify-between text-xs font-bold text-gray-200 hover:text-white select-none list-none">
+            <span class="flex items-center gap-2">
+              <span class="text-amber-400">🎬</span>
+              <span>Google Flow Video Prompts &amp; MP4 Studio</span>
+            </span>
+            <span class="mono text-[11px] text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+
+          <div class="px-5 pb-5 pt-2 border-t border-white/[0.06] space-y-3 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-[11px] text-gray-400">Zero-cost Veo + Imagen prompts for Google Flow:</span>
+              <div class="flex items-center gap-2">
+                <label class="px-2.5 py-1 rounded-lg bg-white/[0.06] hover:bg-white/[0.1] text-[11px] font-semibold text-gray-200 cursor-pointer">
+                  <span>📤 Attach MP4</span>
+                  <input type="file" accept="video/mp4,video/*" class="hidden" onchange="attachFlowMp4Video(event)" />
+                </label>
+                <a href="https://labs.google/fx/tools/flow" target="_blank" class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-bold text-[11px]">
+                  Open Flow ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Attached Flow Video Player -->
+            <div id="flowVideoPlayerWrap" class="hidden rounded-xl overflow-hidden bg-black border border-amber-400/40 p-2">
+              <div class="flex items-center justify-between px-2 pb-1">
+                <span class="text-[10px] mono text-amber-300 font-bold">▶ ATTACHED FLOW MP4</span>
+                <button onclick="clearFlowMp4Video()" class="text-[10px] mono text-gray-400 hover:text-white">✕</button>
+              </div>
+              <video id="flowAttachedVideo" controls loop playsinline class="w-full max-h-[340px] rounded-lg mx-auto"></video>
+            </div>
+
+            <!-- Master Prompt -->
+            <div class="p-3 rounded-xl bg-[#0B0D14] border border-white/[0.06] space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="mono text-[10px] text-amber-400 font-bold">FULL TIMECODED MASTER PROMPT</span>
+                <button onclick="copyFlowPrompt('master')" id="btnFlowMaster" class="text-[11px] mono text-amber-300 hover:underline font-bold">
+                  📋 Copy Full Timecoded Prompt
+                </button>
+              </div>
+              <p id="uiFlowMasterPrompt" class="text-[11px] text-gray-400 line-clamp-2"></p>
+            </div>
+
+            <!-- 3 Individual Clips -->
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="copyFlowPrompt('clip1')" id="btnFlowClip1" class="p-2 rounded-lg bg-[#0B0D14] hover:bg-white/[0.05] border border-white/[0.06] text-[11px] mono text-amber-300 font-semibold text-center">
+                Copy Clip 1 (0–3s)
+              </button>
+              <button onclick="copyFlowPrompt('clip2')" id="btnFlowClip2" class="p-2 rounded-lg bg-[#0B0D14] hover:bg-white/[0.05] border border-white/[0.06] text-[11px] mono text-pink-300 font-semibold text-center">
+                Copy Clip 2 (3–10s)
+              </button>
+              <button onclick="copyFlowPrompt('clip3')" id="btnFlowClip3" class="p-2 rounded-lg bg-[#0B0D14] hover:bg-white/[0.05] border border-white/[0.06] text-[11px] mono text-emerald-300 font-semibold text-center">
+                Copy Clip 3 (10–15s)
+              </button>
+            </div>
+            <div class="hidden">
+              <p id="uiFlowClip1"></p>
+              <p id="uiFlowClip2"></p>
+              <p id="uiFlowClip3"></p>
+            </div>
+          </div>
+        </details>
 
       </div>
     </div>
 
     <!-- =================================================================== -->
-    <!-- 1-CLICK CUSTOM MERCH STORE (PRINTIFY / GELATO AUTO-MOCKUP)          -->
+    <!-- 1-CLICK CUSTOM MERCH STORE (CLEAN GALLERY ROW)                      -->
     <!-- =================================================================== -->
-    <section id="merchStoreSection" class="pt-4 space-y-4">
-      <div class="flex flex-wrap items-end justify-between gap-4 border-b border-[#24283B] pb-4">
+    <section id="merchStoreSection" class="pt-4 border-t border-white/[0.07] space-y-5">
+      <div class="flex flex-wrap items-baseline justify-between gap-2">
         <div>
-          <div class="flex items-center gap-2">
-            <span class="text-[11px] mono uppercase px-2.5 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-500/30 font-bold">
-              Node C • 1-Click Print-On-Demand (~45% Margin)
-            </span>
-            <span class="text-xs mono text-gray-400">Auto-Mocked via Printify &amp; Gelato API at Minute 3:00</span>
-          </div>
-          <h2 class="font-display text-2xl font-black text-white mt-1">
-            🛍️ Official <span id="uiMerchPetName" class="text-amber-400">Barnaby</span> Movie Merch Store
+          <h2 class="font-display text-xl font-black text-white">
+            🛍️ Official <span id="uiMerchPetName" class="text-amber-400">Barnaby</span> Merch Collection
           </h2>
+          <p class="text-xs text-gray-400 mt-0.5">
+            Live Printify API v1 mockups synced with <span id="uiMerchActivePosterName" class="text-gray-200 font-medium">Poster 1</span>
+          </p>
         </div>
-        <p class="text-xs text-gray-400 max-w-md">
-          Every item below is dynamically mocked up with your currently selected Movie Poster (<span id="uiMerchActivePosterName" class="text-amber-300 font-semibold">Poster 1</span>). Zero inventory required.
-        </p>
       </div>
 
       <div id="merchGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <!-- Populated dynamically with live visual product mockups -->
+        <!-- Populated dynamically -->
       </div>
     </section>
 
   </main>
 
   <!-- ===================================================================== -->
-  <!-- TAB 2: + CAST MY PET (TALLY.SO + STRIPE INTAKE & CHECKOUT FUNNEL)     -->
+  <!-- TAB 2: + CAST MY PET (CLEAN CHECKOUT + COLLAPSIBLE DEV TOOLS)         -->
   <!-- ===================================================================== -->
-  <section id="tab-cast" class="hidden max-w-4xl mx-auto px-4 sm:px-6 pt-8 space-y-6">
-    <!-- Live Integration Bar: Tally.so Webhook + Stripe Checkout + Printify API v1 -->
-    <div class="card-cinema rounded-2xl p-4 border border-emerald-500/30 bg-[#0B0E17] flex flex-wrap items-center justify-between gap-3">
-      <div class="flex flex-wrap items-center gap-2 text-xs">
-        <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mono font-bold">
-          ● Tally.so Webhook: POST /api/tally-webhook
-        </span>
-        <span id="badgeStripeStatus" class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 mono">
-          Stripe Checkout API: Ready
-        </span>
-        <span id="badgePrintifyStatus" class="px-2.5 py-1 rounded-full bg-pink-500/15 text-pink-300 border border-pink-500/30 mono">
-          Printify API v1: Ready
-        </span>
-      </div>
-      <button type="button" onclick="simulateTallyWebhook()" id="simTallyBtn"
-              class="px-3.5 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-xs font-extrabold mono transition-all">
-        ⚡ Test Tally.so FORM_RESPONSE Webhook
-      </button>
-    </div>
-
-    <div class="card-cinema rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl border-t-4 border-t-amber-400">
-      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#24283B] pb-5">
+  <section id="tab-cast" class="hidden max-w-3xl mx-auto px-4 sm:px-6 pt-8 space-y-6">
+    <div class="rounded-3xl bg-[#11131D] border border-white/[0.09] p-6 sm:p-8 space-y-6 shadow-2xl">
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.07] pb-5">
         <div>
-          <span class="text-[11px] mono uppercase px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold">
-            Minute 0:00 Intake • Tally.so + Stripe Checkout Funnel
-          </span>
-          <h2 class="font-display text-2xl sm:text-3xl font-black text-white mt-2">
-            🎬 Turn Your Pet Into a Viral Movie Star
+          <h2 class="font-display text-2xl font-black text-white">
+            🎬 Cast Your Pet in a Movie Trailer
           </h2>
-          <p class="text-sm text-gray-400 mt-1">
-            Upload your pet’s photo + 3 personality traits. Our Gemini Vision + Nano Banana Poster Engine + Printify API v1 builds your complete Pawsport bundle immediately.
+          <p class="text-xs text-gray-400 mt-1">
+            Upload a photo + 3 personality traits. Delivered in ~4 minutes.
           </p>
         </div>
-        <div class="flex flex-col items-end gap-1">
-          <span class="text-[11px] mono text-gray-400">Quick-Fill Demo Pet:</span>
-          <div class="flex gap-1.5">
-            <button type="button" onclick="prefillSamplePet('dachshund')" class="px-2.5 py-1 rounded-lg bg-[#1A1D2C] hover:bg-[#25293D] text-xs font-semibold text-amber-300 border border-amber-500/30">
-              🌭 Chorizo (Dachshund)
-            </button>
-            <button type="button" onclick="prefillSamplePet('corgi')" class="px-2.5 py-1 rounded-lg bg-[#1A1D2C] hover:bg-[#25293D] text-xs font-semibold text-pink-300 border border-pink-500/30">
-              🍑 Waffle (Corgi)
-            </button>
-          </div>
+        <div class="flex items-center gap-1.5">
+          <button type="button" onclick="prefillSamplePet('dachshund')" class="px-2.5 py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-xs font-medium text-amber-300">
+            🌭 Try Chorizo
+          </button>
+          <button type="button" onclick="prefillSamplePet('corgi')" class="px-2.5 py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-xs font-medium text-pink-300">
+            🍑 Try Waffle
+          </button>
         </div>
       </div>
 
-      <form id="castPetForm" onsubmit="submitCastPetForm(event)" class="space-y-6">
-        <!-- Step 1: Upload 3 Pet Photos -->
-        <div class="space-y-2">
-          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300">
-            Q1. Upload Pet Photo(s) (Locks Exact Fur Markings, Collar &amp; Expression) *
-          </label>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <label class="col-span-1 sm:col-span-2 flex flex-col items-center justify-center border-2 border-dashed border-amber-500/40 hover:border-amber-400 rounded-2xl p-5 cursor-pointer bg-[#0D0F17] transition-all">
-              <input type="file" id="petPhotoInput" accept="image/*" class="hidden" onchange="handlePetPhotoUpload(event)" />
-              <div class="text-center space-y-1">
-                <div class="text-2xl">📸</div>
-                <div class="text-xs font-bold text-amber-300">Click to Upload Primary Pet Photo (JPG/PNG)</div>
-                <div class="text-[11px] text-gray-400">Or paste an image URL below • Works with dogs, cats &amp; chaos goblins</div>
-              </div>
-            </label>
-            <div class="relative rounded-2xl overflow-hidden border border-[#24283B] bg-black h-36 flex items-center justify-center">
-              <img id="uploadPreviewImg" src="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?auto=format&fit=crop&w=800&q=80" alt="Preview" class="w-full h-full object-cover" />
-              <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[10px] mono text-amber-300">PuLID Reference Locked</span>
+      <form id="castPetForm" onsubmit="submitCastPetForm(event)" class="space-y-5">
+        <!-- Photo Upload -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <label class="sm:col-span-2 flex flex-col items-center justify-center border border-dashed border-amber-500/40 hover:border-amber-400 rounded-2xl p-4 cursor-pointer bg-[#0B0D14] transition-all">
+            <input type="file" id="petPhotoInput" accept="image/*" class="hidden" onchange="handlePetPhotoUpload(event)" />
+            <div class="text-center space-y-1">
+              <div class="text-xl">📸</div>
+              <div class="text-xs font-bold text-amber-300">Upload Pet Photo (JPG/PNG)</div>
+              <div class="text-[11px] text-gray-400">Or paste an image URL below</div>
             </div>
-          </div>
-          <input type="url" id="petImageUrlInput" placeholder="Optional: Or paste a direct pet photo URL..."
-                 value="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?auto=format&fit=crop&w=800&q=80"
-                 oninput="syncUrlPreview(this.value)"
-                 class="w-full px-3.5 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-xs text-gray-200 focus:outline-none focus:border-amber-400" />
-        </div>
-
-        <!-- Step 2: Pet Name, Breed, Social Handle, Owner Email -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Q2. Pet’s Name *</label>
-            <input type="text" id="petNameInput" required value="Chorizo" placeholder="e.g. Barnaby, Mochi, Luna"
-                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Q3. Species &amp; Breed *</label>
-            <input type="text" id="petBreedInput" required value="Miniature Dachshund" placeholder="e.g. Golden Retriever, Tuxedo Cat"
-                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Q4. TikTok / IG Handle *</label>
-            <input type="text" id="ownerHandleInput" required value="@chorizo_longboy" placeholder="@your_handle (for repost tag)"
-                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Q5. Delivery Email *</label>
-            <input type="email" id="ownerEmailInput" required value="parent@pawsport.ai" placeholder="you@domain.com"
-                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </label>
+          <div class="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-black h-28 flex items-center justify-center">
+            <img id="uploadPreviewImg" src="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?auto=format&fit=crop&w=800&q=80" alt="Preview" class="w-full h-full object-cover" />
           </div>
         </div>
+        <input type="url" id="petImageUrlInput" placeholder="Or paste a direct pet photo URL..."
+               value="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?auto=format&fit=crop&w=800&q=80"
+               oninput="syncUrlPreview(this.value)"
+               class="w-full px-3.5 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-xs text-gray-300 focus:outline-none focus:border-amber-400" />
 
-        <!-- Step 3: 3 Personality Traits / Domestic Crimes & Movie Genre -->
+        <!-- Pet Details -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Pet’s Name</label>
+            <input type="text" id="petNameInput" required value="Chorizo"
+                   class="w-full px-3.5 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Species &amp; Breed</label>
+            <input type="text" id="petBreedInput" required value="Miniature Dachshund"
+                   class="w-full px-3.5 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">TikTok / IG Handle</label>
+            <input type="text" id="ownerHandleInput" required value="@chorizo_longboy"
+                   class="w-full px-3.5 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Delivery Email</label>
+            <input type="email" id="ownerEmailInput" required value="parent@pawsport.ai"
+                   class="w-full px-3.5 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+        </div>
+
+        <!-- Traits & Genre -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="sm:col-span-2">
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
-              Q6. Three Personality Traits / Domestic Crimes *
-            </label>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">3 Personality Traits or Domestic Crimes</label>
             <input type="text" id="petTraitsInput" required
                    value="Built like a footlong hotdog, barks at the wind, burrows under 6 blankets to steal socks"
-                   placeholder="e.g. Steals cheese off the counter, side-eyes strangers, terrified of the vacuum"
-                   class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400" />
+                   class="w-full px-3.5 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-amber-400" />
           </div>
           <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">
-              Blockbuster Genre *
-            </label>
-            <select id="petGenreInput" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0D0F17] border border-[#24283B] text-sm text-white focus:outline-none focus:border-amber-400">
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Movie Genre</label>
+            <select id="petGenreInput" class="w-full px-3.5 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-sm text-white focus:outline-none focus:border-amber-400">
               <option value="Pixar Heist Blockbuster">Pixar Heist Blockbuster</option>
               <option value="Sci-Fi Action Epic">Sci-Fi Action Epic</option>
               <option value="Noir Crime Thriller">Noir Crime Thriller</option>
@@ -658,316 +510,159 @@
           </div>
         </div>
 
-        <!-- Step 4: Pricing Tier Selector ($9 Opt-In vs $24 Private VIP) -->
-        <div class="space-y-3">
-          <label class="block text-xs font-bold uppercase tracking-wider text-gray-300">
-            Q7. Select Your Pawsport Package Tier *
-          </label>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- Node A: $9 Make My Pet Famous -->
-            <div id="tierCardPublic" onclick="selectCheckoutTier('public')" class="cursor-pointer rounded-2xl p-4 border-2 border-amber-400 bg-amber-500/10 transition-all">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-extrabold uppercase text-amber-300">🔥 Node A: “Make My Pet Famous”</span>
-                <div class="flex items-baseline gap-1.5">
-                  <span class="text-xs line-through text-gray-400">$19</span>
-                  <span class="font-display text-2xl font-black text-white">$9</span>
-                </div>
-              </div>
-              <p class="text-xs text-gray-300 mt-1.5">
-                Includes 15-sec Movie Trailer, 3 Posters &amp; Pet ID Card. <b>$10 off</b> for letting us feature your pet on our TikTok/Reels feed &amp; tag your handle!
-              </p>
+        <!-- Package Tier -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <div id="tierCardPublic" onclick="selectCheckoutTier('public')" class="cursor-pointer rounded-2xl p-4 border-2 border-amber-400 bg-amber-500/10 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-300">🔥 Make My Pet Famous</span>
+              <span class="font-display text-xl font-black text-white">$9</span>
             </div>
-
-            <!-- Node B: $24 Private VIP Bundle -->
-            <div id="tierCardPrivate" onclick="selectCheckoutTier('private')" class="cursor-pointer rounded-2xl p-4 border border-[#24283B] bg-[#0D0F17] hover:border-gray-500 transition-all">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-extrabold uppercase text-pink-300">👑 Node B: Private VIP Bundle</span>
-                <span class="font-display text-2xl font-black text-white">$24</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-1.5">
-                100% private portal delivery + uncompressed 4K print files + 3 extra cinema themes. Not posted on public social feeds.
-              </p>
-            </div>
+            <p class="text-[11px] text-gray-300 mt-1">
+              $10 off when you let us feature your pet on our TikTok/Reels &amp; tag your handle.
+            </p>
           </div>
 
-          <!-- Q8: Conditional Media Release (Required ONLY for $9 Public Tier) -->
-          <div id="q8MediaReleaseBlock" class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30">
-            <label class="flex items-start gap-3 cursor-pointer">
-              <input type="checkbox" id="mediaReleaseCheckbox" checked required class="w-4 h-4 mt-0.5 accent-amber-400" />
-              <span class="text-xs text-gray-200 leading-relaxed">
-                <strong class="text-amber-300">Q8. Public Showcase &amp; Media Release ($10 Discount Condition):</strong>
-                I grant Pawsport.ai permission to feature my pet’s Movie Trailer &amp; Poster on TikTok, Instagram Reels, and YouTube Shorts and tag my handle in exchange for the $9 “Make My Pet Famous” rate.
-              </span>
-            </label>
-          </div>
-
-          <!-- Optional 1-Click Merch Order Bump -->
-          <label class="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-pink-500/10 to-violet-500/10 border border-pink-500/30 cursor-pointer">
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="canvasBumpCheckbox" onchange="recalcCheckoutTotal()" class="w-4 h-4 accent-amber-400" />
-              <div>
-                <div class="text-xs font-extrabold text-white">
-                  🎁 1-Click Order Bump: Add 16x20" Framed Movie Poster Canvas (+$39 — Save $10)
-                </div>
-                <div class="text-[11px] text-gray-300">
-                  Auto-printed &amp; shipped to your door via Printify REST API v1 (`blueprint_id: 50` Sensaria Gallery Frame).
-                </div>
-              </div>
+          <div id="tierCardPrivate" onclick="selectCheckoutTier('private')" class="cursor-pointer rounded-2xl p-4 border border-white/[0.08] bg-[#0B0D14] hover:border-gray-500 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-pink-300">👑 Private VIP Bundle</span>
+              <span class="font-display text-xl font-black text-white">$24</span>
             </div>
-            <span class="mono text-xs font-bold text-pink-300">+$39</span>
+            <p class="text-[11px] text-gray-400 mt-1">
+              100% private delivery + uncompressed 4K print files. Not posted publicly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Conditional Media Release Consent -->
+        <div id="q8MediaReleaseBlock" class="px-3.5 py-2.5 rounded-xl bg-amber-500/10 border border-amber-500/25">
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" id="mediaReleaseCheckbox" checked required class="w-4 h-4 accent-amber-400" />
+            <span class="text-xs text-gray-200">
+              I allow Pawsport.ai to feature my pet’s trailer on TikTok/Reels and tag my handle for the $9 rate.
+            </span>
           </label>
         </div>
 
-        <!-- Submit Button -->
-        <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
-          <div class="text-xs text-gray-400">
-            🔒 Stripe Checkout Verified • Instant 4-Minute AI Pipeline + Printify API v1 Auto-Mockup
+        <!-- Optional 1-Click Canvas Bump -->
+        <label class="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] cursor-pointer">
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="canvasBumpCheckbox" onchange="recalcCheckoutTotal()" class="w-4 h-4 accent-amber-400" />
+            <span class="text-xs font-semibold text-gray-200">
+              🎁 Add 16×20" Framed Movie Poster Canvas (+$39 — Shipped via Printify)
+            </span>
           </div>
-          <button type="submit" id="submitCastBtn" class="btn-gold px-7 py-3.5 rounded-2xl text-sm font-black shadow-xl flex items-center gap-2">
-            <span>🎬 Checkout &amp; Generate Pet Movie Bundle</span>
-            <span id="submitPriceBadge" class="px-2 py-0.5 rounded bg-black/20 text-xs mono">$9.00</span>
+          <span class="mono text-xs font-bold text-amber-300">+$39</span>
+        </label>
+
+        <!-- Submit -->
+        <div class="pt-2 flex items-center justify-between gap-4">
+          <span class="text-[11px] text-gray-400">🔒 Stripe Checkout • PAWSPORT AI STUDIO • 100% Refund Guarantee</span>
+          <button type="submit" id="submitCastBtn" class="btn-gold px-6 py-3 rounded-xl text-xs font-black shadow-lg flex items-center gap-2">
+            <span>🎬 Generate Movie Bundle</span>
+            <span id="submitPriceBadge" class="px-2 py-0.5 rounded bg-black/20 mono">$9.00</span>
           </button>
         </div>
       </form>
 
-      <!-- Live Stripe + Printify + Tally Webhook Receipt Drawer -->
+      <!-- Live Receipt Drawer -->
       <div id="checkoutReceiptBox" class="hidden p-4 rounded-2xl bg-[#07090F] border border-emerald-500/40 space-y-2">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-extrabold text-emerald-300 mono">✓ STRIPE CHECKOUT + PRINTIFY API v1 + TALLY WEBHOOK RECEIPT</span>
-          <a id="receiptPortalLink" href="#" class="text-xs font-bold text-amber-300 hover:underline">Open Generated Pawsport Portal →</a>
+          <span class="text-xs font-extrabold text-emerald-300 mono">✓ ORDER &amp; WEBHOOK RECEIPT</span>
+          <a id="receiptPortalLink" href="#" class="text-xs font-bold text-amber-300 hover:underline">Open Generated Pawsport →</a>
         </div>
-        <pre id="checkoutReceiptJson" class="text-[10px] mono text-gray-300 overflow-x-auto max-h-48"></pre>
+        <pre id="checkoutReceiptJson" class="text-[10px] mono text-gray-300 overflow-x-auto max-h-40"></pre>
       </div>
 
-      <!-- Stripe Verification & Compliance Footer -->
-      <div class="pt-4 border-t border-[#24283B] grid grid-cols-1 sm:grid-cols-4 gap-3 text-[11px] text-gray-400">
-        <div class="p-3 rounded-xl bg-[#0A0C12] border border-[#1E2233]">
-          <div class="font-bold text-gray-200 mono">Statement Descriptor</div>
-          <div class="mt-0.5 text-amber-300 mono">PAWSPORT AI STUDIO</div>
+      <!-- Collapsible Developer & Webhook Tools -->
+      <details class="rounded-xl bg-[#0B0D14] border border-white/[0.06] px-4 py-3 text-xs">
+        <summary class="cursor-pointer font-semibold text-gray-400 hover:text-white flex items-center justify-between list-none">
+          <span>⚡ Developer &amp; Webhook Tools (Tally.so / Stripe / Printify Status)</span>
+          <span class="mono text-[10px]">Expand ▼</span>
+        </summary>
+        <div class="pt-3 mt-3 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-2 text-[11px] mono">
+            <span class="text-emerald-300">● POST /api/tally-webhook</span>
+            <span id="badgeStripeStatus" class="text-amber-300">● Stripe: Ready</span>
+            <span id="badgePrintifyStatus" class="text-pink-300">● Printify v1: Ready</span>
+          </div>
+          <button type="button" onclick="simulateTallyWebhook()" id="simTallyBtn"
+                  class="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-[11px] font-bold mono">
+            ⚡ Test Tally.so FORM_RESPONSE Webhook
+          </button>
         </div>
-        <div class="p-3 rounded-xl bg-[#0A0C12] border border-[#1E2233]">
-          <div class="font-bold text-gray-200 mono">Digital Deliverables</div>
-          <div class="mt-0.5">15s Movie Trailer + 3 High-Res Posters + Pet ID Card</div>
-        </div>
-        <div class="p-3 rounded-xl bg-[#0A0C12] border border-[#1E2233]">
-          <div class="font-bold text-gray-200 mono">Fulfillment SLA</div>
-          <div class="mt-0.5">~4 Minutes Automated (Max 24 Hours Guaranteed)</div>
-        </div>
-        <div class="p-3 rounded-xl bg-[#0A0C12] border border-[#1E2233]">
-          <div class="font-bold text-gray-200 mono">Refund &amp; Support</div>
-          <div class="mt-0.5">100% Free Re-Roll or Full Refund • support@pawsport.ai</div>
-        </div>
-      </div>
+      </details>
     </div>
   </section>
 
   <!-- ===================================================================== -->
   <!-- TAB 3: OPERATOR, 4-MIN PIPELINE, VIRAL FLYWHEEL & GITHUB ORG API      -->
   <!-- ===================================================================== -->
-  <section id="tab-operator" class="hidden max-w-7xl mx-auto px-4 sm:px-6 pt-8 space-y-8">
-
-    <!-- 1. The 4-Minute AI Fulfillment Map & Unit Economics -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      <div class="lg:col-span-7 card-cinema rounded-2xl p-6 space-y-4">
+  <section id="tab-operator" class="hidden max-w-6xl mx-auto px-4 sm:px-6 pt-8 space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-cinema rounded-2xl p-6 space-y-3">
         <div class="flex items-center justify-between">
-          <h3 class="font-display text-lg font-black text-white">⚙️ The 4-Minute AI Fulfillment Map</h3>
-          <span class="text-xs mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">~$0.82 Total API Cost / Order</span>
+          <h3 class="font-display text-base font-black text-white">⚙️ 4-Minute AI Fulfillment Map</h3>
+          <span class="text-xs mono text-emerald-400">~$0.82 API Cost / Order</span>
         </div>
-        <div class="space-y-3 text-xs">
-          <div class="p-3.5 rounded-xl bg-[#0D0F17] border border-[#24283B] flex items-start gap-3">
-            <span class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 mono font-bold">0:00</span>
-            <div>
-              <div class="font-bold text-white">INTAKE: Tally.so Form + Stripe ($9 Public / $24 VIP)</div>
-              <p class="text-gray-400">Captures 3 pet photos, 3 personality traits, owner handle, and triggers Make.com / `/api/cast` webhook.</p>
-            </div>
-          </div>
-          <div class="p-3.5 rounded-xl bg-[#0D0F17] border border-[#24283B] flex items-start gap-3">
-            <span class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 mono font-bold">0:30</span>
-            <div>
-              <div class="font-bold text-white">PET LORA &amp; SCRIPT ENGINE: Claude 4.5 / Gemini 3.8 Flash + Fal.ai PuLID</div>
-              <p class="text-gray-400">Scans the 3 pet photos for exact breed markings, collar, and expression. Writes the 40-word Movie Trailer voiceover script and locks fur markings via Flux IP-Adapter / PuLID.</p>
-            </div>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-            <div class="p-3 rounded-xl bg-[#0D0F17] border border-amber-500/30">
-              <div class="mono text-[10px] text-amber-400 font-bold">MINUTE 1:30 • BRANCH A</div>
-              <div class="font-bold text-white mt-0.5">Poster Generator</div>
-              <p class="text-gray-400 text-[11px] mt-1">Generates 3 high-res movie posters with native title typography in Flux / Nano Banana 2.1.</p>
-            </div>
-            <div class="p-3 rounded-xl bg-[#0D0F17] border border-pink-500/30">
-              <div class="mono text-[10px] text-pink-400 font-bold">MINUTE 2:30 • BRANCH B</div>
-              <div class="font-bold text-white mt-0.5">Trailer Animator</div>
-              <p class="text-gray-400 text-[11px] mt-1">Runway Gen-3 / Kling animates a 5s clip + ElevenLabs voiceover + Creatomate 15s MP4.</p>
-            </div>
-            <div class="p-3 rounded-xl bg-[#0D0F17] border border-emerald-500/30">
-              <div class="mono text-[10px] text-emerald-400 font-bold">MINUTE 3:00 • BRANCH C</div>
-              <div class="font-bold text-white mt-0.5">Auto-Merch Mockup</div>
-              <p class="text-gray-400 text-[11px] mt-1">Pushes poster PNG into Printify / Gelato API for 1-click $49 framed canvas checkout.</p>
-            </div>
-          </div>
+        <div class="space-y-2 text-xs text-gray-300">
+          <div class="p-3 rounded-xl bg-[#0B0D14]"><b>0:00 Intake:</b> Tally.so (`POST /api/tally-webhook`) + Stripe (`$9` Public / `$24` VIP)</div>
+          <div class="p-3 rounded-xl bg-[#0B0D14]"><b>0:30 Vision &amp; Script:</b> Gemini Vision scans fur markings + writes 40-word trailer script</div>
+          <div class="p-3 rounded-xl bg-[#0B0D14]"><b>1:30–3:00 Parallel Output:</b> 3 Movie Posters + Google Flow Trailer + Printify API v1 SKU</div>
         </div>
       </div>
 
-      <!-- Revenue & Unit Economics Table -->
-      <div class="lg:col-span-5 card-cinema rounded-2xl p-6 space-y-4">
-        <h3 class="font-display text-lg font-black text-white">💰 Revenue &amp; Unit Economics Map</h3>
-        <div class="space-y-2.5 text-xs">
-          <div class="p-3 rounded-xl bg-[#0D0F17] border border-[#24283B] flex justify-between items-center">
-            <div>
-              <div class="font-bold text-amber-300">Node A: “Make My Pet Famous”</div>
-              <div class="text-gray-400">Owner allows pet in public TikTok/Reels feed</div>
-            </div>
-            <div class="text-right">
-              <div class="font-black text-white text-sm">$9</div>
-              <div class="text-[10px] mono text-emerald-400">~88% Margin</div>
-            </div>
+      <!-- GitHub REST API (2026-03-10) Organization Repository Creator -->
+      <div class="card-cinema rounded-2xl p-6 space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-[10px] mono uppercase text-amber-300">GitHub REST API • 2026-03-10</span>
+            <h3 class="font-display text-base font-black text-white">🚀 POST /orgs/{org}/repos</h3>
           </div>
-          <div class="p-3 rounded-xl bg-[#0D0F17] border border-[#24283B] flex justify-between items-center">
-            <div>
-              <div class="font-bold text-pink-300">Node B: Private VIP Bundle</div>
-              <div class="text-gray-400">Private delivery + 4K print files + 3 themes</div>
-            </div>
-            <div class="text-right">
-              <div class="font-black text-white text-sm">$24</div>
-              <div class="text-[10px] mono text-emerald-400">~92% Margin</div>
-            </div>
-          </div>
-          <div class="p-3 rounded-xl bg-[#0D0F17] border border-[#24283B] flex justify-between items-center">
-            <div>
-              <div class="font-bold text-violet-300">Node C: 1-Click Print-on-Demand</div>
-              <div class="text-gray-400">Printify/Gelato Canvas, Hoodie, Mug, Tote</div>
-            </div>
-            <div class="text-right">
-              <div class="font-black text-white text-sm">$39–$89</div>
-              <div class="text-[10px] mono text-emerald-400">~45% Margin</div>
-            </div>
-          </div>
-          <div class="p-3 rounded-xl bg-[#0D0F17] border border-[#24283B] flex justify-between items-center">
-            <div>
-              <div class="font-bold text-emerald-300">Node D: Pet Brand Sponsorships</div>
-              <div class="text-gray-400">Pet food/insurance sponsors weekly Top 5</div>
-            </div>
-            <div class="text-right">
-              <div class="font-black text-white text-sm">$1.5k–$4k/mo</div>
-              <div class="text-[10px] mono text-emerald-400">B2B Layer</div>
-            </div>
-          </div>
+          <a href="https://github.com/ZaddyHaze/petstar-pawsport-ai" target="_blank" class="text-xs mono text-amber-300 hover:underline">
+            View Live Repo ↗
+          </a>
         </div>
-      </div>
-    </div>
-
-    <!-- 2. 30-Day Launch Roadmap -->
-    <div class="card-cinema rounded-2xl p-6 space-y-4">
-      <h3 class="font-display text-lg font-black text-white">📅 30-Day Viral Launch Roadmap</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-        <div class="p-4 rounded-xl bg-[#0D0F17] border border-amber-500/30 space-y-2">
-          <div class="mono text-amber-400 font-bold">PHASE 1: SEED (DAYS 1–5)</div>
-          <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
-            <li>Take 5 dogs/cats from friends or Reddit (<code>r/roastmypet</code>)</li>
-            <li>Generate 5 “Movie Trailer Roasts” using Flux + ElevenLabs</li>
-            <li>Post 2x/day across TikTok, IG Reels, and YouTube Shorts</li>
-          </ul>
-        </div>
-        <div class="p-4 rounded-xl bg-[#0D0F17] border border-pink-500/30 space-y-2">
-          <div class="mono text-pink-400 font-bold">PHASE 2: LAUNCH (DAYS 6–15)</div>
-          <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
-            <li>Launch Tally + Stripe checkout ($9 Public / $24 VIP)</li>
-            <li>Set up ManyChat: <i>“Comment PAW and I’ll DM you the link to turn your dog into a poster”</i></li>
-            <li>Feature customer pets daily and tag owners for reposts</li>
-          </ul>
-        </div>
-        <div class="p-4 rounded-xl bg-[#0D0F17] border border-emerald-500/30 space-y-2">
-          <div class="mono text-emerald-400 font-bold">PHASE 3: SCALE (DAYS 16–30)</div>
-          <ul class="space-y-1.5 text-gray-300 list-disc list-inside">
-            <li>Add breed-specific landing pages (Dachshunds, Golden Retrievers, Frenchies)</li>
-            <li>Add a 1-click holiday gift upsell ($49–$59 framed canvas shipped to their door)</li>
-            <li>Pitch weekly “Top 5 Guilty Pets” sponsorships to pet brands</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. GitHub REST API (2026-03-10) Organization Repository Creator (`POST /orgs/{org}/repos`) -->
-    <div class="card-cinema rounded-2xl p-6 space-y-5 border border-amber-500/40">
-      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#24283B] pb-4">
-        <div>
-          <span class="text-[11px] mono uppercase px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold">
-            GitHub REST API • apiVersion=2026-03-10
-          </span>
-          <h3 class="font-display text-xl font-black text-white mt-1">
-            🚀 Create Organization Repository (`POST /orgs/{org}/repos`)
-          </h3>
-          <p class="text-xs text-gray-400">
-            Live integration with <code>https://api.github.com/orgs/{org}/repos</code> (with automatic personal repo fallback if your account has no orgs).
-          </p>
-        </div>
-        <a href="https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-an-organization-repository" target="_blank"
-           class="text-xs mono text-amber-300 hover:underline">
-          View GitHub 2026-03-10 Docs ↗
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-        <div>
-          <label class="block font-bold text-gray-300 mb-1">Organization (`org` path param) *</label>
-          <input type="text" id="ghOrgInput" value="ZaddyHaze" placeholder="e.g. my-org or ZaddyHaze"
-                 class="w-full px-3 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-white mono" />
-        </div>
-        <div>
-          <label class="block font-bold text-gray-300 mb-1">Repository Name (`name`) *</label>
-          <input type="text" id="ghRepoNameInput" value="petstar-pawsport-ai"
-                 class="w-full px-3 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-white mono" />
-        </div>
-        <div>
-          <label class="block font-bold text-gray-300 mb-1">Visibility</label>
-          <select id="ghVisibilityInput" class="w-full px-3 py-2 rounded-xl bg-[#0D0F17] border border-[#24283B] text-white mono">
-            <option value="public">public (private: false)</option>
-            <option value="private">private (private: true)</option>
-          </select>
-        </div>
-        <div class="flex items-end">
-          <button onclick="triggerGitHubRepoCreate()" id="ghCreateBtn" class="w-full btn-gold py-2.5 px-4 rounded-xl font-extrabold">
-            ⚡ POST /orgs/{org}/repos
+        <div class="grid grid-cols-3 gap-2 text-xs">
+          <input type="text" id="ghOrgInput" value="ZaddyHaze" placeholder="Org" class="px-3 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-white mono" />
+          <input type="text" id="ghRepoNameInput" value="petstar-pawsport-ai" placeholder="Repo" class="px-3 py-2 rounded-xl bg-[#0B0D14] border border-white/[0.08] text-white mono" />
+          <select id="ghVisibilityInput" class="hidden"><option value="public">public</option></select>
+          <button onclick="triggerGitHubRepoCreate()" id="ghCreateBtn" class="btn-gold py-2 px-3 rounded-xl font-bold">
+            POST /orgs
           </button>
         </div>
+        <pre id="ghApiResponseBox" class="p-3 rounded-xl bg-[#07080C] border border-white/[0.06] text-[10px] mono text-emerald-300 overflow-x-auto max-h-36">https://github.com/ZaddyHaze/petstar-pawsport-ai</pre>
       </div>
-
-      <pre id="ghApiResponseBox" class="p-4 rounded-xl bg-[#07080C] border border-[#24283B] text-[11px] mono text-emerald-300 overflow-x-auto max-h-60">curl -L -X POST \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer &lt;YOUR-TOKEN&gt;" \
-  -H "X-GitHub-Api-Version: 2026-03-10" \
-  https://api.github.com/orgs/ORG/repos \
-  -d '{"name":"petstar-pawsport-ai","description":"Pawsport.ai (Petstar) — 24-Hour Viral Pet Persona & Custom Merch Studio","private":false,"has_issues":true,"has_projects":true,"has_wiki":true}'</pre>
     </div>
-
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 1-CLICK PRINTIFY / GELATO MERCH CHECKOUT MODAL                        -->
+  <!-- 1-CLICK PRINTIFY MERCH CHECKOUT MODAL                                 -->
   <!-- ===================================================================== -->
   <div id="merchModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="card-cinema rounded-3xl max-w-lg w-full p-6 space-y-4 border border-amber-400/50 shadow-2xl">
-      <div class="flex items-center justify-between border-b border-[#24283B] pb-3">
+    <div class="rounded-3xl bg-[#11131D] max-w-md w-full p-6 space-y-4 border border-white/[0.12] shadow-2xl">
+      <div class="flex items-center justify-between border-b border-white/[0.07] pb-3">
         <div>
-          <span class="text-[10px] mono uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">Printify / Gelato API Auto-Mockup</span>
-          <h4 id="modalMerchTitle" class="font-display text-lg font-black text-white mt-1">16x20" Framed Gallery Canvas</h4>
+          <span class="text-[10px] mono uppercase text-emerald-400 font-bold">Printify API v1 Auto-Fulfillment</span>
+          <h4 id="modalMerchTitle" class="font-display text-base font-black text-white mt-0.5">16×20" Framed Gallery Canvas</h4>
         </div>
         <button onclick="closeMerchModal()" class="text-gray-400 hover:text-white text-lg font-bold">✕</button>
       </div>
-      <div class="flex items-center gap-4 bg-[#0D0F17] p-3.5 rounded-2xl border border-[#24283B]">
-        <img id="modalMerchImg" src="" alt="Merch Preview" class="w-20 h-24 object-cover rounded-xl border border-amber-400/40" />
+      <div class="flex items-center gap-4 bg-[#0B0D14] p-3.5 rounded-2xl border border-white/[0.06]">
+        <img id="modalMerchImg" src="" alt="Merch Preview" class="w-16 h-20 object-cover rounded-xl border border-amber-400/40" />
         <div class="text-xs space-y-1">
           <div id="modalMerchStar" class="font-bold text-amber-300">Starring: Barnaby</div>
-          <div id="modalMerchProvider" class="text-gray-400">Fulfilled by Printify • Sensaria Gallery Frame</div>
+          <div id="modalMerchProvider" class="text-gray-400">Printify • Sensaria Gallery Frame</div>
           <div id="modalMerchPrice" class="font-display text-xl font-black text-white">$49.00</div>
         </div>
       </div>
-      <div class="space-y-1">
-        <div class="text-[10px] mono uppercase text-gray-400">Auto-Generated Printify API Payload (Minute 3:00):</div>
-        <pre id="modalMerchPayload" class="p-3 rounded-xl bg-black border border-[#24283B] text-[10px] mono text-amber-300 overflow-x-auto"></pre>
-      </div>
-      <div class="flex justify-end gap-2 pt-2">
-        <button onclick="closeMerchModal()" class="px-4 py-2 rounded-xl bg-[#1A1D2C] text-xs font-bold text-gray-300">Close</button>
+      <details class="rounded-xl bg-[#0B0D14] border border-white/[0.06] p-3 text-xs">
+        <summary class="cursor-pointer text-[11px] mono text-gray-400 hover:text-white">
+          View Printify REST API v1 Payload (`/uploads/images.json` + `/products.json`)
+        </summary>
+        <pre id="modalMerchPayload" class="mt-2 p-2.5 rounded-lg bg-black text-[10px] mono text-amber-300 overflow-x-auto max-h-40"></pre>
+      </details>
+      <div class="flex justify-end gap-2 pt-1">
+        <button onclick="closeMerchModal()" class="px-4 py-2 rounded-xl bg-white/[0.06] text-xs font-bold text-gray-300">Cancel</button>
         <button onclick="confirmMerchOrder()" id="confirmMerchBtn" class="btn-gold px-5 py-2 rounded-xl text-xs font-extrabold">
           ✓ Complete 1-Click Order
         </button>
@@ -1104,12 +799,12 @@
       // Render Crimes
       const crimesEl = document.getElementById("uiCrimesList");
       crimesEl.innerHTML = order.crimes.map(c => `
-        <div class="p-3 rounded-xl bg-[#0B0D14] border border-[#24283B] space-y-1">
+        <div class="p-2.5 rounded-xl bg-[#0B0D14] border border-white/[0.05] space-y-0.5">
           <div class="flex items-center justify-between">
-            <span class="text-[11px] mono font-bold ${c.color}">${c.code}</span>
-            <span class="text-[10px] mono px-2 py-0.5 rounded bg-white/5 text-gray-300">${c.tag}</span>
+            <span class="text-[10px] mono font-bold ${c.color}">${c.code}</span>
+            <span class="text-[9px] mono text-gray-500">${c.tag}</span>
           </div>
-          <p class="text-xs text-gray-300 leading-snug">${c.desc}</p>
+          <p class="text-[11px] text-gray-300 leading-snug">${c.desc}</p>
         </div>
       `).join("");
 
@@ -1143,15 +838,15 @@
       if (which === "clip1") {
         text = flow.clip1_framesToVideo;
         btnId = "btnFlowClip1";
-        origLabel = "Copy Clip 1 Prompt";
+        origLabel = "Copy Clip 1 (0–3s)";
       } else if (which === "clip2") {
         text = flow.clip2_ingredientsToVideo;
         btnId = "btnFlowClip2";
-        origLabel = "Copy Clip 2 Prompt";
+        origLabel = "Copy Clip 2 (3–10s)";
       } else if (which === "clip3") {
         text = flow.clip3_scenebuilderExtend;
         btnId = "btnFlowClip3";
-        origLabel = "Copy Clip 3 Prompt";
+        origLabel = "Copy Clip 3 (10–15s)";
       } else {
         text = flow.omniFlashSinglePrompt;
         btnId = "btnFlowMaster";
@@ -1160,7 +855,7 @@
       navigator.clipboard.writeText(text);
       const btn = document.getElementById(btnId);
       if (btn) {
-        btn.textContent = "✓ Copied for Google Flow!";
+        btn.textContent = "✓ Copied!";
         setTimeout(() => { btn.textContent = origLabel; }, 1600);
       }
     }
@@ -1199,25 +894,19 @@
       document.getElementById("posterBottomTagline").textContent = `“${order.movieTagline}”`;
       document.getElementById("uiMerchActivePosterName").textContent = poster.name;
 
-      // Render 3 Poster Cards
+      // Render 3 Compact Poster Selector Pills
       const container = document.getElementById("posterThemeCards");
       container.innerHTML = Object.entries(order.posters).map(([num, p]) => {
         const active = num === currentPosterNum;
         return `
-          <div onclick="selectPosterTheme('${num}')"
-               class="card-cinema ${active ? 'active-poster' : ''} rounded-2xl p-3 cursor-pointer transition-all hover:border-amber-400/60 flex flex-col justify-between gap-2">
-            <div class="relative h-36 rounded-xl overflow-hidden bg-black">
-              <img src="${p.img}" style="filter: ${p.filterStyle || 'none'}" class="w-full h-full object-cover" alt="${p.name}" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/50 p-2.5 flex flex-col justify-between">
-                <span class="text-[9px] mono uppercase px-1.5 py-0.5 rounded bg-black/70 text-amber-300 self-start">${p.themeBadge}</span>
-                <div class="font-poster text-xs font-black text-white uppercase leading-tight poster-text-shadow">${p.titleOverlay}</div>
-              </div>
+          <button type="button" onclick="selectPosterTheme('${num}')"
+                  class="flex items-center gap-2.5 p-2 rounded-xl border text-left transition-all ${active ? 'bg-amber-500/10 border-amber-400' : 'bg-[#11131D] border-white/[0.07] hover:border-white/20'}">
+            <img src="${p.img}" style="filter: ${p.filterStyle || 'none'}" class="w-10 h-12 rounded-lg object-cover shrink-0" alt="${p.name}" />
+            <div class="min-w-0">
+              <div class="text-[11px] font-bold truncate ${active ? 'text-amber-300' : 'text-gray-200'}">${p.name.replace(/^Poster \d:\s*/, '')}</div>
+              <div class="text-[10px] mono truncate ${active ? 'text-amber-400/80' : 'text-gray-500'}">${active ? '● Active' : 'Switch style'}</div>
             </div>
-            <div class="flex items-center justify-between px-1">
-              <span class="text-xs font-bold ${active ? 'text-amber-400' : 'text-gray-200'}">${p.name}</span>
-              <span class="text-[10px] mono ${active ? 'text-amber-300 font-bold' : 'text-gray-500'}">${active ? '● ACTIVE' : 'Select'}</span>
-            </div>
-          </div>
+          </button>
         `;
       }).join("");
 
